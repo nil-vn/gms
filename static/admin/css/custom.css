@@ -272,3 +272,33 @@
     color: #f8fafc !important;
     /* ensure white logo text in light mode dark header */
 }
+
+/* Disable hover/active background overlay for the header user profile avatar and add premium micro-scale transition */
+.header-user-profile .pc-head-link,
+.header-user-profile .pc-head-link:hover,
+.header-user-profile .pc-head-link:focus,
+.header-user-profile .pc-head-link:active,
+.header-user-profile .pc-head-link.active,
+.header-user-profile.show .pc-head-link {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.header-user-profile .pc-head-link:before,
+.header-user-profile .pc-head-link:after {
+    display: none !important;
+    content: none !important;
+}
+
+.header-user-profile .pc-head-link img,
+.header-user-profile .pc-head-link i {
+    position: relative !important;
+    z-index: 5 !important;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.header-user-profile .pc-head-link:hover img,
+.header-user-profile .pc-head-link:hover i {
+    transform: scale(1.08) !important;
+}

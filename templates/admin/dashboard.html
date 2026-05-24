@@ -44,9 +44,10 @@
     <div class="col-md-12 col-xl-4">
         <div class="card metric-card position-relative overflow-hidden text-white" style="background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%); border: none; box-shadow: 0 10px 20px rgba(13, 110, 253, 0.2);">
             <!-- Abstract Background Shapes -->
-            <div class="bg-shape position-absolute" style="width: 250px; height: 250px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%); top: -50px; right: -50px; pointer-events: none;"></div>
-            <div class="bg-shape position-absolute" style="width: 150px; height: 150px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%); bottom: -40px; right: 100px; pointer-events: none;"></div>
+            <div class="bg-shape position-absolute" style="width: 260px; height: 260px; border-radius: 50%; border: 30px solid rgba(255,255,255,0.09); top: -60px; right: -50px; pointer-events: none;"></div>
+            <div class="bg-shape position-absolute" style="width: 180px; height: 180px; border-radius: 50%; border: 15px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.03); bottom: -40px; right: 80px; pointer-events: none;"></div>
             <div class="card-body position-relative z-1">
+
                 <h5 class="mb-3 f-w-400 text-white-50">{{ _('Total Customers') }} ({{ _('This Month') }})</h5>
                 <h3 class="f-w-500 mb-4 text-white" style="font-size: 2.2rem;">{{ metric.customers.total or 0 }}</h3>
                 <span class="text-white-50 d-block mt-2">

@@ -253,17 +253,28 @@
             <!--                </div>-->
             <!--            </li>-->
             <li class="dropdown pc-h-item header-user-profile">
-                <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button"
-                    aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false">
-                    <i class="ph ph-user-circle"></i>
+                <a class="pc-head-link dropdown-toggle arrow-none me-0 d-flex align-items-center justify-content-center" data-bs-toggle="dropdown" href="#" role="button"
+                    aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false" style="padding: 0; width: 40px; height: 40px;">
+                    {% if current_user.avatar %}
+                    <img src="{{ url_for('static', filename=current_user.avatar) }}" class="img-radius rounded-circle" alt="{{ current_user.username }}" style="width: 32px; height: 32px; object-fit: cover;" onerror="this.onerror=null; this.src='{{ url_for('static', filename='admin/images/user/avatar-1.svg') }}';" />
+                    {% else %}
+                    <i class="ph ph-user-circle" style="font-size: 26px;"></i>
+                    {% endif %}
                 </a>
                 <div class="dropdown-menu dropdown-menu-end pc-h-dropdown">
-                    <div class="dropdown-header">
-                        <a href="{{ url_for('admin_routes.user_detail', user_id=current_user.id) }}" class="d-block text-decoration-none text-reset profile-link-hover">
-                            <h6 class="mb-0 transition-3s">{{ current_user.username }}</h6>
-                            <small class="text-muted transition-3s">{{ current_user.email }}</small>
-                        </a>
-                        <span class="badge bg-success-subtle text-success mt-1">{{ current_user.role or '' }}</span>
+                    <div class="dropdown-header d-flex align-items-center gap-3">
+                        {% if current_user.avatar %}
+                        <img src="{{ url_for('static', filename=current_user.avatar) }}" class="img-radius rounded-circle" alt="{{ current_user.username }}" style="width: 40px; height: 40px; object-fit: cover;" onerror="this.onerror=null; this.src='{{ url_for('static', filename='admin/images/user/avatar-1.svg') }}';" />
+                        {% else %}
+                        <img src="{{ url_for('static', filename='admin/images/user/avatar-1.svg') }}" class="img-radius rounded-circle" alt="Default Avatar" style="width: 40px; height: 40px; object-fit: cover;" />
+                        {% endif %}
+                        <div class="flex-grow-1">
+                            <a href="{{ url_for('admin_routes.user_detail', user_id=current_user.id) }}" class="d-block text-decoration-none text-reset profile-link-hover">
+                                <h6 class="mb-0 transition-3s">{{ current_user.username }}</h6>
+                                <small class="text-muted transition-3s">{{ current_user.email }}</small>
+                            </a>
+                            <span class="badge bg-success-subtle text-success mt-1" style="font-size: 0.65rem;">{{ current_user.role or '' }}</span>
+                        </div>
                     </div>
                     <!--                    <a href="#!" class="dropdown-item">-->
                     <!--                        <i class="ph ph-user-circle"></i>-->

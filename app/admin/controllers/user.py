@@ -1,6 +1,6 @@
 from flask_babel import _
 from flask import redirect, request
-from flask import render_template, flash, url_for
+from flask import render_template, flash, url_for, current_app
 
 from app.admin.models import User
 from app.admin.services.forms import (
@@ -9,6 +9,9 @@ from app.admin.services.forms import (
 from app.utils.db import db
 from flask_login import login_required
 from werkzeug.security import generate_password_hash
+from werkzeug.utils import secure_filename
+import os
+import uuid
 from . import routes, logger
 
 
@@ -33,6 +36,19 @@ def register():
                 role=form.role.data,
                 status=form.status.data
             )
+
+            # handle avatar upload
+            if 'avatar' in request.files:
+                file = request.files['avatar']
+                if file and file.filename:
+                    upload_folder = os.path.join(current_app.root_path, '..', 'static', 'uploads', 'avatars')
+                    os.makedirs(upload_folder, exist_ok=True)
+                    original_filename = secure_filename(file.filename)
+                    save_name = f"{uuid.uuid4().hex}_{original_filename}"
+                    file_path = os.path.join(upload_folder, save_name)
+                    file.save(file_path)
+                    user.avatar = f"uploads/avatars/{save_name}"
+
             db.session.add(user)
             db.session.commit()
             flash(_("Account created successfully!"), "success")
@@ -103,6 +119,27 @@ def user_detail(user_id):
             # Nếu có nhập password mới, hash lại
             if form.password.data:
                 user.password_hash = generate_password_hash(form.password.data)
+
+            # handle avatar upload
+            if 'avatar' in request.files:
+                file = request.files['avatar']
+                if file and file.filename:
+                    # Delete old avatar file if it exists
+                    if user.avatar:
+                        old_path = os.path.join(current_app.root_path, '..', 'static', user.avatar)
+                        if os.path.exists(old_path):
+                            try:
+                                os.remove(old_path)
+                            except Exception:
+                                pass
+                    
+                    upload_folder = os.path.join(current_app.root_path, '..', 'static', 'uploads', 'avatars')
+                    os.makedirs(upload_folder, exist_ok=True)
+                    original_filename = secure_filename(file.filename)
+                    save_name = f"{uuid.uuid4().hex}_{original_filename}"
+                    file_path = os.path.join(upload_folder, save_name)
+                    file.save(file_path)
+                    user.avatar = f"uploads/avatars/{save_name}"
 
             db.session.commit()
             flash(_("User updated successfully!"), "success")

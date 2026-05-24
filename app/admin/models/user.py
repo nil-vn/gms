@@ -20,6 +20,7 @@ class User(BaseModel, UserMixin):
     password_hash = db.Column(db.String, nullable=False)
     status = db.Column(db.String, nullable=True, default='Active')
     created_date = db.Column(db.DateTime, default=datetime.utcnow)
+    avatar = db.Column(db.String(255), nullable=True)
 
     # Status constants
     STATUS_ACTIVE = 'Active'

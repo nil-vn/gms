@@ -125,17 +125,20 @@
     </div>
     <div class="col-xxl-12">
         <div class="row g-3 mb-3">
+            <!-- Card 1: Total Revenue (Blue Gradient) -->
             <div class="col-md-4">
-                <div class="card mb-0">
-                    <div class="card-body">
+                <div class="card metric-card position-relative overflow-hidden text-white mb-0" style="background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%); border: none; box-shadow: 0 10px 20px rgba(13, 110, 253, 0.15);">
+                    <div class="bg-shape position-absolute" style="width: 200px; height: 200px; border-radius: 50%; border: 25px solid rgba(255,255,255,0.08); top: -50px; right: -40px; pointer-events: none;"></div>
+                    <div class="bg-shape position-absolute" style="width: 100px; height: 100px; border-radius: 50%; background: rgba(255,255,255,0.05); bottom: -20px; right: 60px; pointer-events: none;"></div>
+                    <div class="card-body position-relative z-1">
                         <div class="mb-2 d-flex align-items-center justify-content-between gap-1">
-                            <h6 class="mb-0">{{ _('Total Revenue') }} ({{ currency_symbol }})</h6>
+                            <h6 class="mb-0 text-white-50">{{ _('Total Revenue') }} ({{ currency_symbol }})</h6>
                         </div>
                         <div class="row g-2 align-items-center">
                             <div class="col-6">
-                                <h5 class="mb-2 mt-3">{{ total_revenue | format_currency }}</h5>
+                                <h5 class="mb-2 mt-3 text-white" style="font-size: 1.8rem; font-weight: 500;">{{ total_revenue | format_currency }}</h5>
                                 <div class="d-flex align-items-center gap-1">
-                                    <p class="mb-0 text-muted d-flex align-items-center gap-2">{{ _('estimated') }}</p>
+                                    <p class="mb-0 text-white-50 d-flex align-items-center gap-2" style="font-size: 0.75rem;">{{ _('estimated') }}</p>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -146,17 +149,20 @@
                 </div>
             </div>
             
+            <!-- Card 2: Paid Revenue (Green Gradient) -->
             <div class="col-md-4">
-                <div class="card mb-0">
-                    <div class="card-body">
+                <div class="card metric-card position-relative overflow-hidden text-white mb-0" style="background: linear-gradient(135deg, #20c997 0%, #198754 100%); border: none; box-shadow: 0 10px 20px rgba(25, 135, 84, 0.15);">
+                    <div class="bg-shape position-absolute" style="width: 200px; height: 200px; border-radius: 50%; border: 25px solid rgba(255,255,255,0.08); top: -50px; right: -40px; pointer-events: none;"></div>
+                    <div class="bg-shape position-absolute" style="width: 100px; height: 100px; border-radius: 50%; background: rgba(255,255,255,0.05); bottom: -20px; right: 60px; pointer-events: none;"></div>
+                    <div class="card-body position-relative z-1">
                         <div class="mb-2 d-flex align-items-center justify-content-between gap-1">
-                            <h6 class="mb-0">{{ _('Paid Revenue') }} ({{ currency_symbol }})</h6>
+                            <h6 class="mb-0 text-white-50">{{ _('Paid Revenue') }} ({{ currency_symbol }})</h6>
                         </div>
                         <div class="row g-2 align-items-center">
                             <div class="col-6">
-                                <h5 class="mb-2 mt-3">{{ paid_revenue | format_currency }}</h5>
+                                <h5 class="mb-2 mt-3 text-white" style="font-size: 1.8rem; font-weight: 500;">{{ paid_revenue | format_currency }}</h5>
                                 <div class="d-flex align-items-center gap-1">
-                                    <p class="mb-0 text-muted d-flex align-items-center gap-2">{{ _('collected') }}</p>
+                                    <p class="mb-0 text-white-50 d-flex align-items-center gap-2" style="font-size: 0.75rem;">{{ _('collected') }}</p>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -167,17 +173,22 @@
                 </div>
             </div>
 
+            <!-- Card 3: Deposited Amount (Gold/Orange Gradient) -->
             <div class="col-md-4">
-                <div class="card mb-0">
-                    <div class="card-body">
+                <div class="card metric-card position-relative overflow-hidden text-white mb-0" style="background: linear-gradient(135deg, #ffc107 0%, #ca8a04 100%); border: none; box-shadow: 0 10px 20px rgba(202, 138, 4, 0.15);">
+                    <svg class="bg-shape-wave position-absolute" style="top: 0; right: 0; width: 100%; height: 100%; opacity: 0.25; pointer-events: none; transition: transform 0.7s ease;" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <path d="M0,100 C30,70 70,70 100,20 L100,0 L0,0 Z" fill="rgba(255,255,255,0.2)"></path>
+                        <path d="M0,100 C40,40 80,40 100,10 L100,0 L0,0 Z" fill="rgba(255,255,255,0.3)"></path>
+                    </svg>
+                    <div class="card-body position-relative z-1">
                         <div class="mb-2 d-flex align-items-center justify-content-between gap-1">
-                            <h6 class="mb-0">{{ _('Deposited') }} ({{ currency_symbol }})</h6>
+                            <h6 class="mb-0 text-white-50">{{ _('Deposited') }} ({{ currency_symbol }})</h6>
                         </div>
                         <div class="row g-2 align-items-center">
                             <div class="col-6">
-                                <h5 class="mb-2 mt-3">{{ deposited_amount | format_currency }}</h5>
+                                <h5 class="mb-2 mt-3 text-white" style="font-size: 1.8rem; font-weight: 500;">{{ deposited_amount | format_currency }}</h5>
                                 <div class="d-flex align-items-center gap-1">
-                                    <p class="mb-0 text-muted d-flex align-items-center gap-2">{{ _('holding') }}</p>
+                                    <p class="mb-0 text-white-50 d-flex align-items-center gap-2" style="font-size: 0.75rem;">{{ _('holding') }}</p>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -247,15 +258,15 @@
 
     if (chart1El) {
         const value = parseFloat(chart1El.getAttribute("data-value") || "0");
-        renderSparkline("#tx-chart-1", [10, 15, 25, 30, 40, value], '#0d6efd');
+        renderSparkline("#tx-chart-1", [10, 15, 25, 30, 40, value], '#ffffff');
     }
     if (chart2El) {
         const value = parseFloat(chart2El.getAttribute("data-value") || "0");
-        renderSparkline("#tx-chart-2", [5, 8, 12, 10, 15, value], '#198754');
+        renderSparkline("#tx-chart-2", [5, 8, 12, 10, 15, value], '#ffffff');
     }
     if (chart3El) {
         const value = parseFloat(chart3El.getAttribute("data-value") || "0");
-        renderSparkline("#tx-chart-3", [2, 5, 4, 8, 10, value], '#ffc107');
+        renderSparkline("#tx-chart-3", [2, 5, 4, 8, 10, value], '#ffffff');
     }
 </script>
 {% endblock %}
