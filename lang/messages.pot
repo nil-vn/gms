@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-05-24 12:11+0900\n"
+"POT-Creation-Date: 2026-05-24 22:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.18.0\n"
 
 #: app/admin/controllers/__init__.py:40
 msgid "Logged in successfully!"
@@ -86,63 +86,63 @@ msgstr ""
 msgid "Transaction deleted successfully!"
 msgstr ""
 
-#: app/admin/controllers/user.py:22 app/admin/controllers/user.py:93
+#: app/admin/controllers/user.py:25 app/admin/controllers/user.py:109
 msgid "Username or email already exists"
 msgstr ""
 
-#: app/admin/controllers/user.py:38
+#: app/admin/controllers/user.py:54
 msgid "Account created successfully!"
 msgstr ""
 
-#: app/admin/controllers/user.py:42
+#: app/admin/controllers/user.py:58
 msgid "Could not create user"
 msgstr ""
 
-#: app/admin/controllers/user.py:67
+#: app/admin/controllers/user.py:83
 msgid "User not found."
 msgstr ""
 
-#: app/admin/controllers/user.py:73
+#: app/admin/controllers/user.py:89
 msgid "User deleted successfully!"
 msgstr ""
 
-#: app/admin/controllers/user.py:108
+#: app/admin/controllers/user.py:145
 msgid "User updated successfully!"
 msgstr ""
 
-#: app/admin/controllers/user.py:112
+#: app/admin/controllers/user.py:149
 msgid "Could not update user"
 msgstr ""
 
 #: app/admin/models/transaction.py:40 app/utils/constants.py:35
-#: templates/admin/customer_detail.html:240
-#: templates/admin/customer_detail.html:390
+#: templates/admin/customer_detail.html:265
+#: templates/admin/customer_detail.html:422
 #: templates/admin/customer_new.html:110 templates/admin/transactions.html:107
 msgid "Paid"
 msgstr ""
 
-#: app/admin/models/transaction.py:41 templates/admin/customer_detail.html:242
-#: templates/admin/customer_detail.html:391
+#: app/admin/models/transaction.py:41 templates/admin/customer_detail.html:267
+#: templates/admin/customer_detail.html:423
 #: templates/admin/customer_new.html:111
 msgid "Wait to pay"
 msgstr ""
 
 #: app/admin/models/transaction.py:42 app/utils/constants.py:34
-#: templates/admin/transactions.html:102 templates/admin/transactions.html:174
+#: templates/admin/transactions.html:102 templates/admin/transactions.html:185
 msgid "Deposited"
 msgstr ""
 
-#: app/admin/services/analytics.py:74 templates/admin/customer_detail.html:188
+#: app/admin/services/analytics.py:74 templates/admin/customer_detail.html:213
 #: templates/admin/customer_new.html:64
 msgid "Unknown"
 msgstr ""
 
 #: app/admin/services/forms.py:71 app/admin/services/forms.py:81
-#: templates/admin/car_detail.html:203 templates/admin/car_detail.html:315
-#: templates/admin/car_detail.html:416 templates/admin/car_new.html:103
-#: templates/admin/cars.html:52 templates/admin/customer_detail.html:236
-#: templates/admin/customer_detail.html:291
-#: templates/admin/customer_detail.html:387
+#: templates/admin/car_detail.html:266 templates/admin/car_detail.html:378
+#: templates/admin/car_detail.html:479 templates/admin/car_new.html:103
+#: templates/admin/cars.html:52 templates/admin/customer_detail.html:261
+#: templates/admin/customer_detail.html:321
+#: templates/admin/customer_detail.html:419
 #: templates/admin/customer_new.html:107 templates/admin/customers.html:64
 #: templates/admin/transaction_detail.html:114
 #: templates/admin/transaction_new.html:101
@@ -198,7 +198,7 @@ msgstr ""
 msgid "Japanese"
 msgstr ""
 
-#: templates/admin/_header.html:300
+#: templates/admin/_header.html:311
 msgid "Sign Out"
 msgstr ""
 
@@ -206,9 +206,8 @@ msgstr ""
 msgid "Navigation"
 msgstr ""
 
-#: templates/admin/_sidebar.html:40 templates/admin/search.html:9
-#: templates/admin/search.html:15 templates/admin/search.html:29
-#: templates/admin/search.html:39
+#: templates/admin/_sidebar.html:40 templates/admin/search.html:22
+#: templates/admin/search.html:28 templates/admin/search.html:232
 msgid "Search"
 msgstr ""
 
@@ -228,7 +227,7 @@ msgid "Car List"
 msgstr ""
 
 #: templates/admin/_sidebar.html:63 templates/admin/car_new.html:9
-#: templates/admin/car_new.html:16 templates/admin/cars.html:261
+#: templates/admin/car_new.html:16 templates/admin/cars.html:274
 msgid "Add New Car"
 msgstr ""
 
@@ -238,12 +237,12 @@ msgid "Customer Management"
 msgstr ""
 
 #: templates/admin/_sidebar.html:76 templates/admin/customers.html:9
-#: templates/admin/customers.html:16
+#: templates/admin/customers.html:16 templates/admin/search.html:267
 msgid "Customers"
 msgstr ""
 
 #: templates/admin/_sidebar.html:78 templates/admin/customer_new.html:9
-#: templates/admin/customer_new.html:16 templates/admin/customers.html:201
+#: templates/admin/customer_new.html:16 templates/admin/customers.html:214
 msgid "Add New Customer"
 msgstr ""
 
@@ -252,8 +251,8 @@ msgstr ""
 msgid "Sale Management"
 msgstr ""
 
-#: templates/admin/_sidebar.html:91 templates/admin/transactions.html:9
-#: templates/admin/transactions.html:16
+#: templates/admin/_sidebar.html:91 templates/admin/search.html:276
+#: templates/admin/transactions.html:9 templates/admin/transactions.html:16
 msgid "Transactions"
 msgstr ""
 
@@ -276,7 +275,7 @@ msgid "Users"
 msgstr ""
 
 #: templates/admin/_sidebar.html:113 templates/admin/user_new.html:9
-#: templates/admin/user_new.html:16 templates/admin/users.html:196
+#: templates/admin/user_new.html:16 templates/admin/users.html:214
 msgid "Add New User"
 msgstr ""
 
@@ -286,8 +285,8 @@ msgstr ""
 
 #: templates/admin/car_detail.html:9 templates/admin/car_detail.html:17
 #: templates/admin/customer_detail.html:9
-#: templates/admin/customer_detail.html:16
-#: templates/admin/transaction_detail.html:9
+#: templates/admin/customer_detail.html:16 templates/admin/search.html:73
+#: templates/admin/search.html:107 templates/admin/transaction_detail.html:9
 #: templates/admin/transaction_detail.html:16
 #: templates/admin/user_detail.html:9 templates/admin/user_detail.html:16
 msgid "Detail"
@@ -296,7 +295,7 @@ msgstr ""
 #: templates/admin/car_detail.html:14 templates/admin/car_new.html:14
 #: templates/admin/cars.html:14 templates/admin/customer_detail.html:14
 #: templates/admin/customer_new.html:14 templates/admin/customers.html:14
-#: templates/admin/dashboard.html:14 templates/admin/search.html:14
+#: templates/admin/dashboard.html:14 templates/admin/search.html:27
 #: templates/admin/system.html:14 templates/admin/transaction_detail.html:14
 #: templates/admin/transaction_new.html:14 templates/admin/transactions.html:14
 #: templates/admin/user_detail.html:14 templates/admin/user_new.html:14
@@ -304,7 +303,7 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: templates/admin/car_detail.html:55 templates/admin/car_detail.html:230
+#: templates/admin/car_detail.html:55 templates/admin/car_detail.html:293
 #: templates/admin/car_new.html:125 templates/admin/cars.html:48
 msgid "Branch"
 msgstr ""
@@ -313,11 +312,11 @@ msgstr ""
 msgid "Imported Date"
 msgstr ""
 
-#: templates/admin/car_detail.html:63 templates/admin/car_detail.html:163
+#: templates/admin/car_detail.html:63 templates/admin/car_detail.html:226
 msgid "Year Of Manufacture"
 msgstr ""
 
-#: templates/admin/car_detail.html:70 templates/admin/car_detail.html:225
+#: templates/admin/car_detail.html:70 templates/admin/car_detail.html:288
 #: templates/admin/car_new.html:121
 msgid "Color"
 msgstr ""
@@ -326,203 +325,220 @@ msgstr ""
 msgid "Traded by"
 msgstr ""
 
-#: templates/admin/car_detail.html:85 templates/admin/car_detail.html:132
+#: templates/admin/car_detail.html:85 templates/admin/car_detail.html:195
 msgid "Car information"
 msgstr ""
 
-#: templates/admin/car_detail.html:91 templates/admin/car_detail.html:302
+#: templates/admin/car_detail.html:91 templates/admin/car_detail.html:365
 msgid "Customer List"
 msgstr ""
 
 #: templates/admin/car_detail.html:97 templates/admin/customer_detail.html:80
 #: templates/admin/transaction_new.html:9
 #: templates/admin/transaction_new.html:16
-#: templates/admin/transactions.html:223
+#: templates/admin/transactions.html:236
 msgid "Add New Transaction"
 msgstr ""
 
-#: templates/admin/car_detail.html:105 templates/admin/car_new.html:158
+#: templates/admin/car_detail.html:106 templates/admin/car_new.html:158
 msgid "Car Images"
 msgstr ""
 
-#: templates/admin/car_detail.html:112
-msgid ""
-"No\n"
-"                    images available."
+#: templates/admin/car_detail.html:133
+msgid "No images available."
 msgstr ""
 
-#: templates/admin/car_detail.html:137 templates/admin/customer_detail.html:164
+#: templates/admin/car_detail.html:141
+msgid "Car Documents"
+msgstr ""
+
+#: templates/admin/car_detail.html:176
+msgid "No documents available."
+msgstr ""
+
+#: templates/admin/car_detail.html:200 templates/admin/customer_detail.html:188
 #: templates/admin/transaction_detail.html:42
 #: templates/admin/user_detail.html:71
 msgid "Update"
 msgstr ""
 
-#: templates/admin/car_detail.html:139 templates/admin/customer_detail.html:165
+#: templates/admin/car_detail.html:202 templates/admin/customer_detail.html:190
 #: templates/admin/transaction_detail.html:43
 #: templates/admin/user_detail.html:72
 msgid "Reset"
 msgstr ""
 
-#: templates/admin/car_detail.html:148 templates/admin/car_new.html:50
-#: templates/admin/customer_detail.html:174
+#: templates/admin/car_detail.html:211 templates/admin/car_new.html:50
+#: templates/admin/customer_detail.html:199
 #: templates/admin/customer_new.html:51 templates/admin/customers.html:59
 msgid "Name"
 msgstr ""
 
-#: templates/admin/car_detail.html:158 templates/admin/car_new.html:59
+#: templates/admin/car_detail.html:221 templates/admin/car_new.html:59
+#: templates/admin/search.html:97
 msgid "Model"
 msgstr ""
 
-#: templates/admin/car_detail.html:169 templates/admin/car_new.html:69
+#: templates/admin/car_detail.html:232 templates/admin/car_new.html:69
 msgid "Chassis No. (VIN)"
 msgstr ""
 
-#: templates/admin/car_detail.html:174 templates/admin/car_new.html:73
+#: templates/admin/car_detail.html:237 templates/admin/car_new.html:73
 msgid "Imported date"
 msgstr ""
 
-#: templates/admin/car_detail.html:185 templates/admin/car_new.html:83
+#: templates/admin/car_detail.html:248 templates/admin/car_new.html:83
 msgid "Purchase Price"
 msgstr ""
 
-#: templates/admin/car_detail.html:191 templates/admin/car_new.html:87
+#: templates/admin/car_detail.html:254 templates/admin/car_new.html:87
 msgid "Inspection From"
 msgstr ""
 
-#: templates/admin/car_detail.html:205 templates/admin/car_new.html:105
+#: templates/admin/car_detail.html:268 templates/admin/car_new.html:105
 msgid "Product status"
 msgstr ""
 
-#: templates/admin/car_detail.html:215 templates/admin/car_new.html:112
+#: templates/admin/car_detail.html:278 templates/admin/car_new.html:112
 #: templates/admin/cars.html:49
 msgid "Situation"
 msgstr ""
 
-#: templates/admin/car_detail.html:217 templates/admin/car_new.html:114
+#: templates/admin/car_detail.html:280 templates/admin/car_new.html:114
 msgid "Select a situation"
 msgstr ""
 
-#: templates/admin/car_detail.html:232 templates/admin/car_new.html:127
+#: templates/admin/car_detail.html:295 templates/admin/car_new.html:127
 msgid "Select a branch"
 msgstr ""
 
-#: templates/admin/car_detail.html:242 templates/admin/car_new.html:134
+#: templates/admin/car_detail.html:305 templates/admin/car_new.html:134
 msgid "License Plate No."
 msgstr ""
 
-#: templates/admin/car_detail.html:248 templates/admin/car_new.html:97
+#: templates/admin/car_detail.html:311 templates/admin/car_new.html:97
 msgid "Traded Company"
 msgstr ""
 
-#: templates/admin/car_detail.html:253
+#: templates/admin/car_detail.html:316
 msgid "Expected Selling Price"
 msgstr ""
 
-#: templates/admin/car_detail.html:259 templates/admin/car_new.html:142
+#: templates/admin/car_detail.html:322 templates/admin/car_new.html:142
 msgid "Inspection To"
 msgstr ""
 
-#: templates/admin/car_detail.html:270 templates/admin/car_detail.html:427
-#: templates/admin/car_new.html:152 templates/admin/customer_detail.html:248
-#: templates/admin/customer_detail.html:397
+#: templates/admin/car_detail.html:333 templates/admin/car_detail.html:490
+#: templates/admin/car_new.html:152 templates/admin/customer_detail.html:273
+#: templates/admin/customer_detail.html:429
 #: templates/admin/customer_new.html:117
 #: templates/admin/transaction_detail.html:125
 #: templates/admin/transaction_new.html:112
 msgid "Note"
 msgstr ""
 
-#: templates/admin/car_detail.html:277
-msgid "Add More Images"
+#: templates/admin/car_detail.html:340 templates/admin/customer_detail.html:280
+msgid "Add More Documents & Images"
 msgstr ""
 
-#: templates/admin/car_detail.html:282
-msgid "Drag and drop more images here or click to select"
+#: templates/admin/car_detail.html:345 templates/admin/customer_detail.html:286
+#: templates/admin/customer_new.html:127
+#: templates/admin/transaction_detail.html:215
+#: templates/admin/transaction_new.html:145
+msgid "Drag and drop files here or click to select"
 msgstr ""
 
-#: templates/admin/car_detail.html:283 templates/admin/car_new.html:162
-msgid "Supports JPG, PNG, WEBP"
+#: templates/admin/car_detail.html:346 templates/admin/customer_new.html:128
+#: templates/admin/transaction_detail.html:216
+#: templates/admin/transaction_new.html:146
+msgid "Supports JPG, PNG, WEBP, PDF, Word, Excel, Docs"
 msgstr ""
 
-#: templates/admin/car_detail.html:311 templates/admin/customer_detail.html:287
+#: templates/admin/car_detail.html:374 templates/admin/customer_detail.html:317
 msgid "Transaction No."
 msgstr ""
 
-#: templates/admin/car_detail.html:312
+#: templates/admin/car_detail.html:375
 #: templates/admin/transaction_detail.html:52
 #: templates/admin/transactions.html:36
 msgid "Customer Name"
 msgstr ""
 
-#: templates/admin/car_detail.html:313 templates/admin/customer_detail.html:289
+#: templates/admin/car_detail.html:376 templates/admin/customer_detail.html:319
 msgid "Purchase date"
 msgstr ""
 
-#: templates/admin/car_detail.html:314 templates/admin/car_detail.html:408
-#: templates/admin/customer_detail.html:290
-#: templates/admin/customer_detail.html:379
+#: templates/admin/car_detail.html:377 templates/admin/car_detail.html:471
+#: templates/admin/customer_detail.html:320
+#: templates/admin/customer_detail.html:411
 #: templates/admin/transaction_new.html:87
 msgid "Unit Price"
 msgstr ""
 
-#: templates/admin/car_detail.html:355
+#: templates/admin/car_detail.html:418
 msgid "No customer found. Create a customer first."
 msgstr ""
 
-#: templates/admin/car_detail.html:357
+#: templates/admin/car_detail.html:420
 msgid "Create New Customer"
 msgstr ""
 
-#: templates/admin/car_detail.html:369
+#: templates/admin/car_detail.html:432
 msgid "Add Customer Purchase"
 msgstr ""
 
-#: templates/admin/car_detail.html:374 templates/admin/customer_detail.html:346
+#: templates/admin/car_detail.html:437 templates/admin/customer_detail.html:377
 #: templates/admin/transaction_new.html:41 templates/admin/user_new.html:41
 msgid "Add"
 msgstr ""
 
-#: templates/admin/car_detail.html:376 templates/admin/car_new.html:41
-#: templates/admin/customer_detail.html:347
+#: templates/admin/car_detail.html:439 templates/admin/car_new.html:41
+#: templates/admin/customer_detail.html:379
 #: templates/admin/customer_new.html:42 templates/admin/transaction_new.html:42
 #: templates/admin/user_new.html:42
 msgid "Cancel"
 msgstr ""
 
-#: templates/admin/car_detail.html:385 templates/admin/customer_detail.html:15
+#: templates/admin/car_detail.html:448 templates/admin/customer_detail.html:15
 #: templates/admin/transaction_new.html:51
 msgid "Customer"
 msgstr ""
 
-#: templates/admin/car_detail.html:388
+#: templates/admin/car_detail.html:451
 #: templates/admin/transaction_detail.html:55
 #: templates/admin/transaction_new.html:54
 msgid "Select A Customer"
 msgstr ""
 
-#: templates/admin/car_detail.html:397 templates/admin/customer_detail.html:368
+#: templates/admin/car_detail.html:460 templates/admin/customer_detail.html:400
 #: templates/admin/transaction_detail.html:86
 #: templates/admin/transaction_new.html:75 templates/admin/transactions.html:38
 msgid "Purchase Date"
 msgstr ""
 
-#: templates/admin/car_detail.html:418 templates/admin/customer_detail.html:238
-#: templates/admin/customer_detail.html:389
+#: templates/admin/car_detail.html:481 templates/admin/customer_detail.html:263
+#: templates/admin/customer_detail.html:421
 #: templates/admin/customer_new.html:109
 #: templates/admin/transaction_detail.html:116
 #: templates/admin/transaction_new.html:103
 msgid "Customer status"
 msgstr ""
 
-#: templates/admin/car_detail.html:496 templates/admin/customer_detail.html:451
+#: templates/admin/car_detail.html:565 templates/admin/customer_detail.html:490
 msgid "Remove Image"
 msgstr ""
 
-#: templates/admin/car_detail.html:524 templates/admin/customer_detail.html:485
+#: templates/admin/car_detail.html:595 templates/admin/customer_detail.html:522
 msgid "Are you sure you want to delete this image?"
 msgstr ""
 
-#: templates/admin/car_detail.html:542
-msgid "Failed to delete the image."
+#: templates/admin/car_detail.html:595 templates/admin/customer_detail.html:522
+msgid "Are you sure you want to delete this document?"
+msgstr ""
+
+#: templates/admin/car_detail.html:614 templates/admin/customer_detail.html:541
+#: templates/admin/transaction_detail.html:388
+msgid "Failed to delete the file."
 msgstr ""
 
 #: templates/admin/car_new.html:36
@@ -545,6 +561,11 @@ msgstr ""
 msgid "Drag and drop images here or click to select"
 msgstr ""
 
+#: templates/admin/car_new.html:162 templates/admin/user_detail.html:134
+#: templates/admin/user_new.html:100
+msgid "Supports JPG, PNG, WEBP"
+msgstr ""
+
 #: templates/admin/cars.html:46 templates/admin/customers.html:58
 #: templates/admin/transactions.html:35 templates/admin/users.html:58
 msgid "No."
@@ -564,8 +585,10 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: templates/admin/cars.html:101 templates/admin/customers.html:41
-#: templates/admin/transactions.html:97 templates/admin/users.html:41
+#: templates/admin/cars.html:101 templates/admin/cars.html:258
+#: templates/admin/customers.html:41 templates/admin/customers.html:198
+#: templates/admin/transactions.html:97 templates/admin/transactions.html:216
+#: templates/admin/users.html:41 templates/admin/users.html:198
 msgid "All"
 msgstr ""
 
@@ -573,79 +596,79 @@ msgstr ""
 msgid "Available (inc. Awaiting)"
 msgstr ""
 
-#: templates/admin/cars.html:174 templates/admin/dashboard.html:88
+#: templates/admin/cars.html:177 templates/admin/dashboard.html:89
 msgid "Total Cars"
 msgstr ""
 
-#: templates/admin/cars.html:180
+#: templates/admin/cars.html:183
 msgid "all situations"
 msgstr ""
 
-#: templates/admin/cars.html:195
+#: templates/admin/cars.html:201
 msgid "Available Cars"
 msgstr ""
 
-#: templates/admin/cars.html:201
+#: templates/admin/cars.html:207
 msgid "ready or awaiting"
 msgstr ""
 
-#: templates/admin/cars.html:216
+#: templates/admin/cars.html:227
 msgid "Sold Cars"
 msgstr ""
 
-#: templates/admin/cars.html:222
+#: templates/admin/cars.html:233
 msgid "paid transactions"
 msgstr ""
 
-#: templates/admin/cars.html:247 templates/admin/customers.html:187
-#: templates/admin/transactions.html:209 templates/admin/users.html:182
+#: templates/admin/cars.html:260 templates/admin/customers.html:200
+#: templates/admin/transactions.html:222 templates/admin/users.html:200
 msgid "Search..."
 msgstr ""
 
-#: templates/admin/cars.html:248 templates/admin/customers.html:188
-#: templates/admin/transactions.html:210 templates/admin/users.html:183
+#: templates/admin/cars.html:261 templates/admin/customers.html:201
+#: templates/admin/transactions.html:223 templates/admin/users.html:201
 msgid "entries per page"
 msgstr ""
 
-#: templates/admin/cars.html:249 templates/admin/cars.html:250
-#: templates/admin/customers.html:189 templates/admin/customers.html:190
-#: templates/admin/transactions.html:211 templates/admin/transactions.html:212
-#: templates/admin/users.html:184 templates/admin/users.html:185
+#: templates/admin/cars.html:262 templates/admin/cars.html:263
+#: templates/admin/customers.html:202 templates/admin/customers.html:203
+#: templates/admin/transactions.html:224 templates/admin/transactions.html:225
+#: templates/admin/users.html:202 templates/admin/users.html:203
 msgid "No entries found"
 msgstr ""
 
-#: templates/admin/cars.html:251 templates/admin/customers.html:191
-#: templates/admin/transactions.html:213 templates/admin/users.html:186
+#: templates/admin/cars.html:264 templates/admin/customers.html:204
+#: templates/admin/transactions.html:226 templates/admin/users.html:204
 #, python-brace-format
 msgid "Showing {start} to {end} of {rows} entries"
 msgstr ""
 
 #: templates/admin/customer_detail.html:48
-#: templates/admin/customer_detail.html:222
+#: templates/admin/customer_detail.html:247
 #: templates/admin/customer_new.html:94 templates/admin/customers.html:61
 msgid "Facebook"
 msgstr ""
 
 #: templates/admin/customer_detail.html:52
-#: templates/admin/customer_detail.html:205
+#: templates/admin/customer_detail.html:230
 #: templates/admin/customer_new.html:78 templates/admin/customers.html:62
 msgid "Phone"
 msgstr ""
 
 #: templates/admin/customer_detail.html:56
-#: templates/admin/customer_detail.html:198
+#: templates/admin/customer_detail.html:223
 #: templates/admin/customer_new.html:72 templates/admin/customers.html:63
 msgid "Address"
 msgstr ""
 
 #: templates/admin/customer_detail.html:66
-#: templates/admin/customer_detail.html:160
+#: templates/admin/customer_detail.html:183
 #: templates/admin/customer_new.html:37
 msgid "Customer information"
 msgstr ""
 
 #: templates/admin/customer_detail.html:73
-#: templates/admin/customer_detail.html:278
+#: templates/admin/customer_detail.html:308
 msgid "Purchased List"
 msgstr ""
 
@@ -653,89 +676,69 @@ msgstr ""
 msgid "Customer Images"
 msgstr ""
 
-#: templates/admin/customer_detail.html:100
-msgid "No images available."
+#: templates/admin/customer_detail.html:115
+msgid ""
+"No images available."
 msgstr ""
 
-#: templates/admin/customer_detail.html:107
+#: templates/admin/customer_detail.html:123
 msgid "Customer Documents"
 msgstr ""
 
-#: templates/admin/customer_detail.html:142
-msgid "No documents available."
+#: templates/admin/customer_detail.html:164
+msgid ""
+"No documents available."
 msgstr ""
 
-#: templates/admin/customer_detail.html:186
+#: templates/admin/customer_detail.html:211
 #: templates/admin/customer_new.html:62
 msgid "Gender"
 msgstr ""
 
-#: templates/admin/customer_detail.html:190
+#: templates/admin/customer_detail.html:215
 #: templates/admin/customer_new.html:65
 msgid "Male"
 msgstr ""
 
-#: templates/admin/customer_detail.html:192
+#: templates/admin/customer_detail.html:217
 #: templates/admin/customer_new.html:66
 msgid "Female"
 msgstr ""
 
-#: templates/admin/customer_detail.html:212
+#: templates/admin/customer_detail.html:237
 #: templates/admin/customer_new.html:84
 msgid "Birthday"
 msgstr ""
 
-#: templates/admin/customer_detail.html:229
+#: templates/admin/customer_detail.html:254
 #: templates/admin/customer_new.html:101
 msgid "Lead Source"
 msgstr ""
 
-#: templates/admin/customer_detail.html:255
-msgid "Add More Documents & Images"
+#: templates/admin/customer_detail.html:287
+msgid ""
+"Supports JPG, PNG, WEBP, PDF, Word, Excel, Docs"
 msgstr ""
 
-#: templates/admin/customer_detail.html:258
-#: templates/admin/customer_new.html:127
-#: templates/admin/transaction_detail.html:215
-#: templates/admin/transaction_new.html:145
-msgid "Drag and drop files here or click to select"
-msgstr ""
-
-#: templates/admin/customer_detail.html:259
-#: templates/admin/customer_new.html:128
-#: templates/admin/transaction_detail.html:216
-#: templates/admin/transaction_new.html:146
-msgid "Supports JPG, PNG, WEBP, PDF, Word, Excel, Docs"
-msgstr ""
-
-#: templates/admin/customer_detail.html:288
+#: templates/admin/customer_detail.html:318
 #: templates/admin/transactions.html:37
 msgid "Car Name"
 msgstr ""
 
-#: templates/admin/customer_detail.html:342
+#: templates/admin/customer_detail.html:372
 msgid "Add Purchase"
 msgstr ""
 
-#: templates/admin/customer_detail.html:356
+#: templates/admin/customer_detail.html:388
 #: templates/admin/transaction_detail.html:69
 #: templates/admin/transaction_new.html:63
 msgid "Car"
 msgstr ""
 
-#: templates/admin/customer_detail.html:359
+#: templates/admin/customer_detail.html:391
 #: templates/admin/transaction_detail.html:72
 #: templates/admin/transaction_new.html:66
 msgid "Select A Car"
-msgstr ""
-
-#: templates/admin/customer_detail.html:485
-msgid "Are you sure you want to delete this document?"
-msgstr ""
-
-#: templates/admin/customer_detail.html:504
-#: templates/admin/transaction_detail.html:388
-msgid "Failed to delete the file."
 msgstr ""
 
 #: templates/admin/customer_new.html:124
@@ -746,77 +749,77 @@ msgstr ""
 msgid "Birth Day"
 msgstr ""
 
-#: templates/admin/customers.html:114 templates/admin/dashboard.html:50
+#: templates/admin/customers.html:117 templates/admin/dashboard.html:51
 msgid "Total Customers"
 msgstr ""
 
-#: templates/admin/customers.html:120
+#: templates/admin/customers.html:123
 msgid "profiles"
 msgstr ""
 
-#: templates/admin/customers.html:135
+#: templates/admin/customers.html:141
 msgid "Active Customers"
 msgstr ""
 
-#: templates/admin/customers.html:141
+#: templates/admin/customers.html:147
 msgid "with purchases"
 msgstr ""
 
-#: templates/admin/customers.html:156
+#: templates/admin/customers.html:167
 msgid "Potential Leads"
 msgstr ""
 
-#: templates/admin/customers.html:162
+#: templates/admin/customers.html:173
 msgid "no purchases yet"
 msgstr ""
 
-#: templates/admin/dashboard.html:50 templates/admin/dashboard.html:68
-#: templates/admin/dashboard.html:88
+#: templates/admin/dashboard.html:51 templates/admin/dashboard.html:69
+#: templates/admin/dashboard.html:89
 msgid "This Month"
 msgstr ""
 
-#: templates/admin/dashboard.html:54 templates/admin/dashboard.html:72
-#: templates/admin/dashboard.html:92
+#: templates/admin/dashboard.html:55 templates/admin/dashboard.html:73
+#: templates/admin/dashboard.html:93
 msgid "Monthly Increase"
 msgstr ""
 
-#: templates/admin/dashboard.html:68
+#: templates/admin/dashboard.html:69
 msgid "Total Transactions"
 msgstr ""
 
-#: templates/admin/dashboard.html:105 templates/admin/dashboard.html:204
+#: templates/admin/dashboard.html:106 templates/admin/dashboard.html:205
 msgid "Revenue (Last 6 Months)"
 msgstr ""
 
-#: templates/admin/dashboard.html:109
+#: templates/admin/dashboard.html:110
 msgid "1 Month"
 msgstr ""
 
-#: templates/admin/dashboard.html:110
+#: templates/admin/dashboard.html:111
 msgid "3 Months"
 msgstr ""
 
-#: templates/admin/dashboard.html:111
+#: templates/admin/dashboard.html:112
 msgid "6 Months"
 msgstr ""
 
-#: templates/admin/dashboard.html:112
+#: templates/admin/dashboard.html:113
 msgid "1 Year"
 msgstr ""
 
-#: templates/admin/dashboard.html:128
+#: templates/admin/dashboard.html:129
 msgid "Car Status Distribution"
 msgstr ""
 
-#: templates/admin/dashboard.html:202
+#: templates/admin/dashboard.html:203
 msgid "Revenue (Last 30 Days)"
 msgstr ""
 
-#: templates/admin/dashboard.html:203
+#: templates/admin/dashboard.html:204
 msgid "Revenue (Last 12 Weeks)"
 msgstr ""
 
-#: templates/admin/dashboard.html:205
+#: templates/admin/dashboard.html:206
 msgid "Revenue (Last 1 Year)"
 msgstr ""
 
@@ -834,12 +837,131 @@ msgstr ""
 msgid "Remember me"
 msgstr ""
 
-#: templates/admin/search.html:49
-msgid "Result for"
+#: templates/admin/search.html:60
+msgid "No facebook address"
 msgstr ""
 
-#: templates/admin/search.html:70
-msgid "No results found."
+#: templates/admin/search.html:63
+msgid "No phone"
+msgstr ""
+
+#: templates/admin/search.html:69
+msgid "No address"
+msgstr ""
+
+#: templates/admin/search.html:87
+msgid "Brand"
+msgstr ""
+
+#: templates/admin/search.html:98
+msgid "No Plate"
+msgstr ""
+
+#: templates/admin/search.html:130 templates/admin/search.html:148
+msgid "Invoice"
+msgstr ""
+
+#: templates/admin/search.html:137
+msgid "Anonymous"
+msgstr ""
+
+#: templates/admin/search.html:176
+msgid "No email"
+msgstr ""
+
+#: templates/admin/search.html:188
+msgid "Profile"
+msgstr ""
+
+#: templates/admin/search.html:201
+msgid "No results for this category"
+msgstr ""
+
+#: templates/admin/search.html:202
+msgid "Try exploring other filter tabs above to search through other records."
+msgstr ""
+
+#: templates/admin/search.html:218
+msgid "Search Hub"
+msgstr ""
+
+#: templates/admin/search.html:220
+msgid ""
+"Search for customers, vehicles, transaction invoices, and staff members "
+"across the system instantly."
+msgstr ""
+
+#: templates/admin/search.html:228
+msgid "Search here..."
+msgstr ""
+
+#: templates/admin/search.html:251
+msgid "All Results"
+msgstr ""
+
+#: templates/admin/search.html:259
+msgid "Cars"
+msgstr ""
+
+#: templates/admin/search.html:285
+msgid "Staff"
+msgstr ""
+
+#: templates/admin/search.html:291
+#, python-brace-format
+msgid "Showing {count} records found for \"{query}\""
+msgstr ""
+
+#: templates/admin/search.html:315
+msgid "No matches found"
+msgstr ""
+
+#: templates/admin/search.html:317
+msgid ""
+"We couldn't find any records matching your keywords. Please try adjusting"
+" your spelling or using different keywords."
+msgstr ""
+
+#: templates/admin/search.html:328
+msgid "Matched Customers"
+msgstr ""
+
+#: templates/admin/search.html:340
+msgid "View all matched customers"
+msgstr ""
+
+#: templates/admin/search.html:351
+msgid "Matched Vehicles"
+msgstr ""
+
+#: templates/admin/search.html:363
+msgid "View all matched vehicles"
+msgstr ""
+
+#: templates/admin/search.html:374
+msgid "Matched Transactions"
+msgstr ""
+
+#: templates/admin/search.html:386
+msgid "View all matched transactions"
+msgstr ""
+
+#: templates/admin/search.html:397
+msgid "Matched Staff Members"
+msgstr ""
+
+#: templates/admin/search.html:409
+msgid "View all matched staff"
+msgstr ""
+
+#: templates/admin/search.html:496
+msgid "Ready to Search?"
+msgstr ""
+
+#: templates/admin/search.html:498
+msgid ""
+"Enter name, plate number, telephone digits, notes, or role identifiers in"
+" the search bar above to fetch records from our dashboard index."
 msgstr ""
 
 #: templates/admin/system.html:9 templates/admin/system.html:15
@@ -913,8 +1035,7 @@ msgstr ""
 
 #: templates/admin/system.html:365
 msgid ""
-"Save\n"
-"                        Changes"
+"Save Changes"
 msgstr ""
 
 #: templates/admin/system.html:373
@@ -1038,23 +1159,23 @@ msgstr ""
 msgid "Action"
 msgstr ""
 
-#: templates/admin/transactions.html:132
+#: templates/admin/transactions.html:135
 msgid "Total Revenue"
 msgstr ""
 
-#: templates/admin/transactions.html:138
+#: templates/admin/transactions.html:141
 msgid "estimated"
 msgstr ""
 
-#: templates/admin/transactions.html:153
+#: templates/admin/transactions.html:159
 msgid "Paid Revenue"
 msgstr ""
 
-#: templates/admin/transactions.html:159
+#: templates/admin/transactions.html:165
 msgid "collected"
 msgstr ""
 
-#: templates/admin/transactions.html:180
+#: templates/admin/transactions.html:191
 msgid "holding"
 msgstr ""
 
@@ -1079,6 +1200,14 @@ msgstr ""
 msgid "Admin"
 msgstr ""
 
+#: templates/admin/user_detail.html:128
+msgid "Upload Avatar"
+msgstr ""
+
+#: templates/admin/user_detail.html:133 templates/admin/user_new.html:99
+msgid "Drag and drop your avatar here or click to select"
+msgstr ""
+
 #: templates/admin/user_new.html:37
 msgid "Add User"
 msgstr ""
@@ -1091,27 +1220,31 @@ msgstr ""
 msgid "User Role"
 msgstr ""
 
-#: templates/admin/users.html:110
+#: templates/admin/user_new.html:94
+msgid "Avatar"
+msgstr ""
+
+#: templates/admin/users.html:118
 msgid "Total Users"
 msgstr ""
 
-#: templates/admin/users.html:116
+#: templates/admin/users.html:124
 msgid "accounts"
 msgstr ""
 
-#: templates/admin/users.html:131
+#: templates/admin/users.html:142
 msgid "Admin Users"
 msgstr ""
 
-#: templates/admin/users.html:137
+#: templates/admin/users.html:148
 msgid "managers"
 msgstr ""
 
-#: templates/admin/users.html:152
+#: templates/admin/users.html:168
 msgid "Staff/Members"
 msgstr ""
 
-#: templates/admin/users.html:158
+#: templates/admin/users.html:174
 msgid "employees"
 msgstr ""
 

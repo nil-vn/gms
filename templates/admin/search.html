@@ -1,5 +1,18 @@
 {% extends "_base.html" %}
 
+{% block css %}
+<style>
+    /* Inline helper to ensure long queries don't break title cards */
+    .highlight-match {
+        background-color: rgba(var(--bs-primary-rgb), 0.15);
+        color: var(--bs-primary);
+        font-weight: 600;
+        padding: 0 4px;
+        border-radius: 4px;
+    }
+</style>
+{% endblock %}
+
 {% block breadcrumb %}
 <div class="page-header">
     <div class="page-block">
@@ -21,57 +34,475 @@
 {% endblock %}
 
 {% block content %}
-<div class="row">
-    <!-- [ sample-page ] start -->
-    <div class="col-sm-12">
-        <div class="card">
-            <div class="card-header">
-                <h5>{{ _('Search') }}</h5>
+
+<!-- ==========================================================================
+   Macros representing rich individual category cards (defined at the top)
+   ========================================================================== -->
+
+<!-- Customer Card Macro -->
+{% macro render_customer_card(customer) %}
+<div class="card search-result-card h-100 mb-0">
+    <div class="card-body p-3 d-flex flex-column justify-content-between">
+        <div class="d-flex gap-3 align-items-start">
+            <div class="search-avatar-circle bg-light-primary text-primary">
+                {{ (customer.name or 'C')[0]|upper }}
             </div>
-            <div class="card-body">
-                <div class="mb-3">
+            <div class="flex-grow-1 overflow-hidden">
+                <div class="d-flex align-items-center justify-content-between mb-1 gap-2 flex-wrap">
+                    <h6 class="mb-0 text-truncate fw-semibold" style="max-width: 140px;">
+                        {{ customer.name }}
+                    </h6>
+                    {% if customer.status %}
+                    <span class="badge bg-light-success text-success f-10">{{ customer.status }}</span>
+                    {% endif %}
+                </div>
+                <p class="mb-1 text-muted f-12 text-truncate">
+                    <i class="ti ti-facebook me-1"></i>{{ customer.facebook or _('No facebook address') }}
+                </p>
+                <p class="mb-0 text-muted f-12">
+                    <i class="ti ti-phone me-1"></i>{{ customer.phone or _('No phone') }}
+                </p>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top border-light">
+            <span class="text-muted f-11">
+                <i class="ti ti-map-pin me-1"></i>{{ customer.address or _('No address') }}
+            </span>
+            <a href="{{ url_for('admin_routes.customer_detail', customer_id=customer.id) }}"
+                class="btn btn-light-primary btn-sm px-3 rounded-pill py-1">
+                {{ _('Detail') }} <i class="ti ti-arrow-right f-12 ms-1"></i>
+            </a>
+        </div>
+    </div>
+</div>
+{% endmacro %}
+
+<!-- Car Card Macro -->
+{% macro render_car_card(car) %}
+<div class="card search-result-card h-100 mb-0">
+    <div class="card-body p-3 d-flex flex-column justify-content-between">
+        <div>
+            <div class="d-flex align-items-start justify-content-between gap-2 mb-2">
+                <span class="badge bg-light-secondary text-secondary f-11 px-2 py-1 rounded">
+                    <i class="ti ti-car me-1"></i>{{ car.brand or _('Brand') }}
+                </span>
+                <span class="badge bg-light-success text-success f-11 px-2 py-1 rounded">
+                    {{ car.status }}
+                </span>
+            </div>
+            <h6 class="mb-2 text-truncate fw-semibold" style="max-width: 220px;">
+                {{ car.name }}
+            </h6>
+            <div class="text-muted f-12 mb-3">
+                <span class="me-3"><i class="ti ti-palette me-1"></i>{{ car.model or _('Model') }}</span>
+                <span><i class="ti ti-id me-1"></i>{{ car.license_plate or _('No Plate') }}</span>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center pt-2 border-top border-light">
+            <h6 class="mb-0 text-success fw-semibold">
+                {{ car.price | format_currency }}
+            </h6>
+            <a href="{{ url_for('admin_routes.car_detail', car_id=car.id) }}"
+                class="btn btn-light-primary btn-sm px-3 rounded-pill py-1">
+                {{ _('Detail') }} <i class="ti ti-arrow-right f-12 ms-1"></i>
+            </a>
+        </div>
+    </div>
+</div>
+{% endmacro %}
+
+<!-- Transaction Card Macro -->
+{% macro render_transaction_card(transaction) %}
+{% set status_class = 'success-border' if transaction.status == 'PAID' else 'warning-border' if transaction.status ==
+'DEPOSITED' else '' %}
+<div class="card search-result-card transaction-invoice-card {{ status_class }} h-100 mb-0">
+    <div class="card-body p-3 d-flex flex-column justify-content-between">
+        <div>
+            <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+                <span
+                    class="badge {% if transaction.status == 'PAID' %}bg-light-success text-success{% else %}bg-light-warning text-warning{% endif %} f-11">
+                    {{ transaction.status }}
+                </span>
+                <span class="text-muted f-11"><i class="ti ti-calendar me-1"></i>{{ transaction.created_at[:10]
+                    }}</span>
+            </div>
+            <h6 class="mb-2 text-truncate fw-semibold" style="max-width: 220px;">
+                {{ _('Invoice') }} #{{ transaction.id }}
+            </h6>
+            <p class="mb-3 text-muted f-12 text-truncate">
+                <i class="ti ti-user me-1"></i>
+                {% if transaction.customer %}
+                {{ transaction.customer.name }}
+                {% else %}
+                {{ _('Anonymous') }}
+                {% endif %}
+            </p>
+        </div>
+        <div class="d-flex justify-content-between align-items-center pt-2 border-top border-light">
+            <h6
+                class="mb-0 {% if transaction.status == 'PAID' %}text-success{% else %}text-warning{% endif %} fw-semibold">
+                {{ transaction.amount | format_currency }}
+            </h6>
+            <a href="{{ url_for('admin_routes.transaction_detail', transaction_id=transaction.id) }}"
+                class="btn btn-light-primary btn-sm px-3 rounded-pill py-1">
+                {{ _('Invoice') }} <i class="ti ti-arrow-right f-12 ms-1"></i>
+            </a>
+        </div>
+    </div>
+</div>
+{% endmacro %}
+
+<!-- User Card Macro -->
+{% macro render_user_card(user) %}
+<div class="card search-result-card h-100 mb-0">
+    <div class="card-body p-3 d-flex flex-column justify-content-between">
+        <div class="d-flex gap-3 align-items-start">
+            {% if user.avatar %}
+            <img src="{{ url_for('static', filename='uploads/avatars/' + user.avatar) }}" class="rounded-circle"
+                style="width: 45px; height: 45px; object-fit: cover; flex-shrink: 0;" />
+            {% else %}
+            <div class="search-avatar-circle bg-light-info text-info">
+                {{ (user.username or 'S')[0]|upper }}
+            </div>
+            {% endif %}
+            <div class="flex-grow-1 overflow-hidden">
+                <div class="d-flex align-items-center justify-content-between mb-1 gap-2 flex-wrap">
+                    <h6 class="mb-0 text-truncate fw-semibold" style="max-width: 140px;">
+                        {{ user.username }}
+                    </h6>
+                    <span class="badge bg-light-info text-info f-10">{{ user.role or 'Staff' }}</span>
+                </div>
+                <p class="mb-1 text-muted f-12 text-truncate">
+                    <i class="ti ti-mail me-1"></i>{{ user.email or _('No email') }}
+                </p>
+                <p class="mb-0 text-muted f-12">
+                    <i
+                        class="ti ti-circle-filled me-1 f-10 {% if user.status == 'active' %}text-success{% else %}text-danger{% endif %}"></i>{{
+                    user.status or 'Active' }}
+                </p>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end align-items-center mt-3 pt-2 border-top border-light">
+            <a href="{{ url_for('admin_routes.user_detail', user_id=user.id) }}"
+                class="btn btn-light-primary btn-sm px-3 rounded-pill py-1">
+                {{ _('Profile') }} <i class="ti ti-arrow-right f-12 ms-1"></i>
+            </a>
+        </div>
+    </div>
+</div>
+{% endmacro %}
+
+<!-- Sub-macro for Empty Category states -->
+{% macro render_no_category_results() %}
+<div class="card border-0 shadow-none bg-transparent">
+    <div class="card-body">
+        <div class="search-empty-state-container py-4">
+            <i class="ti ti-folder-off text-muted f-50 mb-2 d-block"></i>
+            <h5 class="text-muted">{{ _('No results for this category') }}</h5>
+            <p class="text-muted-50 f-12">{{ _('Try exploring other filter tabs above to search through other records.')
+                }}</p>
+        </div>
+    </div>
+</div>
+{% endmacro %}
+
+
+<!-- ==========================================================================
+   Main Content Layout
+   ========================================================================== -->
+<div class="row">
+    <div class="col-12">
+        <!-- 1. Centered Glassmorphic Search Header -->
+        <div class="card search-hero-card mb-4">
+            <div class="card-body p-4 p-md-5 text-center">
+                <h3 class="mb-3 fw-bold text-white">{{ _('Search Hub') }}</h3>
+                <p class="text-white-50 mb-4 mx-auto" style="max-width: 600px;">
+                    {{ _('Search for customers, vehicles, transaction invoices, and staff members across the system
+                    instantly.') }}
+                </p>
+                <div class="mx-auto" style="max-width: 700px;">
                     <form action="{{ url_for('admin_routes.search') }}" method="GET">
-                        <div class="input-group">
-                            <input name="q" type="search" class="form-control border-0 shadow-none"
-                                   placeholder="Search here. . ."/>
-                            <div class="md-1">
-                                <button type="submit" class="btn btn-primary"><i class="ti ti-search"></i> {{
-                                    _('Search') }}
-                                </button>
-                            </div>
+                        <div class="search-input-wrapper">
+                            <i class="ti ti-search text-white-50 f-20 me-2 flex-shrink-0"></i>
+                            <input name="q" type="search" class="form-control" value="{{ query or '' }}"
+                                placeholder="{{ _('Search here...') }}" required autofocus />
+                            <button type="submit"
+                                class="btn btn-primary rounded-pill px-4 ms-2 d-inline-flex align-items-center gap-1">
+                                <i class="ti ti-search"></i>
+                                <span class="d-none d-sm-inline">{{ _('Search') }}</span>
+                            </button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        <div class="card">
-            <div class="card-header">
-                <h5>{{ _('Result for') }}: {{ (query or '')|safe }}</h5>
-            </div>
-            <div class="card-body">
-                {% for customer in customers %}
-                <p>Customer: <a href="{{ url_for('admin_routes.customer_detail', customer_id=customer.id) }}">{{
-                    (customer.name or '')|safe }}...</a></p>
-                {% endfor %}
-                {% for car in cars %}
-                <p>Car item: <a href="{{ url_for('admin_routes.car_detail', car_id=car.id) }}">{{ (car.name or '')|safe
-                    }}...</a></p>
-                {% endfor %}
-                {% for transaction in transactions %}
-                <p>Transaction: <a
-                        href="{{ url_for('admin_routes.transaction_detail', transaction_id=transaction.id) }}">{{
-                    (transaction.status or transaction.note or '')|safe }}...</a></p>
-                {% endfor %}
-                {% for user in users %}
-                <p>User: <a href="{{ url_for('admin_routes.user_detail', user_id=user.id) }}">{{ (user.username or
-                    user.status or user.email or '')|safe }}...</a></p>
-                {% endfor %}
-                {% if customers|length == 0 and transactions|length == 0 and cars|length == 0 and users|length == 0%}
-                <p>{{ _('No results found.') }}</p>
-                {% endif %}
+
+        {% set total_results = customers|length + cars|length + transactions|length + users|length %}
+
+        {% if query %}
+        <!-- 2. Category Segmented Navigation (Tabs with Badges) -->
+        <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
+            <ul class="nav nav-pills search-pill-tabs flex-nowrap overflow-x-auto pb-1" id="searchTab" role="tablist"
+                style="max-width: 100%;">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="all-tab" data-bs-toggle="pill" data-bs-target="#pane-all"
+                        type="button" role="tab">
+                        <i class="ti ti-layout-grid"></i>
+                        {{ _('All Results') }}
+                        <span class="badge bg-light-primary text-primary rounded-pill ms-1">{{ total_results }}</span>
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="cars-tab" data-bs-toggle="pill" data-bs-target="#pane-cars"
+                        type="button" role="tab">
+                        <i class="ti ti-car"></i>
+                        {{ _('Cars') }}
+                        <span class="badge bg-light-primary text-primary rounded-pill ms-1">{{ cars|length }}</span>
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="customers-tab" data-bs-toggle="pill" data-bs-target="#pane-customers"
+                        type="button" role="tab">
+                        <i class="ti ti-users"></i>
+                        {{ _('Customers') }}
+                        <span class="badge bg-light-primary text-primary rounded-pill ms-1">{{ customers|length
+                            }}</span>
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="transactions-tab" data-bs-toggle="pill"
+                        data-bs-target="#pane-transactions" type="button" role="tab">
+                        <i class="ti ti-receipt"></i>
+                        {{ _('Transactions') }}
+                        <span class="badge bg-light-primary text-primary rounded-pill ms-1">{{ transactions|length
+                            }}</span>
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="users-tab" data-bs-toggle="pill" data-bs-target="#pane-users"
+                        type="button" role="tab">
+                        <i class="ti ti-shield"></i>
+                        {{ _('Staff') }}
+                        <span class="badge bg-light-primary text-primary rounded-pill ms-1">{{ users|length }}</span>
+                    </button>
+                </li>
+            </ul>
+            <div class="text-muted f-14">
+                {{ _('Showing {count} records found for "{query}"').format(count=total_results, query=query) }}
             </div>
         </div>
+
+        <!-- 3. Tab Content Area -->
+        <div class="tab-content" id="searchTabContent">
+
+            <!-- A. ALL RESULTS TAB -->
+            <div class="tab-pane fade show active" id="pane-all" role="tabpanel">
+                {% if total_results == 0 %}
+                <div class="card">
+                    <div class="card-body">
+                        <div class="search-empty-state-container">
+                            <svg class="search-empty-state-svg" viewBox="0 0 200 200" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle class="pulse-glow" cx="100" cy="100" r="80" fill="rgba(14, 165, 233, 0.04)" />
+                                <circle class="pulse-glow" cx="100" cy="100" r="50" fill="rgba(14, 165, 233, 0.08)" />
+                                <circle cx="90" cy="90" r="35" stroke="var(--bs-primary, #0ea5e9)" stroke-width="8"
+                                    stroke-linecap="round" />
+                                <path d="M115 115L155 155" stroke="var(--bs-primary, #0ea5e9)" stroke-width="10"
+                                    stroke-linecap="round" />
+                                <path d="M50 50L55 45L50 40L45 45L50 50Z" fill="#ffc107" />
+                                <path d="M150 60L153 57L150 54L147 57L150 60Z" fill="#20c997" />
+                            </svg>
+                            <h4 class="mt-2">{{ _('No matches found') }}</h4>
+                            <p class="text-muted mx-auto" style="max-width: 450px;">
+                                {{ _('We couldn\'t find any records matching your keywords. Please try adjusting your
+                                spelling or using different keywords.') }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <!-- Customers Subset in All -->
+                {% if customers|length > 0 %}
+                <div class="d-flex align-items-center gap-2 mb-3 mt-2">
+                    <i class="ti ti-users f-22 text-primary"></i>
+                    <h5 class="mb-0 fw-semibold">{{ _('Matched Customers') }}</h5>
+                </div>
+                <div class="row g-3 mb-4">
+                    {% for customer in customers[:3] %}
+                    <div class="col-md-6 col-xxl-4">
+                        {{ render_customer_card(customer) }}
+                    </div>
+                    {% endfor %}
+                    {% if customers|length > 3 %}
+                    <div class="col-12 text-end">
+                        <a href="javascript:void(0);" onclick="document.getElementById('customers-tab').click();"
+                            class="btn btn-link px-0 text-primary d-inline-flex align-items-center gap-1">
+                            {{ _('View all matched customers') }} <i class="ti ti-chevron-right"></i>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                <!-- Cars Subset in All -->
+                {% if cars|length > 0 %}
+                <div class="d-flex align-items-center gap-2 mb-3 mt-3">
+                    <i class="ti ti-car f-22 text-success"></i>
+                    <h5 class="mb-0 fw-semibold">{{ _('Matched Vehicles') }}</h5>
+                </div>
+                <div class="row g-3 mb-4">
+                    {% for car in cars[:3] %}
+                    <div class="col-md-6 col-xxl-4">
+                        {{ render_car_card(car) }}
+                    </div>
+                    {% endfor %}
+                    {% if cars|length > 3 %}
+                    <div class="col-12 text-end">
+                        <a href="javascript:void(0);" onclick="document.getElementById('cars-tab').click();"
+                            class="btn btn-link px-0 text-primary d-inline-flex align-items-center gap-1">
+                            {{ _('View all matched vehicles') }} <i class="ti ti-chevron-right"></i>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                <!-- Transactions Subset in All -->
+                {% if transactions|length > 0 %}
+                <div class="d-flex align-items-center gap-2 mb-3 mt-3">
+                    <i class="ti ti-receipt f-22 text-warning"></i>
+                    <h5 class="mb-0 fw-semibold">{{ _('Matched Transactions') }}</h5>
+                </div>
+                <div class="row g-3 mb-4">
+                    {% for transaction in transactions[:3] %}
+                    <div class="col-md-6 col-xxl-4">
+                        {{ render_transaction_card(transaction) }}
+                    </div>
+                    {% endfor %}
+                    {% if transactions|length > 3 %}
+                    <div class="col-12 text-end">
+                        <a href="javascript:void(0);" onclick="document.getElementById('transactions-tab').click();"
+                            class="btn btn-link px-0 text-primary d-inline-flex align-items-center gap-1">
+                            {{ _('View all matched transactions') }} <i class="ti ti-chevron-right"></i>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                <!-- Staff Subset in All -->
+                {% if users|length > 0 %}
+                <div class="d-flex align-items-center gap-2 mb-3 mt-3">
+                    <i class="ti ti-shield f-22 text-info"></i>
+                    <h5 class="mb-0 fw-semibold">{{ _('Matched Staff Members') }}</h5>
+                </div>
+                <div class="row g-3 mb-4">
+                    {% for user in users[:3] %}
+                    <div class="col-md-6 col-xxl-4">
+                        {{ render_user_card(user) }}
+                    </div>
+                    {% endfor %}
+                    {% if users|length > 3 %}
+                    <div class="col-12 text-end">
+                        <a href="javascript:void(0);" onclick="document.getElementById('users-tab').click();"
+                            class="btn btn-link px-0 text-primary d-inline-flex align-items-center gap-1">
+                            {{ _('View all matched staff') }} <i class="ti ti-chevron-right"></i>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endif %}
+                {% endif %}
+            </div>
+
+            <!-- B. CARS ONLY TAB -->
+            <div class="tab-pane fade" id="pane-cars" role="tabpanel">
+                {% if cars|length == 0 %}
+                {{ render_no_category_results() }}
+                {% else %}
+                <div class="row g-3">
+                    {% for car in cars %}
+                    <div class="col-md-6 col-xxl-4">
+                        {{ render_car_card(car) }}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- C. CUSTOMERS ONLY TAB -->
+            <div class="tab-pane fade" id="pane-customers" role="tabpanel">
+                {% if customers|length == 0 %}
+                {{ render_no_category_results() }}
+                {% else %}
+                <div class="row g-3">
+                    {% for customer in customers %}
+                    <div class="col-md-6 col-xxl-4">
+                        {{ render_customer_card(customer) }}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- D. TRANSACTIONS ONLY TAB -->
+            <div class="tab-pane fade" id="pane-transactions" role="tabpanel">
+                {% if transactions|length == 0 %}
+                {{ render_no_category_results() }}
+                {% else %}
+                <div class="row g-3">
+                    {% for transaction in transactions %}
+                    <div class="col-md-6 col-xxl-4">
+                        {{ render_transaction_card(transaction) }}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- E. USERS ONLY TAB -->
+            <div class="tab-pane fade" id="pane-users" role="tabpanel">
+                {% if users|length == 0 %}
+                {{ render_no_category_results() }}
+                {% else %}
+                <div class="row g-3">
+                    {% for user in users %}
+                    <div class="col-md-6 col-xxl-4">
+                        {{ render_user_card(user) }}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+
+        </div>
+
+        {% else %}
+        <!-- 4. Pure Empty State / Pre-search Guidance -->
+        <div class="card border-0 shadow-sm">
+            <div class="card-body py-5">
+                <div class="search-empty-state-container">
+                    <svg class="search-empty-state-svg mx-auto" viewBox="0 0 200 200" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle class="pulse-glow" cx="100" cy="100" r="80" fill="rgba(14, 165, 233, 0.04)" />
+                        <circle class="pulse-glow" cx="100" cy="100" r="50" fill="rgba(14, 165, 233, 0.08)" />
+                        <circle cx="90" cy="90" r="35" stroke="var(--bs-primary, #0ea5e9)" stroke-width="8"
+                            stroke-linecap="round" />
+                        <path d="M115 115L155 155" stroke="var(--bs-primary, #0ea5e9)" stroke-width="10"
+                            stroke-linecap="round" />
+                        <path d="M50 50L55 45L50 40L45 45L50 50Z" fill="#ffc107" />
+                        <path d="M150 60L153 57L150 54L147 57L150 60Z" fill="#20c997" />
+                    </svg>
+                    <h4 class="mt-2 fw-semibold">{{ _('Ready to Search?') }}</h4>
+                    <p class="text-muted mx-auto" style="max-width: 480px;">
+                        {{ _('Enter name, plate number, telephone digits, notes, or role identifiers in the search bar
+                        above to fetch records from our dashboard index.') }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
     </div>
-    <!-- [ sample-page ] end -->
 </div>
 {% endblock %}

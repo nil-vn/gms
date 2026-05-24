@@ -108,7 +108,7 @@
             <div class="card-body">
                 {% set ns_imgs = namespace(has_images=false) %}
                 {% for image in car.images if image.file_path.lower().endswith(image_extensions) %}
-                    {% set ns_imgs.has_images = true %}
+                {% set ns_imgs.has_images = true %}
                 {% endfor %}
 
                 {% if ns_imgs.has_images %}
@@ -138,42 +138,49 @@
 
         <div class="card">
             <div class="card-header">
-                <h5><i class="ph ph-file-text align-text-bottom text-primary f-20 me-2"></i>{{ _('Car Documents') }}</h5>
+                <h5><i class="ph ph-file-text align-text-bottom text-primary f-20 me-2"></i>{{ _('Car Documents') }}
+                </h5>
             </div>
             <div class="card-body">
                 {% set ns_docs = namespace(has_docs=false) %}
                 {% for doc in car.images if not doc.file_path.lower().endswith(image_extensions) %}
-                    {% set ns_docs.has_docs = true %}
+                {% set ns_docs.has_docs = true %}
                 {% endfor %}
-                
+
                 {% if ns_docs.has_docs %}
-                    <div class="d-flex flex-column gap-2">
-                        {% for doc in car.images if not doc.file_path.lower().endswith(image_extensions) %}
-                            <div class="card border border-light shadow-sm mb-2 p-2 position-relative" id="doc-card-{{ doc.id }}" style="background: rgba(var(--bs-light-rgb), 0.3);">
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <div class="d-flex align-items-center gap-2 text-truncate" style="max-width: calc(100% - 30px);">
-                                        {% if doc.file_path.lower().endswith('.pdf') %}
-                                            <i class="ph ph-file-pdf f-28 text-danger flex-shrink-0"></i>
-                                        {% elif doc.file_path.lower().endswith(('.doc', '.docx')) %}
-                                            <i class="ph ph-file-doc f-28 text-primary flex-shrink-0"></i>
-                                        {% elif doc.file_path.lower().endswith(('.xls', '.xlsx')) %}
-                                            <i class="ph ph-file-xls f-28 text-success flex-shrink-0"></i>
-                                        {% else %}
-                                            <i class="ph ph-file f-28 text-muted flex-shrink-0"></i>
-                                        {% endif %}
-                                        <a href="{{ url_for('static', filename=doc.file_path) }}" target="_blank" class="text-truncate text-primary f-14 fw-medium" title="{{ doc.file_path.split('/')[-1][33:] }}">
-                                            {{ doc.file_path.split('/')[-1][33:] }}
-                                        </a>
-                                    </div>
-                                    <button type="button" class="btn btn-link text-danger p-0 border-0" onclick="deleteCarFile({{ doc.id }}, false)" style="line-height: 1;">
-                                        <i class="ph ph-trash f-18"></i>
-                                    </button>
-                                </div>
+                <div class="d-flex flex-column gap-2">
+                    {% for doc in car.images if not doc.file_path.lower().endswith(image_extensions) %}
+                    <div class="card border border-light shadow-sm mb-2 p-2 position-relative"
+                        id="doc-card-{{ doc.id }}" style="background: rgba(var(--bs-light-rgb), 0.3);">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center gap-2 text-truncate"
+                                style="max-width: calc(100% - 30px);">
+                                {% if doc.file_path.lower().endswith('.pdf') %}
+                                <i class="ph ph-file-pdf f-28 text-danger flex-shrink-0"></i>
+                                {% elif doc.file_path.lower().endswith(('.doc', '.docx')) %}
+                                <i class="ph ph-file-doc f-28 text-primary flex-shrink-0"></i>
+                                {% elif doc.file_path.lower().endswith(('.xls', '.xlsx')) %}
+                                <i class="ph ph-file-xls f-28 text-success flex-shrink-0"></i>
+                                {% else %}
+                                <i class="ph ph-file f-28 text-muted flex-shrink-0"></i>
+                                {% endif %}
+                                <a href="{{ url_for('static', filename=doc.file_path) }}" target="_blank"
+                                    class="text-truncate text-primary f-14 fw-medium"
+                                    title="{{ doc.file_path.split('/')[-1][33:] }}">
+                                    {{ doc.file_path.split('/')[-1][33:] }}
+                                </a>
                             </div>
-                        {% endfor %}
+                            <button type="button" class="btn btn-link text-danger p-0 border-0"
+                                onclick="deleteCarFile({{ doc.id }}, false)" style="line-height: 1;">
+                                <i class="ph ph-trash f-18"></i>
+                            </button>
+                        </div>
                     </div>
+                    {% endfor %}
+                </div>
                 {% else %}
-                    <p class="text-muted text-center py-3 mb-0"><i class="ph ph-file-x f-24 d-block mb-2"></i>{{ _('No documents available.') }}</p>
+                <p class="text-muted text-center py-3 mb-0"><i class="ph ph-file-x f-24 d-block mb-2"></i>{{ _('No
+                    documents available.') }}</p>
                 {% endif %}
             </div>
         </div>
@@ -337,13 +344,16 @@
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <div class="mb-3">
-                                        <label class="form-label" for="images">{{ _('Add More Documents & Images') }}</label>
+                                        <label class="form-label" for="images">{{ _('Add More Documents & Images')
+                                            }}</label>
                                         <div id="drop-area"
                                             class="border border-dashed border-primary rounded p-4 text-center"
                                             style="cursor: pointer; background: rgba(var(--bs-primary-rgb), 0.05); transition: background 0.3s; border-style: dashed !important; border-width: 2px !important;">
                                             <i class="ph ph-upload-simple f-30 text-primary mb-2"></i>
                                             <h5>{{ _('Drag and drop files here or click to select') }}</h5>
-                                            <p class="text-muted mb-0">{{ _('Supports JPG, PNG, WEBP, PDF, Word, Excel, Docs') }}</p>
+                                            <p class="text-muted mb-0">
+                                                {{ _('Supports JPG, PNG, WEBP, PDF, Word, Excel, Docs') }}
+                                            </p>
                                             <input type="file" id="images" name="images" multiple class="d-none"
                                                 accept="image/*,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
                                         </div>
