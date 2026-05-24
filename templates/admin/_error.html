@@ -14,7 +14,11 @@
     <meta name="color-scheme" content="dark light"/>
 
     <!-- [Favicon] icons -->
-    <link rel="icon" href="{{ url_for('static', filename='admin/images/favicon.svg') }}" type="image/svg+xml"/>
+    {% if system_logo and (system_logo.endswith('.png') or system_logo.endswith('.jpg') or system_logo.endswith('.jpeg') or system_logo.endswith('.svg') or system_logo.endswith('.webp')) %}
+        <link rel="icon" href="{{ url_for('static', filename=system_logo) }}" type="{% if system_logo.endswith('.svg') %}image/svg+xml{% else %}image/png{% endif %}"/>
+    {% else %}
+        <link rel="icon" href="{{ url_for('static', filename='admin/images/favicon.svg') }}" type="image/svg+xml"/>
+    {% endif %}
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='admin/images/apple-touch-icon.png') }}"/>
     <link rel="manifest" href="{{ url_for('static', filename='admin/images/site.webmanifest.txt') }}"/>
 
