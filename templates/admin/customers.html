@@ -26,7 +26,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <ul class="nav nav-tabs invoice-tab mb-3" id="myTab" role="tablist">
+                <ul class="nav nav-tabs invoice-tab mb-3 flex-nowrap" id="myTab" role="tablist" style="white-space: nowrap; font-size: 0.72rem;">
                     <li class="nav-item" role="presentation">
                         <button
                                 class="nav-link active"
@@ -38,7 +38,7 @@
                                 aria-controls="analytics-tab-1-pane"
                                 aria-selected="true"
                         >
-                                <span class="d-flex align-items-center gap-2">{{_('All')}} <span
+                                <span class="d-flex align-items-center gap-2"><span class="tab-text" title="{{_('All')}}">{{_('All')}}</span> <span
                                         class="avatar rounded-circle bg-light-primary">{{ customers|length }}</span></span>
                         </button>
                     </li>

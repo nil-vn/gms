@@ -98,43 +98,43 @@
     <!-- 1. Tất cả -->
     <li class="nav-item" role="presentation">
         <button class="nav-link active" id="tab-1" data-bs-toggle="tab" data-bs-target="#pane-1" type="button" role="tab" aria-selected="true">
-            <span class="d-flex align-items-center gap-2">{{_('All')}} <span class="avatar rounded-circle bg-light-secondary">{{ cars|length }}</span></span>
+            <span class="d-flex align-items-center gap-2"><span class="tab-text" title="{{_('All')}}">{{_('All')}}</span> <span class="avatar rounded-circle bg-light-secondary">{{ cars|length }}</span></span>
         </button>
     </li>
     <!-- 2. Có sẵn -->
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="tab-2" data-bs-toggle="tab" data-bs-target="#pane-2" type="button" role="tab" aria-selected="false">
-            <span class="d-flex align-items-center gap-2">{{_('Available (inc. Awaiting)')}} <span class="avatar rounded-circle {{ status_colors.get('AVAILABLE') }}">{{ available_cars|length }}</span></span>
+            <span class="d-flex align-items-center gap-2"><span class="tab-text" title="{{_('Available (inc. Awaiting)')}}">{{_('Available (inc. Awaiting)')}}</span> <span class="avatar rounded-circle {{ status_colors.get('AVAILABLE') }}">{{ available_cars|length }}</span></span>
         </button>
     </li>
     <!-- 3. Đang chờ giao -->
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="tab-3" data-bs-toggle="tab" data-bs-target="#pane-3" type="button" role="tab" aria-selected="false">
-            <span class="d-flex align-items-center gap-2">{{_('Awaiting Delivery')}} <span class="avatar rounded-circle {{ status_colors.get('AWAITING_DELIVERY') }}">{{ awaiting_delivery_cars|length }}</span></span>
+            <span class="d-flex align-items-center gap-2"><span class="tab-text" title="{{_('Awaiting Delivery')}}">{{_('Awaiting Delivery')}}</span> <span class="avatar rounded-circle {{ status_colors.get('AWAITING_DELIVERY') }}">{{ awaiting_delivery_cars|length }}</span></span>
         </button>
     </li>
     <!-- 4. Đã bán -->
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="tab-4" data-bs-toggle="tab" data-bs-target="#pane-4" type="button" role="tab" aria-selected="false">
-            <span class="d-flex align-items-center gap-2">{{_('Sold')}} <span class="avatar rounded-circle {{ status_colors.get('SOLD') }}">{{ sold_cars|length }}</span></span>
+            <span class="d-flex align-items-center gap-2"><span class="tab-text" title="{{_('Sold')}}">{{_('Sold')}}</span> <span class="avatar rounded-circle {{ status_colors.get('SOLD') }}">{{ sold_cars|length }}</span></span>
         </button>
     </li>
     <!-- 5. Sơn sửa rồi -->
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="tab-5" data-bs-toggle="tab" data-bs-target="#pane-5" type="button" role="tab" aria-selected="false">
-            <span class="d-flex align-items-center gap-2">{{_('Refurbished')}} <span class="avatar rounded-circle {{ situation_colors.get('REFURBISHED') }}">{{ refurbished_cars|length }}</span></span>
+            <span class="d-flex align-items-center gap-2"><span class="tab-text" title="{{_('Refurbished')}}">{{_('Refurbished')}}</span> <span class="avatar rounded-circle {{ situation_colors.get('REFURBISHED') }}">{{ refurbished_cars|length }}</span></span>
         </button>
     </li>
     <!-- 6. Chưa sơn sửa -->
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="tab-6" data-bs-toggle="tab" data-bs-target="#pane-6" type="button" role="tab" aria-selected="false">
-            <span class="d-flex align-items-center gap-2">{{_('Not Refurbished')}} <span class="avatar rounded-circle {{ situation_colors.get('NOT_REFURBISHED') }}">{{ not_refurbished_cars|length }}</span></span>
+            <span class="d-flex align-items-center gap-2"><span class="tab-text" title="{{_('Not Refurbished')}}">{{_('Not Refurbished')}}</span> <span class="avatar rounded-circle {{ situation_colors.get('NOT_REFURBISHED') }}">{{ not_refurbished_cars|length }}</span></span>
         </button>
     </li>
     <!-- 7. Sơn sửa rồi - chưa vệ sinh -->
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="tab-7" data-bs-toggle="tab" data-bs-target="#pane-7" type="button" role="tab" aria-selected="false">
-            <span class="d-flex align-items-center gap-2">{{_('Refurbished/Pending Cleaning')}} <span class="avatar rounded-circle {{ situation_colors.get('REFURBISHED_PENDING_CLEANING') }}">{{ refurbished_pending_cleaning_cars|length }}</span></span>
+            <span class="d-flex align-items-center gap-2"><span class="tab-text" title="{{_('Refurbished/Pending Cleaning')}}">{{_('Refurbished/Pending Cleaning')}}</span> <span class="avatar rounded-circle {{ situation_colors.get('REFURBISHED_PENDING_CLEANING') }}">{{ refurbished_pending_cleaning_cars|length }}</span></span>
         </button>
     </li>
 </ul>

@@ -91,20 +91,20 @@
 </div>
 {% endmacro %}
 
-<ul class="nav nav-tabs invoice-tab mb-3" id="myTab" role="tablist">
+<ul class="nav nav-tabs invoice-tab mb-3 flex-nowrap" id="myTab" role="tablist" style="white-space: nowrap; font-size: 0.72rem;">
     <li class="nav-item" role="presentation">
         <button class="nav-link active" id="tab-1" data-bs-toggle="tab" data-bs-target="#pane-1" type="button" role="tab" aria-selected="true">
-            <span class="d-flex align-items-center gap-2">{{_('All')}} <span class="avatar rounded-circle bg-light-primary">{{ transactions|length }}</span></span>
+            <span class="d-flex align-items-center gap-2"><span class="tab-text" title="{{_('All')}}">{{_('All')}}</span> <span class="avatar rounded-circle bg-light-primary">{{ transactions|length }}</span></span>
         </button>
     </li>
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="tab-2" data-bs-toggle="tab" data-bs-target="#pane-2" type="button" role="tab" aria-selected="false">
-            <span class="d-flex align-items-center gap-2">{{_('Deposited')}} <span class="avatar rounded-circle bg-light-warning">{{ deposited_transactions|length }}</span></span>
+            <span class="d-flex align-items-center gap-2"><span class="tab-text" title="{{_('Deposited')}}">{{_('Deposited')}}</span> <span class="avatar rounded-circle bg-light-warning">{{ deposited_transactions|length }}</span></span>
         </button>
     </li>
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="tab-3" data-bs-toggle="tab" data-bs-target="#pane-3" type="button" role="tab" aria-selected="false">
-            <span class="d-flex align-items-center gap-2">{{_('Paid')}} <span class="avatar rounded-circle bg-light-success">{{ paid_transactions|length }}</span></span>
+            <span class="d-flex align-items-center gap-2"><span class="tab-text" title="{{_('Paid')}}">{{_('Paid')}}</span> <span class="avatar rounded-circle bg-light-success">{{ paid_transactions|length }}</span></span>
         </button>
     </li>
 </ul>

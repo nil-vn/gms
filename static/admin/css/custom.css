@@ -302,3 +302,38 @@
 .header-user-profile .pc-head-link:hover i {
     transform: scale(1.08) !important;
 }
+
+/* System-wide premium tab text truncation and ellipsis */
+.tab-text {
+    display: inline-block;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+    transition: max-width 0.2s ease-in-out;
+}
+
+@media (max-width: 1400px) {
+    .tab-text {
+        max-width: 110px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .tab-text {
+        max-width: 80px;
+    }
+}
+
+@media (max-width: 992px) {
+    .tab-text {
+        max-width: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tab-text {
+        max-width: 45px;
+    }
+}
