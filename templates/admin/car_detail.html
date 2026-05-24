@@ -108,6 +108,17 @@
                 {% if car.images %}
                 <div id="inline-gallery-container" class="inline-gallery-container bg-dark rounded shadow-sm mb-3"
                     style="width: 100%; height: 400px; position: relative; overflow: hidden;"></div>
+                <script id="gallery-data" type="application/json">
+                    [
+                        {% for image in car.images %}
+                        {
+                            "src": "{{ url_for('static', filename=image.file_path) }}",
+                            "thumb": "{{ url_for('static', filename=image.file_path) }}",
+                            "id": {{ image.id }}
+                        }{% if not loop.last %},{% endif %}
+                        {% endfor %}
+                    ]
+                </script>
                 {% else %}
                 <p class="text-muted text-center py-3"><i class="ph ph-image-broken f-24 d-block mb-2"></i>
                     {{ _('No images available.') }}
@@ -488,37 +499,35 @@
 
     // lightGallery carousel inline initialization
     const inlineGalleryContainer = document.getElementById('inline-gallery-container');
-    if (inlineGalleryContainer) {
-        const dynamicEl = [
-            {% for image in car.images %}
-    {
-        src: '{{ url_for("static", filename=image.file_path) }}',
-            thumb: '{{ url_for("static", filename=image.file_path) }}',
-                subHtml: '<div class="text-center pb-4"><button type="button" class="btn btn-outline-danger btn-sm shadow" onclick="deleteImage({{ image.id }})"><i class="ti ti-trash me-1"></i>{{ _("Remove Image") }}</button></div>',
-                    id: {{ image.id }}
-    },
-    {% endfor %}
-        ];
+    const galleryDataEl = document.getElementById('gallery-data');
+    if (inlineGalleryContainer && galleryDataEl) {
+        const rawImages = JSON.parse(galleryDataEl.textContent);
+        const dynamicEl = rawImages.map(image => ({
+            src: image.src,
+            thumb: image.thumb,
+            subHtml: `<div class="text-center pb-4"><button type="button" class="btn btn-outline-danger btn-sm shadow" onclick="deleteImage(${image.id})"><i class="ti ti-trash me-1"></i>{{ _("Remove Image") }}</button></div>`,
+            id: image.id
+        }));
 
-    window.lgInstance = lightGallery(inlineGalleryContainer, {
-        container: inlineGalleryContainer,
-        dynamic: true,
-        hash: false,
-        closable: false,
-        showMaximizeIcon: true,
-        appendSubHtmlTo: '.lg-item',
-        slideDelay: 400,
-        plugins: [lgZoom, lgThumbnail],
-        dynamicEl: dynamicEl,
-        thumbWidth: 80,
-        thumbContHeight: 100,
-        download: false
-    });
+        window.lgInstance = lightGallery(inlineGalleryContainer, {
+            container: inlineGalleryContainer,
+            dynamic: true,
+            hash: false,
+            closable: false,
+            showMaximizeIcon: true,
+            appendSubHtmlTo: '.lg-item',
+            slideDelay: 400,
+            plugins: [lgZoom, lgThumbnail],
+            dynamicEl: dynamicEl,
+            thumbWidth: 80,
+            thumbContHeight: 100,
+            download: false
+        });
 
-    // Open gallery automatically since it's inline
-    setTimeout(() => {
-        window.lgInstance.openGallery(0);
-    }, 100);
+        // Open gallery automatically since it's inline
+        setTimeout(() => {
+            window.lgInstance.openGallery(0);
+        }, 100);
     }
 
     function deleteImage(imageId) {

@@ -3,3 +3,4 @@ instance
 *.env*
 .idea
 *__pycache__*
+static/uploads/*

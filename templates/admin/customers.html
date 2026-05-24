@@ -121,7 +121,7 @@
                                 </div>
                             </div>
                             <div class="col-6">
-                                <div id="customers-chart-1"></div>
+                                <div id="customers-chart-1" data-count="{{ customers|length }}"></div>
                             </div>
                         </div>
                     </div>
@@ -142,7 +142,7 @@
                                 </div>
                             </div>
                             <div class="col-6">
-                                <div id="customers-chart-2"></div>
+                                <div id="customers-chart-2" data-count="{{ active_customers|length }}"></div>
                             </div>
                         </div>
                     </div>
@@ -163,7 +163,7 @@
                                 </div>
                             </div>
                             <div class="col-6">
-                                <div id="customers-chart-3"></div>
+                                <div id="customers-chart-3" data-count="{{ customers|length - active_customers|length }}"></div>
                             </div>
                         </div>
                     </div>
@@ -219,8 +219,21 @@
     }
     
     // Simulate some growth data ending with the actual number
-    renderSparkline("#customers-chart-1", [10, 15, 25, 30, 40, {{ customers|length }}], '#0d6efd');
-    renderSparkline("#customers-chart-2", [5, 8, 12, 10, 15, {{ active_customers|length }}], '#198754');
-    renderSparkline("#customers-chart-3", [2, 5, 4, 8, 10, {{ customers|length - active_customers|length }}], '#ffc107');
+    const chart1El = document.querySelector("#customers-chart-1");
+    const chart2El = document.querySelector("#customers-chart-2");
+    const chart3El = document.querySelector("#customers-chart-3");
+
+    if (chart1El) {
+        const count = parseInt(chart1El.getAttribute("data-count") || "0", 10);
+        renderSparkline("#customers-chart-1", [10, 15, 25, 30, 40, count], '#0d6efd');
+    }
+    if (chart2El) {
+        const count = parseInt(chart2El.getAttribute("data-count") || "0", 10);
+        renderSparkline("#customers-chart-2", [5, 8, 12, 10, 15, count], '#198754');
+    }
+    if (chart3El) {
+        const count = parseInt(chart3El.getAttribute("data-count") || "0", 10);
+        renderSparkline("#customers-chart-3", [2, 5, 4, 8, 10, count], '#ffc107');
+    }
 </script>
 {% endblock %}

@@ -139,7 +139,7 @@
                                 </div>
                             </div>
                             <div class="col-6">
-                                <div id="tx-chart-1"></div>
+                                <div id="tx-chart-1" data-value="{{ total_revenue }}"></div>
                             </div>
                         </div>
                     </div>
@@ -160,7 +160,7 @@
                                 </div>
                             </div>
                             <div class="col-6">
-                                <div id="tx-chart-2"></div>
+                                <div id="tx-chart-2" data-value="{{ paid_revenue }}"></div>
                             </div>
                         </div>
                     </div>
@@ -181,7 +181,7 @@
                                 </div>
                             </div>
                             <div class="col-6">
-                                <div id="tx-chart-3"></div>
+                                <div id="tx-chart-3" data-value="{{ deposited_amount }}"></div>
                             </div>
                         </div>
                     </div>
@@ -241,8 +241,21 @@
     }
     
     // Simulate some growth data ending with the actual number
-    renderSparkline("#tx-chart-1", [10, 15, 25, 30, 40, {{ total_revenue }}], '#0d6efd');
-    renderSparkline("#tx-chart-2", [5, 8, 12, 10, 15, {{ paid_revenue }}], '#198754');
-    renderSparkline("#tx-chart-3", [2, 5, 4, 8, 10, {{ deposited_amount }}], '#ffc107');
+    const chart1El = document.querySelector("#tx-chart-1");
+    const chart2El = document.querySelector("#tx-chart-2");
+    const chart3El = document.querySelector("#tx-chart-3");
+
+    if (chart1El) {
+        const value = parseFloat(chart1El.getAttribute("data-value") || "0");
+        renderSparkline("#tx-chart-1", [10, 15, 25, 30, 40, value], '#0d6efd');
+    }
+    if (chart2El) {
+        const value = parseFloat(chart2El.getAttribute("data-value") || "0");
+        renderSparkline("#tx-chart-2", [5, 8, 12, 10, 15, value], '#198754');
+    }
+    if (chart3El) {
+        const value = parseFloat(chart3El.getAttribute("data-value") || "0");
+        renderSparkline("#tx-chart-3", [2, 5, 4, 8, 10, value], '#ffc107');
+    }
 </script>
 {% endblock %}
