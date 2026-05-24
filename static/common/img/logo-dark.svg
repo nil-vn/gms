@@ -1,0 +1,18 @@
+<svg width="150" height="35" viewBox="0 0 150 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rounded square background with premium purple-to-blue gradient -->
+  <rect width="35" height="35" rx="10" fill="url(#paint0_linear_theme_dark)"/>
+  
+  <!-- Gemini Sparkle (Four-pointed Star) -->
+  <path d="M 17.5 8 Q 17.5 17.5 27 17.5 Q 17.5 17.5 17.5 27 Q 17.5 17.5 8 17.5 Q 17.5 17.5 17.5 8 Z" fill="white"/>
+  
+  <!-- Premium Typography for 'Gemini' in slate-800 -->
+  <text x="48" y="24" fill="#1e293b" font-family="'Outfit', 'Inter', 'Segoe UI', sans-serif" font-size="18" font-weight="600" letter-spacing="0.5">Gemini</text>
+  
+  <defs>
+    <linearGradient id="paint0_linear_theme_dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9333ea"/>
+      <stop offset="50%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+</svg>

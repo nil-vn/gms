@@ -1,0 +1,127 @@
+<div class="navbar-wrapper">
+    <div class="m-header">
+        <a href="{{ url_for('admin_routes.dashboard') }}" class="b-brand text-primary">
+            <!-- Dynamic Logo: user-uploaded logo + system name, or default Gemini -->
+            <div class="d-flex align-items-center gap-2">
+                {% if system_logo %}
+                <img src="{{ url_for('static', filename=system_logo) }}" alt="{{ system_name or 'Logo' }}"
+                    style="height: 34px; width: auto; object-fit: contain;">
+                {% else %}
+                <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    style="flex-shrink:0;">
+                    <rect width="34" height="34" rx="9" fill="url(#grad_sidebar_logo)" />
+                    <path d="M 17 8 Q 17 17 26 17 Q 17 17 17 26 Q 17 17 8 17 Q 17 17 17 8 Z" fill="white" />
+                    <defs>
+                        <linearGradient id="grad_sidebar_logo" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#9333ea" />
+                            <stop offset="50%" stop-color="#4f46e5" />
+                            <stop offset="100%" stop-color="#2563eb" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                {% endif %}
+                <span class="fw-semibold logo-name"
+                    style="font-size: 1.05rem; letter-spacing: 0.3px; white-space: nowrap;">
+                    {{ system_name or 'Gemini' }}
+                </span>
+            </div>
+        </a>
+    </div>
+    <div class="navbar-content">
+        <ul class="pc-navbar">
+            <li class="pc-item pc-caption">
+                <label data-i18n="Navigation">{{ _('Navigation') }}</label>
+            </li>
+            <li class="pc-item">
+                <a href="{{ url_for('admin_routes.search') }}" class="pc-link">
+                    <span class="pc-micon">
+                        <i class="ti ti-input-search"></i>
+                    </span>
+                    <span class="pc-mtext">{{ _('Search') }}</span>
+                </a>
+            </li>
+            <li class="pc-item">
+                <a href="{{ url_for('admin_routes.dashboard') }}" class="pc-link">
+                    <span class="pc-micon">
+                        <i class="ti ti-brand-google-analytics"></i>
+                    </span>
+                    <span class="pc-mtext">{{ _('Dashboard') }}</span>
+                </a>
+            </li>
+            <li class="pc-item pc-hasmenu">
+                <a href="#!" class="pc-link">
+                    <span class="pc-micon">
+                        <i class="ti ti-car-garage"></i>
+                    </span>
+                    <span class="pc-mtext">{{ _('Car Management') }}</span>
+                    <span class="pc-arrow"><i class="ti ti-chevron-right"></i></span>
+                </a>
+                <ul class="pc-submenu">
+                    <li class="pc-item"><a class="pc-link" href="{{ url_for('admin_routes.cars') }}">{{ _('Car List')
+                            }}</a></li>
+                    <li class="pc-item"><a class="pc-link" href="{{ url_for('admin_routes.car_new') }}">
+                            {{ _('Add New Car') }}</a></li>
+                </ul>
+            </li>
+            <li class="pc-item pc-hasmenu">
+                <a href="#!" class="pc-link">
+                    <span class="pc-micon">
+                        <i class="ti ti-user-dollar"></i>
+                    </span>
+                    <span class="pc-mtext">{{ _('Customer Management') }}</span>
+                    <span class="pc-arrow"><i class="ti ti-chevron-right"></i></span>
+                </a>
+                <ul class="pc-submenu">
+                    <li class="pc-item"><a class="pc-link" href="{{ url_for('admin_routes.customers') }}">{{
+                            _('Customers') }}</a></li>
+                    <li class="pc-item"><a class="pc-link" href="{{ url_for('admin_routes.customer_new') }}">
+                            {{ _('Add New Customer') }}</a></li>
+                </ul>
+            </li>
+            <li class="pc-item pc-hasmenu">
+                <a href="#!" class="pc-link">
+                    <span class="pc-micon">
+                        <i class="ti ti-transaction-yen"></i>
+                    </span>
+                    <span class="pc-mtext">{{ _('Sale Management') }}</span>
+                    <span class="pc-arrow"><i class="ti ti-chevron-right"></i></span>
+                </a>
+                <ul class="pc-submenu">
+                    <li class="pc-item"><a class="pc-link" href="{{ url_for('admin_routes.transactions') }}">{{
+                            _('Transactions') }}</a></li>
+                    <li class="pc-item"><a class="pc-link" href="{{ url_for('admin_routes.transaction_new') }}">{{
+                            _('Add Transaction') }}</a></li>
+                </ul>
+            </li>
+            <li class="pc-item pc-caption">
+                <label>{{_('Setting')}}</label>
+                <i class="ph ph-book-open-text"></i>
+            </li>
+            <li class="pc-item pc-hasmenu">
+                <a href="#!" class="pc-link">
+                    <span class="pc-micon">
+                        <i class="ti ti-user"></i>
+                    </span>
+                    <span class="pc-mtext">{{ _('User Management') }}</span>
+                    <span class="pc-arrow"><i class="ti ti-chevron-right"></i></span>
+                </a>
+                <ul class="pc-submenu">
+                    <li class="pc-item"><a class="pc-link" href="{{ url_for('admin_routes.users') }}">{{ _('Users')
+                            }}</a></li>
+                    <li class="pc-item">
+                        <a class="pc-link" href="{{ url_for('admin_routes.register') }}">
+                            {{ _('Add New User') }}</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="pc-item">
+                <a href="{{ url_for('admin_routes.system') }}" class="pc-link">
+                    <span class="pc-micon">
+                        <i class="ti ti-settings-cog"></i>
+                    </span>
+                    <span class="pc-mtext">{{_('System')}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

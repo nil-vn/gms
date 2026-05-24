@@ -1,0 +1,1118 @@
+# Vietnamese translations for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-05-24 12:11+0900\n"
+"PO-Revision-Date: 2026-05-24 12:22+0900\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: vi\n"
+"Language-Team: vi <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: app/admin/controllers/__init__.py:40
+msgid "Logged in successfully!"
+msgstr "Đăng nhập thành công!"
+
+#: app/admin/controllers/__init__.py:44
+msgid "Invalid username or password"
+msgstr "Tên đăng nhập hoặc mật khẩu không hợp lệ"
+
+#: app/admin/controllers/__init__.py:56
+msgid "You have been logged out"
+msgstr "Bạn đã đăng xuất"
+
+#: app/admin/controllers/car.py:83
+msgid "Car added successfully!"
+msgstr "Thêm xe thành công!"
+
+#: app/admin/controllers/car.py:109 app/admin/controllers/car.py:167
+msgid "Car not found."
+msgstr "Không tìm thấy xe."
+
+#: app/admin/controllers/car.py:134
+msgid "Car updated successfully!"
+msgstr "Cập nhật xe thành công!"
+
+#: app/admin/controllers/car.py:173
+msgid "Car deleted successfully!"
+msgstr "Xóa xe thành công!"
+
+#: app/admin/controllers/car.py:192
+msgid "Purchase added for car successfully!"
+msgstr "Thêm giao dịch mua xe thành công!"
+
+#: app/admin/controllers/customer.py:56
+msgid "Customer added successfully!"
+msgstr "Thêm khách hàng thành công!"
+
+#: app/admin/controllers/customer.py:76 app/admin/controllers/customer.py:144
+msgid "Customer not found."
+msgstr "Không tìm thấy khách hàng."
+
+#: app/admin/controllers/customer.py:101
+msgid "Customer updated successfully!"
+msgstr "Cập nhật khách hàng thành công!"
+
+#: app/admin/controllers/customer.py:128
+msgid "Purchase added for customer successfully!"
+msgstr "Thêm giao dịch mua cho khách hàng thành công!"
+
+#: app/admin/controllers/customer.py:150
+msgid "Customer deleted successfully!"
+msgstr "Xóa khách hàng thành công!"
+
+#: app/admin/controllers/transaction.py:86
+msgid "Transaction created successfully!"
+msgstr "Tạo giao dịch thành công!"
+
+#: app/admin/controllers/transaction.py:113
+#: app/admin/controllers/transaction.py:183
+msgid "Transaction not found."
+msgstr "Không tìm thấy giao dịch."
+
+#: app/admin/controllers/transaction.py:154
+msgid "Transaction updated successfully!"
+msgstr "Cập nhật giao dịch thành công!"
+
+#: app/admin/controllers/transaction.py:189
+msgid "Transaction deleted successfully!"
+msgstr "Xóa giao dịch thành công!"
+
+#: app/admin/controllers/user.py:22 app/admin/controllers/user.py:93
+msgid "Username or email already exists"
+msgstr "Tên đăng nhập hoặc email đã tồn tại"
+
+#: app/admin/controllers/user.py:38
+msgid "Account created successfully!"
+msgstr "Tạo tài khoản thành công!"
+
+#: app/admin/controllers/user.py:42
+msgid "Could not create user"
+msgstr "Không thể tạo người dùng"
+
+#: app/admin/controllers/user.py:67
+msgid "User not found."
+msgstr "Không tìm thấy người dùng."
+
+#: app/admin/controllers/user.py:73
+msgid "User deleted successfully!"
+msgstr "Xóa người dùng thành công!"
+
+#: app/admin/controllers/user.py:108
+msgid "User updated successfully!"
+msgstr "Cập nhật người dùng thành công!"
+
+#: app/admin/controllers/user.py:112
+msgid "Could not update user"
+msgstr "Không thể cập nhật người dùng"
+
+#: app/admin/models/transaction.py:40 app/utils/constants.py:35
+#: templates/admin/customer_detail.html:240
+#: templates/admin/customer_detail.html:390
+#: templates/admin/customer_new.html:110 templates/admin/transactions.html:107
+msgid "Paid"
+msgstr "Đã thanh toán"
+
+#: app/admin/models/transaction.py:41 templates/admin/customer_detail.html:242
+#: templates/admin/customer_detail.html:391
+#: templates/admin/customer_new.html:111
+msgid "Wait to pay"
+msgstr "Chờ thanh toán"
+
+#: app/admin/models/transaction.py:42 app/utils/constants.py:34
+#: templates/admin/transactions.html:102 templates/admin/transactions.html:174
+msgid "Deposited"
+msgstr "Đã đặt cọc"
+
+#: app/admin/services/analytics.py:74 templates/admin/customer_detail.html:188
+#: templates/admin/customer_new.html:64
+msgid "Unknown"
+msgstr "Không xác định"
+
+#: app/admin/services/forms.py:71 app/admin/services/forms.py:81
+#: templates/admin/car_detail.html:203 templates/admin/car_detail.html:315
+#: templates/admin/car_detail.html:416 templates/admin/car_new.html:103
+#: templates/admin/cars.html:52 templates/admin/customer_detail.html:236
+#: templates/admin/customer_detail.html:291
+#: templates/admin/customer_detail.html:387
+#: templates/admin/customer_new.html:107 templates/admin/customers.html:64
+#: templates/admin/transaction_detail.html:114
+#: templates/admin/transaction_new.html:101
+#: templates/admin/transactions.html:43 templates/admin/user_detail.html:107
+#: templates/admin/user_new.html:85 templates/admin/users.html:62
+msgid "Status"
+msgstr "Trạng thái"
+
+#: app/admin/services/forms.py:71 app/admin/services/forms.py:81
+#: templates/admin/user_detail.html:109 templates/admin/user_new.html:87
+msgid "Active"
+msgstr "Hoạt động"
+
+#: app/admin/services/forms.py:71 app/admin/services/forms.py:81
+#: templates/admin/user_detail.html:110 templates/admin/user_new.html:88
+msgid "Inactive"
+msgstr "Không hoạt động"
+
+#: app/utils/constants.py:24 templates/admin/cars.html:119
+msgid "Sold"
+msgstr "Đã bán"
+
+#: app/utils/constants.py:25 templates/admin/cars.html:113
+msgid "Awaiting Delivery"
+msgstr "Chờ giao hàng"
+
+#: app/utils/constants.py:26
+msgid "Available"
+msgstr "Có sẵn"
+
+#: app/utils/constants.py:29 templates/admin/cars.html:125
+msgid "Refurbished"
+msgstr "Đã tân trang"
+
+#: app/utils/constants.py:30 templates/admin/cars.html:131
+msgid "Not Refurbished"
+msgstr "Chưa tân trang"
+
+#: app/utils/constants.py:31 templates/admin/cars.html:137
+msgid "Refurbished/Pending Cleaning"
+msgstr "Đã tân trang / Chờ vệ sinh"
+
+#: templates/admin/_auth.html:6 templates/admin/login.html:18
+#: templates/admin/login.html:33
+msgid "Login"
+msgstr "Đăng nhập"
+
+#: templates/admin/_header.html:57 templates/admin/system.html:404
+msgid "Vietnamese"
+msgstr "Tiếng Việt"
+
+#: templates/admin/_header.html:60 templates/admin/system.html:405
+msgid "Japanese"
+msgstr "Tiếng Nhật"
+
+#: templates/admin/_header.html:300
+msgid "Sign Out"
+msgstr "Đăng xuất"
+
+#: templates/admin/_sidebar.html:33
+msgid "Navigation"
+msgstr "Điều hướng"
+
+#: templates/admin/_sidebar.html:40 templates/admin/search.html:9
+#: templates/admin/search.html:15 templates/admin/search.html:29
+#: templates/admin/search.html:39
+msgid "Search"
+msgstr "Tìm kiếm"
+
+#: templates/admin/_sidebar.html:48 templates/admin/dashboard.html:9
+#: templates/admin/dashboard.html:15
+msgid "Dashboard"
+msgstr "Bảng điều khiển"
+
+#: templates/admin/_sidebar.html:56 templates/admin/car_detail.html:16
+#: templates/admin/car_new.html:15 templates/admin/cars.html:15
+msgid "Car Management"
+msgstr "Quản lý xe"
+
+#: templates/admin/_sidebar.html:60 templates/admin/cars.html:9
+#: templates/admin/cars.html:16
+msgid "Car List"
+msgstr "Danh sách xe"
+
+#: templates/admin/_sidebar.html:63 templates/admin/car_new.html:9
+#: templates/admin/car_new.html:16 templates/admin/cars.html:261
+msgid "Add New Car"
+msgstr "Thêm xe mới"
+
+#: templates/admin/_sidebar.html:71 templates/admin/customer_new.html:15
+#: templates/admin/customers.html:15
+msgid "Customer Management"
+msgstr "Quản lý khách hàng"
+
+#: templates/admin/_sidebar.html:76 templates/admin/customers.html:9
+#: templates/admin/customers.html:16
+msgid "Customers"
+msgstr "Khách hàng"
+
+#: templates/admin/_sidebar.html:78 templates/admin/customer_new.html:9
+#: templates/admin/customer_new.html:16 templates/admin/customers.html:201
+msgid "Add New Customer"
+msgstr "Thêm khách hàng mới"
+
+#: templates/admin/_sidebar.html:86 templates/admin/transaction_detail.html:15
+#: templates/admin/transaction_new.html:15 templates/admin/transactions.html:15
+msgid "Sale Management"
+msgstr "Quản lý bán hàng"
+
+#: templates/admin/_sidebar.html:91 templates/admin/transactions.html:9
+#: templates/admin/transactions.html:16
+msgid "Transactions"
+msgstr "Giao dịch"
+
+#: templates/admin/_sidebar.html:93 templates/admin/transaction_new.html:37
+msgid "Add Transaction"
+msgstr "Thêm giao dịch"
+
+#: templates/admin/_sidebar.html:97
+msgid "Setting"
+msgstr "Cài đặt"
+
+#: templates/admin/_sidebar.html:105 templates/admin/user_detail.html:15
+#: templates/admin/user_new.html:15 templates/admin/users.html:15
+msgid "User Management"
+msgstr "Quản lý người dùng"
+
+#: templates/admin/_sidebar.html:109 templates/admin/users.html:9
+#: templates/admin/users.html:16
+msgid "Users"
+msgstr "Người dùng"
+
+#: templates/admin/_sidebar.html:113 templates/admin/user_new.html:9
+#: templates/admin/user_new.html:16 templates/admin/users.html:196
+msgid "Add New User"
+msgstr "Thêm người dùng mới"
+
+#: templates/admin/_sidebar.html:122
+msgid "System"
+msgstr "Hệ thống"
+
+#: templates/admin/car_detail.html:9 templates/admin/car_detail.html:17
+#: templates/admin/customer_detail.html:9
+#: templates/admin/customer_detail.html:16
+#: templates/admin/transaction_detail.html:9
+#: templates/admin/transaction_detail.html:16
+#: templates/admin/user_detail.html:9 templates/admin/user_detail.html:16
+msgid "Detail"
+msgstr "Chi tiết"
+
+#: templates/admin/car_detail.html:14 templates/admin/car_new.html:14
+#: templates/admin/cars.html:14 templates/admin/customer_detail.html:14
+#: templates/admin/customer_new.html:14 templates/admin/customers.html:14
+#: templates/admin/dashboard.html:14 templates/admin/search.html:14
+#: templates/admin/system.html:14 templates/admin/transaction_detail.html:14
+#: templates/admin/transaction_new.html:14 templates/admin/transactions.html:14
+#: templates/admin/user_detail.html:14 templates/admin/user_new.html:14
+#: templates/admin/users.html:14
+msgid "Home"
+msgstr "Trang chủ"
+
+#: templates/admin/car_detail.html:55 templates/admin/car_detail.html:230
+#: templates/admin/car_new.html:125 templates/admin/cars.html:48
+msgid "Branch"
+msgstr "Thương hiệu"
+
+#: templates/admin/car_detail.html:59 templates/admin/cars.html:50
+msgid "Imported Date"
+msgstr "Ngày nhập"
+
+#: templates/admin/car_detail.html:63 templates/admin/car_detail.html:163
+msgid "Year Of Manufacture"
+msgstr "Năm sản xuất"
+
+#: templates/admin/car_detail.html:70 templates/admin/car_detail.html:225
+#: templates/admin/car_new.html:121
+msgid "Color"
+msgstr "Màu sắc"
+
+#: templates/admin/car_detail.html:74
+msgid "Traded by"
+msgstr "Sàn giao dịch"
+
+#: templates/admin/car_detail.html:85 templates/admin/car_detail.html:132
+msgid "Car information"
+msgstr "Thông tin xe"
+
+#: templates/admin/car_detail.html:91 templates/admin/car_detail.html:302
+msgid "Customer List"
+msgstr "Danh sách khách hàng"
+
+#: templates/admin/car_detail.html:97 templates/admin/customer_detail.html:80
+#: templates/admin/transaction_new.html:9
+#: templates/admin/transaction_new.html:16
+#: templates/admin/transactions.html:223
+msgid "Add New Transaction"
+msgstr "Thêm giao dịch mới"
+
+#: templates/admin/car_detail.html:105 templates/admin/car_new.html:158
+msgid "Car Images"
+msgstr "Hình ảnh xe"
+
+#: templates/admin/car_detail.html:112
+msgid ""
+"No\n"
+"                    images available."
+msgstr "Không có hình ảnh."
+
+#: templates/admin/car_detail.html:137 templates/admin/customer_detail.html:164
+#: templates/admin/transaction_detail.html:42
+#: templates/admin/user_detail.html:71
+msgid "Update"
+msgstr "Cập nhật"
+
+#: templates/admin/car_detail.html:139 templates/admin/customer_detail.html:165
+#: templates/admin/transaction_detail.html:43
+#: templates/admin/user_detail.html:72
+msgid "Reset"
+msgstr "Đặt lại"
+
+#: templates/admin/car_detail.html:148 templates/admin/car_new.html:50
+#: templates/admin/customer_detail.html:174
+#: templates/admin/customer_new.html:51 templates/admin/customers.html:59
+msgid "Name"
+msgstr "Tên"
+
+#: templates/admin/car_detail.html:158 templates/admin/car_new.html:59
+msgid "Model"
+msgstr "Mẫu xe"
+
+#: templates/admin/car_detail.html:169 templates/admin/car_new.html:69
+msgid "Chassis No. (VIN)"
+msgstr "Số khung (VIN)"
+
+#: templates/admin/car_detail.html:174 templates/admin/car_new.html:73
+msgid "Imported date"
+msgstr "Ngày nhập"
+
+#: templates/admin/car_detail.html:185 templates/admin/car_new.html:83
+msgid "Purchase Price"
+msgstr "Giá mua"
+
+#: templates/admin/car_detail.html:191 templates/admin/car_new.html:87
+msgid "Inspection From"
+msgstr "Đăng kiểm từ"
+
+#: templates/admin/car_detail.html:205 templates/admin/car_new.html:105
+msgid "Product status"
+msgstr "Trạng thái sản phẩm"
+
+#: templates/admin/car_detail.html:215 templates/admin/car_new.html:112
+#: templates/admin/cars.html:49
+msgid "Situation"
+msgstr "Tình trạng"
+
+#: templates/admin/car_detail.html:217 templates/admin/car_new.html:114
+msgid "Select a situation"
+msgstr "Chọn tình trạng"
+
+#: templates/admin/car_detail.html:232 templates/admin/car_new.html:127
+msgid "Select a branch"
+msgstr "Chọn thương hiệu"
+
+#: templates/admin/car_detail.html:242 templates/admin/car_new.html:134
+msgid "License Plate No."
+msgstr "Biển số xe"
+
+#: templates/admin/car_detail.html:248 templates/admin/car_new.html:97
+msgid "Traded Company"
+msgstr "Công ty giao dịch"
+
+#: templates/admin/car_detail.html:253
+msgid "Expected Selling Price"
+msgstr "Giá bán dự kiến"
+
+#: templates/admin/car_detail.html:259 templates/admin/car_new.html:142
+msgid "Inspection To"
+msgstr "Đăng kiểm đến"
+
+#: templates/admin/car_detail.html:270 templates/admin/car_detail.html:427
+#: templates/admin/car_new.html:152 templates/admin/customer_detail.html:248
+#: templates/admin/customer_detail.html:397
+#: templates/admin/customer_new.html:117
+#: templates/admin/transaction_detail.html:125
+#: templates/admin/transaction_new.html:112
+msgid "Note"
+msgstr "Ghi chú"
+
+#: templates/admin/car_detail.html:277
+msgid "Add More Images"
+msgstr "Thêm hình ảnh"
+
+#: templates/admin/car_detail.html:282
+msgid "Drag and drop more images here or click to select"
+msgstr "Kéo thả hình ảnh vào đây hoặc nhấp để chọn"
+
+#: templates/admin/car_detail.html:283 templates/admin/car_new.html:162
+msgid "Supports JPG, PNG, WEBP"
+msgstr "Hỗ trợ JPG, PNG, WEBP"
+
+#: templates/admin/car_detail.html:311 templates/admin/customer_detail.html:287
+msgid "Transaction No."
+msgstr "Mã giao dịch"
+
+#: templates/admin/car_detail.html:312
+#: templates/admin/transaction_detail.html:52
+#: templates/admin/transactions.html:36
+msgid "Customer Name"
+msgstr "Tên khách hàng"
+
+#: templates/admin/car_detail.html:313 templates/admin/customer_detail.html:289
+msgid "Purchase date"
+msgstr "Ngày mua"
+
+#: templates/admin/car_detail.html:314 templates/admin/car_detail.html:408
+#: templates/admin/customer_detail.html:290
+#: templates/admin/customer_detail.html:379
+#: templates/admin/transaction_new.html:87
+msgid "Unit Price"
+msgstr "Đơn giá"
+
+#: templates/admin/car_detail.html:355
+msgid "No customer found. Create a customer first."
+msgstr "Không tìm thấy khách hàng. Vui lòng tạo khách hàng trước."
+
+#: templates/admin/car_detail.html:357
+msgid "Create New Customer"
+msgstr "Tạo khách hàng mới"
+
+#: templates/admin/car_detail.html:369
+msgid "Add Customer Purchase"
+msgstr "Thêm giao dịch mua cho khách hàng"
+
+#: templates/admin/car_detail.html:374 templates/admin/customer_detail.html:346
+#: templates/admin/transaction_new.html:41 templates/admin/user_new.html:41
+msgid "Add"
+msgstr "Thêm"
+
+#: templates/admin/car_detail.html:376 templates/admin/car_new.html:41
+#: templates/admin/customer_detail.html:347
+#: templates/admin/customer_new.html:42 templates/admin/transaction_new.html:42
+#: templates/admin/user_new.html:42
+msgid "Cancel"
+msgstr "Hủy"
+
+#: templates/admin/car_detail.html:385 templates/admin/customer_detail.html:15
+#: templates/admin/transaction_new.html:51
+msgid "Customer"
+msgstr "Khách hàng"
+
+#: templates/admin/car_detail.html:388
+#: templates/admin/transaction_detail.html:55
+#: templates/admin/transaction_new.html:54
+msgid "Select A Customer"
+msgstr "Chọn khách hàng"
+
+#: templates/admin/car_detail.html:397 templates/admin/customer_detail.html:368
+#: templates/admin/transaction_detail.html:86
+#: templates/admin/transaction_new.html:75 templates/admin/transactions.html:38
+msgid "Purchase Date"
+msgstr "Ngày mua"
+
+#: templates/admin/car_detail.html:418 templates/admin/customer_detail.html:238
+#: templates/admin/customer_detail.html:389
+#: templates/admin/customer_new.html:109
+#: templates/admin/transaction_detail.html:116
+#: templates/admin/transaction_new.html:103
+msgid "Customer status"
+msgstr "Trạng thái khách hàng"
+
+#: templates/admin/car_detail.html:496 templates/admin/customer_detail.html:451
+msgid "Remove Image"
+msgstr "Xóa ảnh"
+
+#: templates/admin/car_detail.html:524 templates/admin/customer_detail.html:485
+msgid "Are you sure you want to delete this image?"
+msgstr "Bạn có chắc chắn muốn xóa ảnh này không?"
+
+#: templates/admin/car_detail.html:542
+msgid "Failed to delete the image."
+msgstr "Xóa ảnh thất bại."
+
+#: templates/admin/car_new.html:36
+msgid "Add a new car"
+msgstr "Thêm xe mới"
+
+#: templates/admin/car_new.html:40 templates/admin/customer_new.html:41
+msgid "Create"
+msgstr "Tạo"
+
+#: templates/admin/car_new.html:63
+msgid "Year Of Manufactoring"
+msgstr "Năm sản xuất"
+
+#: templates/admin/car_new.html:138
+msgid "Sale Price"
+msgstr "Giá bán"
+
+#: templates/admin/car_new.html:161
+msgid "Drag and drop images here or click to select"
+msgstr "Kéo thả hình ảnh vào đây hoặc nhấp để chọn"
+
+#: templates/admin/cars.html:46 templates/admin/customers.html:58
+#: templates/admin/transactions.html:35 templates/admin/users.html:58
+msgid "No."
+msgstr "STT"
+
+#: templates/admin/cars.html:47
+msgid "Name/Model"
+msgstr "Tên / Mẫu xe"
+
+#: templates/admin/cars.html:51 templates/admin/transaction_detail.html:99
+#: templates/admin/transactions.html:39
+msgid "Selling Price"
+msgstr "Giá bán"
+
+#: templates/admin/cars.html:53 templates/admin/customers.html:65
+#: templates/admin/users.html:63
+msgid "Actions"
+msgstr "Hành động"
+
+#: templates/admin/cars.html:101 templates/admin/customers.html:41
+#: templates/admin/transactions.html:97 templates/admin/users.html:41
+msgid "All"
+msgstr "Tất cả"
+
+#: templates/admin/cars.html:107
+msgid "Available (inc. Awaiting)"
+msgstr "Có sẵn (gồm chờ giao)"
+
+#: templates/admin/cars.html:174 templates/admin/dashboard.html:88
+msgid "Total Cars"
+msgstr "Tổng số xe"
+
+#: templates/admin/cars.html:180
+msgid "all situations"
+msgstr "tất cả tình trạng"
+
+#: templates/admin/cars.html:195
+msgid "Available Cars"
+msgstr "Xe có sẵn"
+
+#: templates/admin/cars.html:201
+msgid "ready or awaiting"
+msgstr "sẵn sàng hoặc chờ giao"
+
+#: templates/admin/cars.html:216
+msgid "Sold Cars"
+msgstr "Xe đã bán"
+
+#: templates/admin/cars.html:222
+msgid "paid transactions"
+msgstr "giao dịch đã thanh toán"
+
+#: templates/admin/cars.html:247 templates/admin/customers.html:187
+#: templates/admin/transactions.html:209 templates/admin/users.html:182
+msgid "Search..."
+msgstr "Tìm kiếm..."
+
+#: templates/admin/cars.html:248 templates/admin/customers.html:188
+#: templates/admin/transactions.html:210 templates/admin/users.html:183
+msgid "entries per page"
+msgstr "mục mỗi trang"
+
+#: templates/admin/cars.html:249 templates/admin/cars.html:250
+#: templates/admin/customers.html:189 templates/admin/customers.html:190
+#: templates/admin/transactions.html:211 templates/admin/transactions.html:212
+#: templates/admin/users.html:184 templates/admin/users.html:185
+msgid "No entries found"
+msgstr "Không có dữ liệu"
+
+#: templates/admin/cars.html:251 templates/admin/customers.html:191
+#: templates/admin/transactions.html:213 templates/admin/users.html:186
+#, python-brace-format
+msgid "Showing {start} to {end} of {rows} entries"
+msgstr "Hiển thị {start} đến {end} trong {rows} mục"
+
+#: templates/admin/customer_detail.html:48
+#: templates/admin/customer_detail.html:222
+#: templates/admin/customer_new.html:94 templates/admin/customers.html:61
+msgid "Facebook"
+msgstr "Facebook"
+
+#: templates/admin/customer_detail.html:52
+#: templates/admin/customer_detail.html:205
+#: templates/admin/customer_new.html:78 templates/admin/customers.html:62
+msgid "Phone"
+msgstr "Số điện thoại"
+
+#: templates/admin/customer_detail.html:56
+#: templates/admin/customer_detail.html:198
+#: templates/admin/customer_new.html:72 templates/admin/customers.html:63
+msgid "Address"
+msgstr "Địa chỉ"
+
+#: templates/admin/customer_detail.html:66
+#: templates/admin/customer_detail.html:160
+#: templates/admin/customer_new.html:37
+msgid "Customer information"
+msgstr "Thông tin khách hàng"
+
+#: templates/admin/customer_detail.html:73
+#: templates/admin/customer_detail.html:278
+msgid "Purchased List"
+msgstr "Danh sách đã mua"
+
+#: templates/admin/customer_detail.html:89
+msgid "Customer Images"
+msgstr "Hình ảnh khách hàng"
+
+#: templates/admin/customer_detail.html:100
+msgid "No images available."
+msgstr "Không có hình ảnh."
+
+#: templates/admin/customer_detail.html:107
+msgid "Customer Documents"
+msgstr "Tài liệu khách hàng"
+
+#: templates/admin/customer_detail.html:142
+msgid "No documents available."
+msgstr "Không có tài liệu."
+
+#: templates/admin/customer_detail.html:186
+#: templates/admin/customer_new.html:62
+msgid "Gender"
+msgstr "Giới tính"
+
+#: templates/admin/customer_detail.html:190
+#: templates/admin/customer_new.html:65
+msgid "Male"
+msgstr "Nam"
+
+#: templates/admin/customer_detail.html:192
+#: templates/admin/customer_new.html:66
+msgid "Female"
+msgstr "Nữ"
+
+#: templates/admin/customer_detail.html:212
+#: templates/admin/customer_new.html:84
+msgid "Birthday"
+msgstr "Ngày sinh"
+
+#: templates/admin/customer_detail.html:229
+#: templates/admin/customer_new.html:101
+msgid "Lead Source"
+msgstr "Nguồn khách hàng"
+
+#: templates/admin/customer_detail.html:255
+msgid "Add More Documents & Images"
+msgstr "Thêm tài liệu & hình ảnh"
+
+#: templates/admin/customer_detail.html:258
+#: templates/admin/customer_new.html:127
+#: templates/admin/transaction_detail.html:215
+#: templates/admin/transaction_new.html:145
+msgid "Drag and drop files here or click to select"
+msgstr "Kéo thả tệp vào đây hoặc nhấp để chọn"
+
+#: templates/admin/customer_detail.html:259
+#: templates/admin/customer_new.html:128
+#: templates/admin/transaction_detail.html:216
+#: templates/admin/transaction_new.html:146
+msgid "Supports JPG, PNG, WEBP, PDF, Word, Excel, Docs"
+msgstr "Hỗ trợ JPG, PNG, WEBP, PDF, Word, Excel, Docs"
+
+#: templates/admin/customer_detail.html:288
+#: templates/admin/transactions.html:37
+msgid "Car Name"
+msgstr "Tên xe"
+
+#: templates/admin/customer_detail.html:342
+msgid "Add Purchase"
+msgstr "Thêm giao dịch mua"
+
+#: templates/admin/customer_detail.html:356
+#: templates/admin/transaction_detail.html:69
+#: templates/admin/transaction_new.html:63
+msgid "Car"
+msgstr "Xe"
+
+#: templates/admin/customer_detail.html:359
+#: templates/admin/transaction_detail.html:72
+#: templates/admin/transaction_new.html:66
+msgid "Select A Car"
+msgstr "Chọn xe"
+
+#: templates/admin/customer_detail.html:485
+msgid "Are you sure you want to delete this document?"
+msgstr "Bạn có chắc chắn muốn xóa tài liệu này không?"
+
+#: templates/admin/customer_detail.html:504
+#: templates/admin/transaction_detail.html:388
+msgid "Failed to delete the file."
+msgstr "Xóa tệp thất bại."
+
+#: templates/admin/customer_new.html:124
+msgid "Customer Documents & Images"
+msgstr "Tài liệu & Hình ảnh khách hàng"
+
+#: templates/admin/customers.html:60
+msgid "Birth Day"
+msgstr "Ngày sinh"
+
+#: templates/admin/customers.html:114 templates/admin/dashboard.html:50
+msgid "Total Customers"
+msgstr "Tổng khách hàng"
+
+#: templates/admin/customers.html:120
+msgid "profiles"
+msgstr "hồ sơ"
+
+#: templates/admin/customers.html:135
+msgid "Active Customers"
+msgstr "Khách đã giao dịch"
+
+#: templates/admin/customers.html:141
+msgid "with purchases"
+msgstr "đã mua hàng"
+
+#: templates/admin/customers.html:156
+msgid "Potential Leads"
+msgstr "Khách tiềm năng"
+
+#: templates/admin/customers.html:162
+msgid "no purchases yet"
+msgstr "chưa mua hàng"
+
+#: templates/admin/dashboard.html:50 templates/admin/dashboard.html:68
+#: templates/admin/dashboard.html:88
+msgid "This Month"
+msgstr "Tháng này"
+
+#: templates/admin/dashboard.html:54 templates/admin/dashboard.html:72
+#: templates/admin/dashboard.html:92
+msgid "Monthly Increase"
+msgstr "Tăng trưởng tháng"
+
+#: templates/admin/dashboard.html:68
+msgid "Total Transactions"
+msgstr "Tổng giao dịch"
+
+#: templates/admin/dashboard.html:105 templates/admin/dashboard.html:204
+msgid "Revenue (Last 6 Months)"
+msgstr "Doanh thu (6 tháng qua)"
+
+#: templates/admin/dashboard.html:109
+msgid "1 Month"
+msgstr "1 tháng"
+
+#: templates/admin/dashboard.html:110
+msgid "3 Months"
+msgstr "3 tháng"
+
+#: templates/admin/dashboard.html:111
+msgid "6 Months"
+msgstr "6 tháng"
+
+#: templates/admin/dashboard.html:112
+msgid "1 Year"
+msgstr "1 năm"
+
+#: templates/admin/dashboard.html:128
+msgid "Car Status Distribution"
+msgstr "Phân bổ trạng thái xe"
+
+#: templates/admin/dashboard.html:202
+msgid "Revenue (Last 30 Days)"
+msgstr "Doanh thu (30 ngày qua)"
+
+#: templates/admin/dashboard.html:203
+msgid "Revenue (Last 12 Weeks)"
+msgstr "Doanh thu (12 tuần qua)"
+
+#: templates/admin/dashboard.html:205
+msgid "Revenue (Last 1 Year)"
+msgstr "Doanh thu (1 năm qua)"
+
+#: templates/admin/login.html:20 templates/admin/user_detail.html:81
+#: templates/admin/user_new.html:51 templates/admin/users.html:59
+msgid "Username"
+msgstr "Tên đăng nhập"
+
+#: templates/admin/login.html:23 templates/admin/user_detail.html:100
+#: templates/admin/user_new.html:64
+msgid "Password"
+msgstr "Mật khẩu"
+
+#: templates/admin/login.html:29
+msgid "Remember me"
+msgstr "Ghi nhớ đăng nhập"
+
+#: templates/admin/search.html:49
+msgid "Result for"
+msgstr "Kết quả cho"
+
+#: templates/admin/search.html:70
+msgid "No results found."
+msgstr "Không tìm thấy kết quả."
+
+#: templates/admin/system.html:9 templates/admin/system.html:15
+#: templates/admin/system.html:364
+msgid "System Settings"
+msgstr "Cài đặt hệ thống"
+
+#: templates/admin/system.html:61
+msgid "File too large (max 2 MB)"
+msgstr "Tệp quá lớn (tối đa 2 MB)"
+
+#: templates/admin/system.html:77
+msgid "Remove logo and reset to default?"
+msgstr "Xóa logo và đặt lại mặc định?"
+
+#: templates/admin/system.html:89 templates/admin/system.html:393
+msgid "Dark Mode"
+msgstr "Chế độ tối"
+
+#: templates/admin/system.html:90 templates/admin/system.html:393
+msgid "Light Mode"
+msgstr "Chế độ sáng"
+
+#: templates/admin/system.html:226
+msgid "Link copied to clipboard!"
+msgstr "Đã sao chép liên kết!"
+
+#: templates/admin/system.html:258
+msgid "QR Code downloaded successfully!"
+msgstr "Tải mã QR thành công!"
+
+#: templates/admin/system.html:278
+msgid "Brand & Identity"
+msgstr "Thương hiệu & Nhận diện"
+
+#: templates/admin/system.html:281
+msgid "Save Changes"
+msgstr "Lưu thay đổi"
+
+#: templates/admin/system.html:295
+msgid "Current Logo"
+msgstr "Logo hiện tại"
+
+#: templates/admin/system.html:324
+msgid "Remove Logo"
+msgstr "Xóa logo"
+
+#: templates/admin/system.html:333
+msgid "System Name"
+msgstr "Tên hệ thống"
+
+#: templates/admin/system.html:335
+msgid "e.g. Gemini"
+msgstr "VD: Gemini"
+
+#: templates/admin/system.html:337
+msgid "Displayed next to the logo in the sidebar."
+msgstr "Hiển thị bên cạnh logo ở thanh bên."
+
+#: templates/admin/system.html:342
+msgid "Upload Logo"
+msgstr "Tải logo lên"
+
+#: templates/admin/system.html:345
+msgid "Drag and drop logo here or click to select"
+msgstr "Kéo thả logo vào đây hoặc nhấp để chọn"
+
+#: templates/admin/system.html:346
+msgid "Accepted: PNG, JPG, SVG, WEBP — max 2 MB. Recommended size: 250x60px."
+msgstr "Hỗ trợ: PNG, JPG, SVG, WEBP — tối đa 2 MB. Kích thước đề xuất: 250x60px."
+
+#: templates/admin/system.html:365
+msgid ""
+"Save\n"
+"                        Changes"
+msgstr "Lưu thay đổi"
+
+#: templates/admin/system.html:373
+msgid "Currency"
+msgstr "Đơn vị tiền tệ"
+
+#: templates/admin/system.html:382
+msgid "Theme"
+msgstr "Giao diện"
+
+#: templates/admin/system.html:401
+msgid "Language"
+msgstr "Ngôn ngữ"
+
+#: templates/admin/system.html:419
+msgid "Admin QR Code"
+msgstr "Mã QR Quản trị"
+
+#: templates/admin/system.html:423
+msgid "Scan QR Code to access the Admin page on other devices."
+msgstr "Quét mã QR để truy cập trang quản trị từ thiết bị khác."
+
+#: templates/admin/system.html:428
+msgid "Connection Type"
+msgstr "Loại kết nối"
+
+#: templates/admin/system.html:430
+msgid "Local Network IP"
+msgstr "IP mạng nội bộ"
+
+#: templates/admin/system.html:432
+msgid "PC Hostname"
+msgstr "Tên máy tính"
+
+#: templates/admin/system.html:434
+msgid "Localhost"
+msgstr "Localhost"
+
+#: templates/admin/system.html:444
+msgid "Copy Link"
+msgstr "Sao chép liên kết"
+
+#: templates/admin/system.html:461
+msgid "Download QR"
+msgstr "Tải mã QR"
+
+#: templates/admin/transaction_detail.html:38
+msgid "Transaction Detail"
+msgstr "Chi tiết giao dịch"
+
+#: templates/admin/transaction_detail.html:62
+msgid "For more detail about the customer"
+msgstr "Xem chi tiết về khách hàng"
+
+#: templates/admin/transaction_detail.html:79
+msgid "For more detail about the car"
+msgstr "Xem chi tiết về xe"
+
+#: templates/admin/transaction_detail.html:106
+#: templates/admin/transaction_new.html:94
+msgid "Deposit Amount"
+msgstr "Số tiền cọc"
+
+#: templates/admin/transaction_detail.html:131
+#: templates/admin/transaction_new.html:118
+msgid "Other Transactions (Accessories/Services)"
+msgstr "Giao dịch khác (Phụ kiện/Dịch vụ)"
+
+#: templates/admin/transaction_detail.html:136
+#: templates/admin/transaction_new.html:123
+msgid "Accessory/Service Name"
+msgstr "Tên phụ kiện/dịch vụ"
+
+#: templates/admin/transaction_detail.html:137
+#: templates/admin/transaction_new.html:124
+msgid "Price"
+msgstr "Giá"
+
+#: templates/admin/transaction_detail.html:159
+#: templates/admin/transaction_new.html:136
+msgid "Add Item"
+msgstr "Thêm mục"
+
+#: templates/admin/transaction_detail.html:163
+#: templates/admin/transactions.html:41
+msgid "Other Transaction"
+msgstr "Giao dịch khác"
+
+#: templates/admin/transaction_detail.html:167
+#: templates/admin/transactions.html:42
+msgid "Total Amount"
+msgstr "Tổng cộng"
+
+#: templates/admin/transaction_detail.html:175
+#: templates/admin/transaction_detail.html:380
+msgid "Uploaded Documents & Images"
+msgstr "Tài liệu & Hình ảnh đã tải lên"
+
+#: templates/admin/transaction_detail.html:205
+#: templates/admin/transaction_detail.html:380
+msgid "No files uploaded yet."
+msgstr "Chưa có tệp nào được tải lên."
+
+#: templates/admin/transaction_detail.html:212
+msgid "Upload More Documents & Images"
+msgstr "Tải thêm tài liệu & hình ảnh"
+
+#: templates/admin/transaction_detail.html:362
+msgid "Are you sure you want to delete this file?"
+msgstr "Bạn có chắc chắn muốn xóa tệp này không?"
+
+#: templates/admin/transaction_new.html:142
+msgid "Transaction Documents & Images"
+msgstr "Tài liệu & Hình ảnh giao dịch"
+
+#: templates/admin/transactions.html:40
+msgid "Deposit"
+msgstr "Tiền cọc"
+
+#: templates/admin/transactions.html:44
+msgid "Action"
+msgstr "Hành động"
+
+#: templates/admin/transactions.html:132
+msgid "Total Revenue"
+msgstr "Tổng doanh thu"
+
+#: templates/admin/transactions.html:138
+msgid "estimated"
+msgstr "ước tính"
+
+#: templates/admin/transactions.html:153
+msgid "Paid Revenue"
+msgstr "Doanh thu đã thu"
+
+#: templates/admin/transactions.html:159
+msgid "collected"
+msgstr "đã thu"
+
+#: templates/admin/transactions.html:180
+msgid "holding"
+msgstr "đang giữ"
+
+#: templates/admin/user_detail.html:48 templates/admin/user_detail.html:93
+#: templates/admin/user_new.html:58 templates/admin/users.html:60
+msgid "Email"
+msgstr "Email"
+
+#: templates/admin/user_detail.html:67
+msgid "User information"
+msgstr "Thông tin người dùng"
+
+#: templates/admin/user_detail.html:116 templates/admin/users.html:61
+msgid "Role"
+msgstr "Vai trò"
+
+#: templates/admin/user_detail.html:118 templates/admin/user_new.html:78
+msgid "Guest"
+msgstr "Khách"
+
+#: templates/admin/user_detail.html:121 templates/admin/user_new.html:79
+msgid "Admin"
+msgstr "Quản trị viên"
+
+#: templates/admin/user_new.html:37
+msgid "Add User"
+msgstr "Thêm người dùng"
+
+#: templates/admin/user_new.html:70
+msgid "Confirm Password"
+msgstr "Xác nhận mật khẩu"
+
+#: templates/admin/user_new.html:76
+msgid "User Role"
+msgstr "Vai trò người dùng"
+
+#: templates/admin/users.html:110
+msgid "Total Users"
+msgstr "Tổng người dùng"
+
+#: templates/admin/users.html:116
+msgid "accounts"
+msgstr "tài khoản"
+
+#: templates/admin/users.html:131
+msgid "Admin Users"
+msgstr "Quản trị viên"
+
+#: templates/admin/users.html:137
+msgid "managers"
+msgstr "quản lý"
+
+#: templates/admin/users.html:152
+msgid "Staff/Members"
+msgstr "Nhân viên"
+
+#: templates/admin/users.html:158
+msgid "employees"
+msgstr "nhân viên"
+

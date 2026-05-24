@@ -1,0 +1,1117 @@
+# Translations template for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-05-24 12:11+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: app/admin/controllers/__init__.py:40
+msgid "Logged in successfully!"
+msgstr ""
+
+#: app/admin/controllers/__init__.py:44
+msgid "Invalid username or password"
+msgstr ""
+
+#: app/admin/controllers/__init__.py:56
+msgid "You have been logged out"
+msgstr ""
+
+#: app/admin/controllers/car.py:83
+msgid "Car added successfully!"
+msgstr ""
+
+#: app/admin/controllers/car.py:109 app/admin/controllers/car.py:167
+msgid "Car not found."
+msgstr ""
+
+#: app/admin/controllers/car.py:134
+msgid "Car updated successfully!"
+msgstr ""
+
+#: app/admin/controllers/car.py:173
+msgid "Car deleted successfully!"
+msgstr ""
+
+#: app/admin/controllers/car.py:192
+msgid "Purchase added for car successfully!"
+msgstr ""
+
+#: app/admin/controllers/customer.py:56
+msgid "Customer added successfully!"
+msgstr ""
+
+#: app/admin/controllers/customer.py:76 app/admin/controllers/customer.py:144
+msgid "Customer not found."
+msgstr ""
+
+#: app/admin/controllers/customer.py:101
+msgid "Customer updated successfully!"
+msgstr ""
+
+#: app/admin/controllers/customer.py:128
+msgid "Purchase added for customer successfully!"
+msgstr ""
+
+#: app/admin/controllers/customer.py:150
+msgid "Customer deleted successfully!"
+msgstr ""
+
+#: app/admin/controllers/transaction.py:86
+msgid "Transaction created successfully!"
+msgstr ""
+
+#: app/admin/controllers/transaction.py:113
+#: app/admin/controllers/transaction.py:183
+msgid "Transaction not found."
+msgstr ""
+
+#: app/admin/controllers/transaction.py:154
+msgid "Transaction updated successfully!"
+msgstr ""
+
+#: app/admin/controllers/transaction.py:189
+msgid "Transaction deleted successfully!"
+msgstr ""
+
+#: app/admin/controllers/user.py:22 app/admin/controllers/user.py:93
+msgid "Username or email already exists"
+msgstr ""
+
+#: app/admin/controllers/user.py:38
+msgid "Account created successfully!"
+msgstr ""
+
+#: app/admin/controllers/user.py:42
+msgid "Could not create user"
+msgstr ""
+
+#: app/admin/controllers/user.py:67
+msgid "User not found."
+msgstr ""
+
+#: app/admin/controllers/user.py:73
+msgid "User deleted successfully!"
+msgstr ""
+
+#: app/admin/controllers/user.py:108
+msgid "User updated successfully!"
+msgstr ""
+
+#: app/admin/controllers/user.py:112
+msgid "Could not update user"
+msgstr ""
+
+#: app/admin/models/transaction.py:40 app/utils/constants.py:35
+#: templates/admin/customer_detail.html:240
+#: templates/admin/customer_detail.html:390
+#: templates/admin/customer_new.html:110 templates/admin/transactions.html:107
+msgid "Paid"
+msgstr ""
+
+#: app/admin/models/transaction.py:41 templates/admin/customer_detail.html:242
+#: templates/admin/customer_detail.html:391
+#: templates/admin/customer_new.html:111
+msgid "Wait to pay"
+msgstr ""
+
+#: app/admin/models/transaction.py:42 app/utils/constants.py:34
+#: templates/admin/transactions.html:102 templates/admin/transactions.html:174
+msgid "Deposited"
+msgstr ""
+
+#: app/admin/services/analytics.py:74 templates/admin/customer_detail.html:188
+#: templates/admin/customer_new.html:64
+msgid "Unknown"
+msgstr ""
+
+#: app/admin/services/forms.py:71 app/admin/services/forms.py:81
+#: templates/admin/car_detail.html:203 templates/admin/car_detail.html:315
+#: templates/admin/car_detail.html:416 templates/admin/car_new.html:103
+#: templates/admin/cars.html:52 templates/admin/customer_detail.html:236
+#: templates/admin/customer_detail.html:291
+#: templates/admin/customer_detail.html:387
+#: templates/admin/customer_new.html:107 templates/admin/customers.html:64
+#: templates/admin/transaction_detail.html:114
+#: templates/admin/transaction_new.html:101
+#: templates/admin/transactions.html:43 templates/admin/user_detail.html:107
+#: templates/admin/user_new.html:85 templates/admin/users.html:62
+msgid "Status"
+msgstr ""
+
+#: app/admin/services/forms.py:71 app/admin/services/forms.py:81
+#: templates/admin/user_detail.html:109 templates/admin/user_new.html:87
+msgid "Active"
+msgstr ""
+
+#: app/admin/services/forms.py:71 app/admin/services/forms.py:81
+#: templates/admin/user_detail.html:110 templates/admin/user_new.html:88
+msgid "Inactive"
+msgstr ""
+
+#: app/utils/constants.py:24 templates/admin/cars.html:119
+msgid "Sold"
+msgstr ""
+
+#: app/utils/constants.py:25 templates/admin/cars.html:113
+msgid "Awaiting Delivery"
+msgstr ""
+
+#: app/utils/constants.py:26
+msgid "Available"
+msgstr ""
+
+#: app/utils/constants.py:29 templates/admin/cars.html:125
+msgid "Refurbished"
+msgstr ""
+
+#: app/utils/constants.py:30 templates/admin/cars.html:131
+msgid "Not Refurbished"
+msgstr ""
+
+#: app/utils/constants.py:31 templates/admin/cars.html:137
+msgid "Refurbished/Pending Cleaning"
+msgstr ""
+
+#: templates/admin/_auth.html:6 templates/admin/login.html:18
+#: templates/admin/login.html:33
+msgid "Login"
+msgstr ""
+
+#: templates/admin/_header.html:57 templates/admin/system.html:404
+msgid "Vietnamese"
+msgstr ""
+
+#: templates/admin/_header.html:60 templates/admin/system.html:405
+msgid "Japanese"
+msgstr ""
+
+#: templates/admin/_header.html:300
+msgid "Sign Out"
+msgstr ""
+
+#: templates/admin/_sidebar.html:33
+msgid "Navigation"
+msgstr ""
+
+#: templates/admin/_sidebar.html:40 templates/admin/search.html:9
+#: templates/admin/search.html:15 templates/admin/search.html:29
+#: templates/admin/search.html:39
+msgid "Search"
+msgstr ""
+
+#: templates/admin/_sidebar.html:48 templates/admin/dashboard.html:9
+#: templates/admin/dashboard.html:15
+msgid "Dashboard"
+msgstr ""
+
+#: templates/admin/_sidebar.html:56 templates/admin/car_detail.html:16
+#: templates/admin/car_new.html:15 templates/admin/cars.html:15
+msgid "Car Management"
+msgstr ""
+
+#: templates/admin/_sidebar.html:60 templates/admin/cars.html:9
+#: templates/admin/cars.html:16
+msgid "Car List"
+msgstr ""
+
+#: templates/admin/_sidebar.html:63 templates/admin/car_new.html:9
+#: templates/admin/car_new.html:16 templates/admin/cars.html:261
+msgid "Add New Car"
+msgstr ""
+
+#: templates/admin/_sidebar.html:71 templates/admin/customer_new.html:15
+#: templates/admin/customers.html:15
+msgid "Customer Management"
+msgstr ""
+
+#: templates/admin/_sidebar.html:76 templates/admin/customers.html:9
+#: templates/admin/customers.html:16
+msgid "Customers"
+msgstr ""
+
+#: templates/admin/_sidebar.html:78 templates/admin/customer_new.html:9
+#: templates/admin/customer_new.html:16 templates/admin/customers.html:201
+msgid "Add New Customer"
+msgstr ""
+
+#: templates/admin/_sidebar.html:86 templates/admin/transaction_detail.html:15
+#: templates/admin/transaction_new.html:15 templates/admin/transactions.html:15
+msgid "Sale Management"
+msgstr ""
+
+#: templates/admin/_sidebar.html:91 templates/admin/transactions.html:9
+#: templates/admin/transactions.html:16
+msgid "Transactions"
+msgstr ""
+
+#: templates/admin/_sidebar.html:93 templates/admin/transaction_new.html:37
+msgid "Add Transaction"
+msgstr ""
+
+#: templates/admin/_sidebar.html:97
+msgid "Setting"
+msgstr ""
+
+#: templates/admin/_sidebar.html:105 templates/admin/user_detail.html:15
+#: templates/admin/user_new.html:15 templates/admin/users.html:15
+msgid "User Management"
+msgstr ""
+
+#: templates/admin/_sidebar.html:109 templates/admin/users.html:9
+#: templates/admin/users.html:16
+msgid "Users"
+msgstr ""
+
+#: templates/admin/_sidebar.html:113 templates/admin/user_new.html:9
+#: templates/admin/user_new.html:16 templates/admin/users.html:196
+msgid "Add New User"
+msgstr ""
+
+#: templates/admin/_sidebar.html:122
+msgid "System"
+msgstr ""
+
+#: templates/admin/car_detail.html:9 templates/admin/car_detail.html:17
+#: templates/admin/customer_detail.html:9
+#: templates/admin/customer_detail.html:16
+#: templates/admin/transaction_detail.html:9
+#: templates/admin/transaction_detail.html:16
+#: templates/admin/user_detail.html:9 templates/admin/user_detail.html:16
+msgid "Detail"
+msgstr ""
+
+#: templates/admin/car_detail.html:14 templates/admin/car_new.html:14
+#: templates/admin/cars.html:14 templates/admin/customer_detail.html:14
+#: templates/admin/customer_new.html:14 templates/admin/customers.html:14
+#: templates/admin/dashboard.html:14 templates/admin/search.html:14
+#: templates/admin/system.html:14 templates/admin/transaction_detail.html:14
+#: templates/admin/transaction_new.html:14 templates/admin/transactions.html:14
+#: templates/admin/user_detail.html:14 templates/admin/user_new.html:14
+#: templates/admin/users.html:14
+msgid "Home"
+msgstr ""
+
+#: templates/admin/car_detail.html:55 templates/admin/car_detail.html:230
+#: templates/admin/car_new.html:125 templates/admin/cars.html:48
+msgid "Branch"
+msgstr ""
+
+#: templates/admin/car_detail.html:59 templates/admin/cars.html:50
+msgid "Imported Date"
+msgstr ""
+
+#: templates/admin/car_detail.html:63 templates/admin/car_detail.html:163
+msgid "Year Of Manufacture"
+msgstr ""
+
+#: templates/admin/car_detail.html:70 templates/admin/car_detail.html:225
+#: templates/admin/car_new.html:121
+msgid "Color"
+msgstr ""
+
+#: templates/admin/car_detail.html:74
+msgid "Traded by"
+msgstr ""
+
+#: templates/admin/car_detail.html:85 templates/admin/car_detail.html:132
+msgid "Car information"
+msgstr ""
+
+#: templates/admin/car_detail.html:91 templates/admin/car_detail.html:302
+msgid "Customer List"
+msgstr ""
+
+#: templates/admin/car_detail.html:97 templates/admin/customer_detail.html:80
+#: templates/admin/transaction_new.html:9
+#: templates/admin/transaction_new.html:16
+#: templates/admin/transactions.html:223
+msgid "Add New Transaction"
+msgstr ""
+
+#: templates/admin/car_detail.html:105 templates/admin/car_new.html:158
+msgid "Car Images"
+msgstr ""
+
+#: templates/admin/car_detail.html:112
+msgid ""
+"No\n"
+"                    images available."
+msgstr ""
+
+#: templates/admin/car_detail.html:137 templates/admin/customer_detail.html:164
+#: templates/admin/transaction_detail.html:42
+#: templates/admin/user_detail.html:71
+msgid "Update"
+msgstr ""
+
+#: templates/admin/car_detail.html:139 templates/admin/customer_detail.html:165
+#: templates/admin/transaction_detail.html:43
+#: templates/admin/user_detail.html:72
+msgid "Reset"
+msgstr ""
+
+#: templates/admin/car_detail.html:148 templates/admin/car_new.html:50
+#: templates/admin/customer_detail.html:174
+#: templates/admin/customer_new.html:51 templates/admin/customers.html:59
+msgid "Name"
+msgstr ""
+
+#: templates/admin/car_detail.html:158 templates/admin/car_new.html:59
+msgid "Model"
+msgstr ""
+
+#: templates/admin/car_detail.html:169 templates/admin/car_new.html:69
+msgid "Chassis No. (VIN)"
+msgstr ""
+
+#: templates/admin/car_detail.html:174 templates/admin/car_new.html:73
+msgid "Imported date"
+msgstr ""
+
+#: templates/admin/car_detail.html:185 templates/admin/car_new.html:83
+msgid "Purchase Price"
+msgstr ""
+
+#: templates/admin/car_detail.html:191 templates/admin/car_new.html:87
+msgid "Inspection From"
+msgstr ""
+
+#: templates/admin/car_detail.html:205 templates/admin/car_new.html:105
+msgid "Product status"
+msgstr ""
+
+#: templates/admin/car_detail.html:215 templates/admin/car_new.html:112
+#: templates/admin/cars.html:49
+msgid "Situation"
+msgstr ""
+
+#: templates/admin/car_detail.html:217 templates/admin/car_new.html:114
+msgid "Select a situation"
+msgstr ""
+
+#: templates/admin/car_detail.html:232 templates/admin/car_new.html:127
+msgid "Select a branch"
+msgstr ""
+
+#: templates/admin/car_detail.html:242 templates/admin/car_new.html:134
+msgid "License Plate No."
+msgstr ""
+
+#: templates/admin/car_detail.html:248 templates/admin/car_new.html:97
+msgid "Traded Company"
+msgstr ""
+
+#: templates/admin/car_detail.html:253
+msgid "Expected Selling Price"
+msgstr ""
+
+#: templates/admin/car_detail.html:259 templates/admin/car_new.html:142
+msgid "Inspection To"
+msgstr ""
+
+#: templates/admin/car_detail.html:270 templates/admin/car_detail.html:427
+#: templates/admin/car_new.html:152 templates/admin/customer_detail.html:248
+#: templates/admin/customer_detail.html:397
+#: templates/admin/customer_new.html:117
+#: templates/admin/transaction_detail.html:125
+#: templates/admin/transaction_new.html:112
+msgid "Note"
+msgstr ""
+
+#: templates/admin/car_detail.html:277
+msgid "Add More Images"
+msgstr ""
+
+#: templates/admin/car_detail.html:282
+msgid "Drag and drop more images here or click to select"
+msgstr ""
+
+#: templates/admin/car_detail.html:283 templates/admin/car_new.html:162
+msgid "Supports JPG, PNG, WEBP"
+msgstr ""
+
+#: templates/admin/car_detail.html:311 templates/admin/customer_detail.html:287
+msgid "Transaction No."
+msgstr ""
+
+#: templates/admin/car_detail.html:312
+#: templates/admin/transaction_detail.html:52
+#: templates/admin/transactions.html:36
+msgid "Customer Name"
+msgstr ""
+
+#: templates/admin/car_detail.html:313 templates/admin/customer_detail.html:289
+msgid "Purchase date"
+msgstr ""
+
+#: templates/admin/car_detail.html:314 templates/admin/car_detail.html:408
+#: templates/admin/customer_detail.html:290
+#: templates/admin/customer_detail.html:379
+#: templates/admin/transaction_new.html:87
+msgid "Unit Price"
+msgstr ""
+
+#: templates/admin/car_detail.html:355
+msgid "No customer found. Create a customer first."
+msgstr ""
+
+#: templates/admin/car_detail.html:357
+msgid "Create New Customer"
+msgstr ""
+
+#: templates/admin/car_detail.html:369
+msgid "Add Customer Purchase"
+msgstr ""
+
+#: templates/admin/car_detail.html:374 templates/admin/customer_detail.html:346
+#: templates/admin/transaction_new.html:41 templates/admin/user_new.html:41
+msgid "Add"
+msgstr ""
+
+#: templates/admin/car_detail.html:376 templates/admin/car_new.html:41
+#: templates/admin/customer_detail.html:347
+#: templates/admin/customer_new.html:42 templates/admin/transaction_new.html:42
+#: templates/admin/user_new.html:42
+msgid "Cancel"
+msgstr ""
+
+#: templates/admin/car_detail.html:385 templates/admin/customer_detail.html:15
+#: templates/admin/transaction_new.html:51
+msgid "Customer"
+msgstr ""
+
+#: templates/admin/car_detail.html:388
+#: templates/admin/transaction_detail.html:55
+#: templates/admin/transaction_new.html:54
+msgid "Select A Customer"
+msgstr ""
+
+#: templates/admin/car_detail.html:397 templates/admin/customer_detail.html:368
+#: templates/admin/transaction_detail.html:86
+#: templates/admin/transaction_new.html:75 templates/admin/transactions.html:38
+msgid "Purchase Date"
+msgstr ""
+
+#: templates/admin/car_detail.html:418 templates/admin/customer_detail.html:238
+#: templates/admin/customer_detail.html:389
+#: templates/admin/customer_new.html:109
+#: templates/admin/transaction_detail.html:116
+#: templates/admin/transaction_new.html:103
+msgid "Customer status"
+msgstr ""
+
+#: templates/admin/car_detail.html:496 templates/admin/customer_detail.html:451
+msgid "Remove Image"
+msgstr ""
+
+#: templates/admin/car_detail.html:524 templates/admin/customer_detail.html:485
+msgid "Are you sure you want to delete this image?"
+msgstr ""
+
+#: templates/admin/car_detail.html:542
+msgid "Failed to delete the image."
+msgstr ""
+
+#: templates/admin/car_new.html:36
+msgid "Add a new car"
+msgstr ""
+
+#: templates/admin/car_new.html:40 templates/admin/customer_new.html:41
+msgid "Create"
+msgstr ""
+
+#: templates/admin/car_new.html:63
+msgid "Year Of Manufactoring"
+msgstr ""
+
+#: templates/admin/car_new.html:138
+msgid "Sale Price"
+msgstr ""
+
+#: templates/admin/car_new.html:161
+msgid "Drag and drop images here or click to select"
+msgstr ""
+
+#: templates/admin/cars.html:46 templates/admin/customers.html:58
+#: templates/admin/transactions.html:35 templates/admin/users.html:58
+msgid "No."
+msgstr ""
+
+#: templates/admin/cars.html:47
+msgid "Name/Model"
+msgstr ""
+
+#: templates/admin/cars.html:51 templates/admin/transaction_detail.html:99
+#: templates/admin/transactions.html:39
+msgid "Selling Price"
+msgstr ""
+
+#: templates/admin/cars.html:53 templates/admin/customers.html:65
+#: templates/admin/users.html:63
+msgid "Actions"
+msgstr ""
+
+#: templates/admin/cars.html:101 templates/admin/customers.html:41
+#: templates/admin/transactions.html:97 templates/admin/users.html:41
+msgid "All"
+msgstr ""
+
+#: templates/admin/cars.html:107
+msgid "Available (inc. Awaiting)"
+msgstr ""
+
+#: templates/admin/cars.html:174 templates/admin/dashboard.html:88
+msgid "Total Cars"
+msgstr ""
+
+#: templates/admin/cars.html:180
+msgid "all situations"
+msgstr ""
+
+#: templates/admin/cars.html:195
+msgid "Available Cars"
+msgstr ""
+
+#: templates/admin/cars.html:201
+msgid "ready or awaiting"
+msgstr ""
+
+#: templates/admin/cars.html:216
+msgid "Sold Cars"
+msgstr ""
+
+#: templates/admin/cars.html:222
+msgid "paid transactions"
+msgstr ""
+
+#: templates/admin/cars.html:247 templates/admin/customers.html:187
+#: templates/admin/transactions.html:209 templates/admin/users.html:182
+msgid "Search..."
+msgstr ""
+
+#: templates/admin/cars.html:248 templates/admin/customers.html:188
+#: templates/admin/transactions.html:210 templates/admin/users.html:183
+msgid "entries per page"
+msgstr ""
+
+#: templates/admin/cars.html:249 templates/admin/cars.html:250
+#: templates/admin/customers.html:189 templates/admin/customers.html:190
+#: templates/admin/transactions.html:211 templates/admin/transactions.html:212
+#: templates/admin/users.html:184 templates/admin/users.html:185
+msgid "No entries found"
+msgstr ""
+
+#: templates/admin/cars.html:251 templates/admin/customers.html:191
+#: templates/admin/transactions.html:213 templates/admin/users.html:186
+#, python-brace-format
+msgid "Showing {start} to {end} of {rows} entries"
+msgstr ""
+
+#: templates/admin/customer_detail.html:48
+#: templates/admin/customer_detail.html:222
+#: templates/admin/customer_new.html:94 templates/admin/customers.html:61
+msgid "Facebook"
+msgstr ""
+
+#: templates/admin/customer_detail.html:52
+#: templates/admin/customer_detail.html:205
+#: templates/admin/customer_new.html:78 templates/admin/customers.html:62
+msgid "Phone"
+msgstr ""
+
+#: templates/admin/customer_detail.html:56
+#: templates/admin/customer_detail.html:198
+#: templates/admin/customer_new.html:72 templates/admin/customers.html:63
+msgid "Address"
+msgstr ""
+
+#: templates/admin/customer_detail.html:66
+#: templates/admin/customer_detail.html:160
+#: templates/admin/customer_new.html:37
+msgid "Customer information"
+msgstr ""
+
+#: templates/admin/customer_detail.html:73
+#: templates/admin/customer_detail.html:278
+msgid "Purchased List"
+msgstr ""
+
+#: templates/admin/customer_detail.html:89
+msgid "Customer Images"
+msgstr ""
+
+#: templates/admin/customer_detail.html:100
+msgid "No images available."
+msgstr ""
+
+#: templates/admin/customer_detail.html:107
+msgid "Customer Documents"
+msgstr ""
+
+#: templates/admin/customer_detail.html:142
+msgid "No documents available."
+msgstr ""
+
+#: templates/admin/customer_detail.html:186
+#: templates/admin/customer_new.html:62
+msgid "Gender"
+msgstr ""
+
+#: templates/admin/customer_detail.html:190
+#: templates/admin/customer_new.html:65
+msgid "Male"
+msgstr ""
+
+#: templates/admin/customer_detail.html:192
+#: templates/admin/customer_new.html:66
+msgid "Female"
+msgstr ""
+
+#: templates/admin/customer_detail.html:212
+#: templates/admin/customer_new.html:84
+msgid "Birthday"
+msgstr ""
+
+#: templates/admin/customer_detail.html:229
+#: templates/admin/customer_new.html:101
+msgid "Lead Source"
+msgstr ""
+
+#: templates/admin/customer_detail.html:255
+msgid "Add More Documents & Images"
+msgstr ""
+
+#: templates/admin/customer_detail.html:258
+#: templates/admin/customer_new.html:127
+#: templates/admin/transaction_detail.html:215
+#: templates/admin/transaction_new.html:145
+msgid "Drag and drop files here or click to select"
+msgstr ""
+
+#: templates/admin/customer_detail.html:259
+#: templates/admin/customer_new.html:128
+#: templates/admin/transaction_detail.html:216
+#: templates/admin/transaction_new.html:146
+msgid "Supports JPG, PNG, WEBP, PDF, Word, Excel, Docs"
+msgstr ""
+
+#: templates/admin/customer_detail.html:288
+#: templates/admin/transactions.html:37
+msgid "Car Name"
+msgstr ""
+
+#: templates/admin/customer_detail.html:342
+msgid "Add Purchase"
+msgstr ""
+
+#: templates/admin/customer_detail.html:356
+#: templates/admin/transaction_detail.html:69
+#: templates/admin/transaction_new.html:63
+msgid "Car"
+msgstr ""
+
+#: templates/admin/customer_detail.html:359
+#: templates/admin/transaction_detail.html:72
+#: templates/admin/transaction_new.html:66
+msgid "Select A Car"
+msgstr ""
+
+#: templates/admin/customer_detail.html:485
+msgid "Are you sure you want to delete this document?"
+msgstr ""
+
+#: templates/admin/customer_detail.html:504
+#: templates/admin/transaction_detail.html:388
+msgid "Failed to delete the file."
+msgstr ""
+
+#: templates/admin/customer_new.html:124
+msgid "Customer Documents & Images"
+msgstr ""
+
+#: templates/admin/customers.html:60
+msgid "Birth Day"
+msgstr ""
+
+#: templates/admin/customers.html:114 templates/admin/dashboard.html:50
+msgid "Total Customers"
+msgstr ""
+
+#: templates/admin/customers.html:120
+msgid "profiles"
+msgstr ""
+
+#: templates/admin/customers.html:135
+msgid "Active Customers"
+msgstr ""
+
+#: templates/admin/customers.html:141
+msgid "with purchases"
+msgstr ""
+
+#: templates/admin/customers.html:156
+msgid "Potential Leads"
+msgstr ""
+
+#: templates/admin/customers.html:162
+msgid "no purchases yet"
+msgstr ""
+
+#: templates/admin/dashboard.html:50 templates/admin/dashboard.html:68
+#: templates/admin/dashboard.html:88
+msgid "This Month"
+msgstr ""
+
+#: templates/admin/dashboard.html:54 templates/admin/dashboard.html:72
+#: templates/admin/dashboard.html:92
+msgid "Monthly Increase"
+msgstr ""
+
+#: templates/admin/dashboard.html:68
+msgid "Total Transactions"
+msgstr ""
+
+#: templates/admin/dashboard.html:105 templates/admin/dashboard.html:204
+msgid "Revenue (Last 6 Months)"
+msgstr ""
+
+#: templates/admin/dashboard.html:109
+msgid "1 Month"
+msgstr ""
+
+#: templates/admin/dashboard.html:110
+msgid "3 Months"
+msgstr ""
+
+#: templates/admin/dashboard.html:111
+msgid "6 Months"
+msgstr ""
+
+#: templates/admin/dashboard.html:112
+msgid "1 Year"
+msgstr ""
+
+#: templates/admin/dashboard.html:128
+msgid "Car Status Distribution"
+msgstr ""
+
+#: templates/admin/dashboard.html:202
+msgid "Revenue (Last 30 Days)"
+msgstr ""
+
+#: templates/admin/dashboard.html:203
+msgid "Revenue (Last 12 Weeks)"
+msgstr ""
+
+#: templates/admin/dashboard.html:205
+msgid "Revenue (Last 1 Year)"
+msgstr ""
+
+#: templates/admin/login.html:20 templates/admin/user_detail.html:81
+#: templates/admin/user_new.html:51 templates/admin/users.html:59
+msgid "Username"
+msgstr ""
+
+#: templates/admin/login.html:23 templates/admin/user_detail.html:100
+#: templates/admin/user_new.html:64
+msgid "Password"
+msgstr ""
+
+#: templates/admin/login.html:29
+msgid "Remember me"
+msgstr ""
+
+#: templates/admin/search.html:49
+msgid "Result for"
+msgstr ""
+
+#: templates/admin/search.html:70
+msgid "No results found."
+msgstr ""
+
+#: templates/admin/system.html:9 templates/admin/system.html:15
+#: templates/admin/system.html:364
+msgid "System Settings"
+msgstr ""
+
+#: templates/admin/system.html:61
+msgid "File too large (max 2 MB)"
+msgstr ""
+
+#: templates/admin/system.html:77
+msgid "Remove logo and reset to default?"
+msgstr ""
+
+#: templates/admin/system.html:89 templates/admin/system.html:393
+msgid "Dark Mode"
+msgstr ""
+
+#: templates/admin/system.html:90 templates/admin/system.html:393
+msgid "Light Mode"
+msgstr ""
+
+#: templates/admin/system.html:226
+msgid "Link copied to clipboard!"
+msgstr ""
+
+#: templates/admin/system.html:258
+msgid "QR Code downloaded successfully!"
+msgstr ""
+
+#: templates/admin/system.html:278
+msgid "Brand & Identity"
+msgstr ""
+
+#: templates/admin/system.html:281
+msgid "Save Changes"
+msgstr ""
+
+#: templates/admin/system.html:295
+msgid "Current Logo"
+msgstr ""
+
+#: templates/admin/system.html:324
+msgid "Remove Logo"
+msgstr ""
+
+#: templates/admin/system.html:333
+msgid "System Name"
+msgstr ""
+
+#: templates/admin/system.html:335
+msgid "e.g. Gemini"
+msgstr ""
+
+#: templates/admin/system.html:337
+msgid "Displayed next to the logo in the sidebar."
+msgstr ""
+
+#: templates/admin/system.html:342
+msgid "Upload Logo"
+msgstr ""
+
+#: templates/admin/system.html:345
+msgid "Drag and drop logo here or click to select"
+msgstr ""
+
+#: templates/admin/system.html:346
+msgid "Accepted: PNG, JPG, SVG, WEBP — max 2 MB. Recommended size: 250x60px."
+msgstr ""
+
+#: templates/admin/system.html:365
+msgid ""
+"Save\n"
+"                        Changes"
+msgstr ""
+
+#: templates/admin/system.html:373
+msgid "Currency"
+msgstr ""
+
+#: templates/admin/system.html:382
+msgid "Theme"
+msgstr ""
+
+#: templates/admin/system.html:401
+msgid "Language"
+msgstr ""
+
+#: templates/admin/system.html:419
+msgid "Admin QR Code"
+msgstr ""
+
+#: templates/admin/system.html:423
+msgid "Scan QR Code to access the Admin page on other devices."
+msgstr ""
+
+#: templates/admin/system.html:428
+msgid "Connection Type"
+msgstr ""
+
+#: templates/admin/system.html:430
+msgid "Local Network IP"
+msgstr ""
+
+#: templates/admin/system.html:432
+msgid "PC Hostname"
+msgstr ""
+
+#: templates/admin/system.html:434
+msgid "Localhost"
+msgstr ""
+
+#: templates/admin/system.html:444
+msgid "Copy Link"
+msgstr ""
+
+#: templates/admin/system.html:461
+msgid "Download QR"
+msgstr ""
+
+#: templates/admin/transaction_detail.html:38
+msgid "Transaction Detail"
+msgstr ""
+
+#: templates/admin/transaction_detail.html:62
+msgid "For more detail about the customer"
+msgstr ""
+
+#: templates/admin/transaction_detail.html:79
+msgid "For more detail about the car"
+msgstr ""
+
+#: templates/admin/transaction_detail.html:106
+#: templates/admin/transaction_new.html:94
+msgid "Deposit Amount"
+msgstr ""
+
+#: templates/admin/transaction_detail.html:131
+#: templates/admin/transaction_new.html:118
+msgid "Other Transactions (Accessories/Services)"
+msgstr ""
+
+#: templates/admin/transaction_detail.html:136
+#: templates/admin/transaction_new.html:123
+msgid "Accessory/Service Name"
+msgstr ""
+
+#: templates/admin/transaction_detail.html:137
+#: templates/admin/transaction_new.html:124
+msgid "Price"
+msgstr ""
+
+#: templates/admin/transaction_detail.html:159
+#: templates/admin/transaction_new.html:136
+msgid "Add Item"
+msgstr ""
+
+#: templates/admin/transaction_detail.html:163
+#: templates/admin/transactions.html:41
+msgid "Other Transaction"
+msgstr ""
+
+#: templates/admin/transaction_detail.html:167
+#: templates/admin/transactions.html:42
+msgid "Total Amount"
+msgstr ""
+
+#: templates/admin/transaction_detail.html:175
+#: templates/admin/transaction_detail.html:380
+msgid "Uploaded Documents & Images"
+msgstr ""
+
+#: templates/admin/transaction_detail.html:205
+#: templates/admin/transaction_detail.html:380
+msgid "No files uploaded yet."
+msgstr ""
+
+#: templates/admin/transaction_detail.html:212
+msgid "Upload More Documents & Images"
+msgstr ""
+
+#: templates/admin/transaction_detail.html:362
+msgid "Are you sure you want to delete this file?"
+msgstr ""
+
+#: templates/admin/transaction_new.html:142
+msgid "Transaction Documents & Images"
+msgstr ""
+
+#: templates/admin/transactions.html:40
+msgid "Deposit"
+msgstr ""
+
+#: templates/admin/transactions.html:44
+msgid "Action"
+msgstr ""
+
+#: templates/admin/transactions.html:132
+msgid "Total Revenue"
+msgstr ""
+
+#: templates/admin/transactions.html:138
+msgid "estimated"
+msgstr ""
+
+#: templates/admin/transactions.html:153
+msgid "Paid Revenue"
+msgstr ""
+
+#: templates/admin/transactions.html:159
+msgid "collected"
+msgstr ""
+
+#: templates/admin/transactions.html:180
+msgid "holding"
+msgstr ""
+
+#: templates/admin/user_detail.html:48 templates/admin/user_detail.html:93
+#: templates/admin/user_new.html:58 templates/admin/users.html:60
+msgid "Email"
+msgstr ""
+
+#: templates/admin/user_detail.html:67
+msgid "User information"
+msgstr ""
+
+#: templates/admin/user_detail.html:116 templates/admin/users.html:61
+msgid "Role"
+msgstr ""
+
+#: templates/admin/user_detail.html:118 templates/admin/user_new.html:78
+msgid "Guest"
+msgstr ""
+
+#: templates/admin/user_detail.html:121 templates/admin/user_new.html:79
+msgid "Admin"
+msgstr ""
+
+#: templates/admin/user_new.html:37
+msgid "Add User"
+msgstr ""
+
+#: templates/admin/user_new.html:70
+msgid "Confirm Password"
+msgstr ""
+
+#: templates/admin/user_new.html:76
+msgid "User Role"
+msgstr ""
+
+#: templates/admin/users.html:110
+msgid "Total Users"
+msgstr ""
+
+#: templates/admin/users.html:116
+msgid "accounts"
+msgstr ""
+
+#: templates/admin/users.html:131
+msgid "Admin Users"
+msgstr ""
+
+#: templates/admin/users.html:137
+msgid "managers"
+msgstr ""
+
+#: templates/admin/users.html:152
+msgid "Staff/Members"
+msgstr ""
+
+#: templates/admin/users.html:158
+msgid "employees"
+msgstr ""
+

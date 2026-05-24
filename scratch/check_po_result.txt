@@ -1,0 +1,2 @@
+--- Parsing lang/translations/vi/LC_MESSAGES/messages.po ---
+--- Parsing lang/translations/ja/LC_MESSAGES/messages.po ---

@@ -1,0 +1,280 @@
+{% extends "_base.html" %}
+
+{% block breadcrumb %}
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="page-header-title">
+                    <h5 class="mb-0">{{ _('Dashboard') }}</h5>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <ul class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="/admin">{{ _('Home') }}</a></li>
+                    <li class="breadcrumb-item"><a href="javascript: void(0)">{{ _('Dashboard') }}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <style>
+        .metric-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .metric-card:hover {
+            transform: translateY(-8px);
+        }
+        .metric-card .bg-shape {
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .metric-card:hover .bg-shape {
+            transform: scale(1.15) rotate(15deg);
+        }
+        .metric-card:hover .bg-shape-wave {
+            transform: scale(1.1) translateY(-10px);
+        }
+    </style>
+    <!-- [Register-user section] start -->
+    <div class="col-md-12 col-xl-4">
+        <div class="card metric-card position-relative overflow-hidden text-white" style="background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%); border: none; box-shadow: 0 10px 20px rgba(13, 110, 253, 0.2);">
+            <!-- Abstract Background Shapes -->
+            <div class="bg-shape position-absolute" style="width: 250px; height: 250px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%); top: -50px; right: -50px; pointer-events: none;"></div>
+            <div class="bg-shape position-absolute" style="width: 150px; height: 150px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%); bottom: -40px; right: 100px; pointer-events: none;"></div>
+            <div class="card-body position-relative z-1">
+                <h5 class="mb-3 f-w-400 text-white-50">{{ _('Total Customers') }} ({{ _('This Month') }})</h5>
+                <h3 class="f-w-500 mb-4 text-white" style="font-size: 2.2rem;">{{ metric.customers.total or 0 }}</h3>
+                <span class="text-white-50 d-block mt-2">
+                    <label class="badge bg-white text-primary me-2 f-12 f-w-600 shadow-sm" style="padding: 6px 10px;">+{{ metric.customers.monthly_increase or 0 }}%</label>
+                    {{ _('Monthly Increase') }}
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- [Register-user section] end -->
+
+    <!-- [Daily-user section] start -->
+    <div class="col-md-6 col-xl-4">
+        <div class="card metric-card position-relative overflow-hidden text-white" style="background: linear-gradient(135deg, #20c997 0%, #198754 100%); border: none; box-shadow: 0 10px 20px rgba(25, 135, 84, 0.2);">
+            <!-- Abstract Background Shapes -->
+            <div class="bg-shape position-absolute" style="width: 200px; height: 200px; border-radius: 50%; border: 35px solid rgba(255,255,255,0.08); top: -60px; right: -40px; pointer-events: none;"></div>
+            <div class="bg-shape position-absolute" style="width: 100px; height: 100px; border-radius: 50%; background: rgba(255,255,255,0.1); bottom: -20px; right: 80px; pointer-events: none;"></div>
+            <div class="card-body position-relative z-1">
+                <h5 class="mb-3 f-w-400 text-white-50">{{ _('Total Transactions') }} ({{ _('This Month') }})</h5>
+                <h3 class="f-w-500 mb-4 text-white" style="font-size: 2.2rem;">{{ metric.transactions.total or 0 }}</h3>
+                <span class="text-white-50 d-block mt-2">
+                    <label class="badge bg-white text-success me-2 f-12 f-w-600 shadow-sm" style="padding: 6px 10px;">+{{ metric.transactions.monthly_increase or 0 }}%</label>
+                    {{ _('Monthly Increase') }}
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- [Daily-user section] end -->
+
+    <!-- [Premium-user section] start -->
+    <div class="col-md-6 col-xl-4">
+        <div class="card metric-card position-relative overflow-hidden text-white" style="background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%); border: none; box-shadow: 0 10px 20px rgba(109, 40, 217, 0.2);">
+            <!-- Abstract Background Shapes -->
+            <svg class="bg-shape-wave position-absolute" style="top: 0; right: 0; width: 100%; height: 100%; opacity: 0.35; pointer-events: none; transition: transform 0.7s ease;" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0,100 C30,70 70,70 100,20 L100,0 L0,0 Z" fill="rgba(255,255,255,0.2)"></path>
+                <path d="M0,100 C40,40 80,40 100,10 L100,0 L0,0 Z" fill="rgba(255,255,255,0.3)"></path>
+            </svg>
+            <div class="card-body position-relative z-1">
+                <h5 class="mb-3 f-w-400 text-white-50">{{ _('Total Cars') }} ({{ _('This Month') }})</h5>
+                <h3 class="f-w-500 mb-4 text-white" style="font-size: 2.2rem;">{{ metric.cars.total or 0 }}</h3>
+                <span class="text-white-50 d-block mt-2">
+                    <label class="badge bg-white text-primary me-2 f-12 f-w-600 shadow-sm" style="padding: 6px 10px; color: #6d28d9 !important;">+{{ metric.cars.monthly_increase or 0 }}%</label>
+                    {{ _('Monthly Increase') }}
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- [Premium-user section] end -->
+
+    <!-- [ statistics multi chart ] start -->
+    <div class="col-xl-8 col-md-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0 d-flex align-items-center">
+                    <i class="ti ti-chart-bar me-2 text-primary f-20"></i>
+                    <span><span id="revenue-chart-title">{{ _('Revenue (Last 6 Months)') }}</span> ({{ currency_symbol
+                        }})</span>
+                </h5>
+                <div class="btn-group btn-group-sm" role="group" aria-label="Revenue range">
+                    <button type="button" class="btn btn-outline-primary" data-range="1m">{{ _('1 Month') }}</button>
+                    <button type="button" class="btn btn-outline-primary" data-range="3m">{{ _('3 Months') }}</button>
+                    <button type="button" class="btn btn-primary" data-range="6m">{{ _('6 Months') }}</button>
+                    <button type="button" class="btn btn-outline-primary" data-range="1y">{{ _('1 Year') }}</button>
+                </div>
+            </div>
+            <div class="card-body pb-0">
+                <div id="revenue-chart" style="height: 330px"></div>
+            </div>
+        </div>
+    </div>
+    <!-- [ statistics multi chart ] end -->
+
+    <!-- [ statistics chart ] start -->
+    <div class="col-md-12 col-xl-4">
+        <div class="card">
+            <div class="card-header border-0">
+                <h5 class="mb-0 d-flex align-items-center">
+                    <i class="ti ti-chart-pie me-2 text-success f-20"></i>
+                    {{ _('Car Status Distribution') }}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="car-stats-chart" style="height: 300px"></div>
+            </div>
+        </div>
+    </div>
+    <!-- [ statistics chart ] end -->
+
+</div>
+
+<!-- Pass data to JS -->
+<div id="dashboard-data" class="d-none"
+    data-revenue-months='{{ metric.revenue_6_months | map(attribute="month") | list | tojson | forceescape }}'
+    data-revenue-data='{{ metric.revenue_6_months | map(attribute="revenue") | list | tojson | forceescape }}'
+    data-car-labels='{{ metric.car_stats.labels | map("string") | list | tojson | forceescape }}'
+    data-car-series='{{ metric.car_stats.series | tojson | forceescape }}'></div>
+<script>
+    const dataDiv = document.getElementById('dashboard-data');
+    window.DashboardData = {
+        revenue_months: JSON.parse(dataDiv.dataset.revenueMonths),
+        revenue_data: JSON.parse(dataDiv.dataset.revenueData),
+        car_labels: JSON.parse(dataDiv.dataset.carLabels),
+        car_series: JSON.parse(dataDiv.dataset.carSeries)
+    };
+</script>
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='admin/js/plugins/apexcharts.min.js') }}"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Revenue Bar Chart
+        let revenueChart = null;
+
+        if (window.DashboardData.revenue_months && window.DashboardData.revenue_months.length > 0) {
+            var options = {
+                chart: {
+                    type: 'bar',
+                    height: 330,
+                    toolbar: { show: false }
+                },
+                plotOptions: {
+                    bar: {
+                        borderRadius: 4,
+                        horizontal: false,
+                    }
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                series: [{
+                    name: 'Revenue',
+                    data: window.DashboardData.revenue_data
+                }],
+                xaxis: {
+                    categories: window.DashboardData.revenue_months,
+                },
+                yaxis: {
+                    labels: {
+                        formatter: function (val) {
+                            return val.toLocaleString() + " {{ currency_symbol }}";
+                        }
+                    }
+                },
+                colors: ['#0d6efd']
+            };
+            revenueChart = new ApexCharts(document.querySelector("#revenue-chart"), options);
+            revenueChart.render();
+        }
+
+        // Handle Range Switching with premium feel & micro-animations
+        const titles = {
+            "1m": "{{ _('Revenue (Last 30 Days)') }}",
+            "3m": "{{ _('Revenue (Last 12 Weeks)') }}",
+            "6m": "{{ _('Revenue (Last 6 Months)') }}",
+            "1y": "{{ _('Revenue (Last 1 Year)') }}"
+        };
+
+        const buttons = document.querySelectorAll("[data-range]");
+        buttons.forEach(btn => {
+            btn.addEventListener("click", function () {
+                const range = this.getAttribute("data-range");
+
+                // Show visual active state
+                buttons.forEach(b => {
+                    b.classList.remove("btn-primary");
+                    b.classList.add("btn-outline-primary");
+                });
+                this.classList.remove("btn-outline-primary");
+                this.classList.add("btn-primary");
+
+                // Update dynamic title
+                const titleSpan = document.getElementById("revenue-chart-title");
+                if (titleSpan) {
+                    titleSpan.textContent = titles[range];
+                }
+
+                // Smooth opacity loader micro-animation
+                const chartEl = document.querySelector("#revenue-chart");
+                if (chartEl) {
+                    chartEl.style.opacity = "0.4";
+                    chartEl.style.transition = "opacity 0.15s ease";
+                }
+
+                // Fetch new data from API
+                fetch(`/admin/api/revenue-chart?range=${range}`)
+                    .then(response => response.json())
+                    .then(res => {
+                        if (res.status === "success" && revenueChart) {
+                            revenueChart.updateOptions({
+                                xaxis: {
+                                    categories: res.labels
+                                }
+                            });
+                            revenueChart.updateSeries([{
+                                name: 'Revenue',
+                                data: res.data
+                            }]);
+                        }
+                    })
+                    .catch(err => console.error("Error fetching revenue data:", err))
+                    .finally(() => {
+                        if (chartEl) {
+                            chartEl.style.opacity = "1";
+                        }
+                    });
+            });
+        });
+
+        // Car Status Pie Chart
+        if (window.DashboardData.car_series && window.DashboardData.car_series.length > 0) {
+            var options2 = {
+                chart: {
+                    type: 'donut',
+                    height: 300
+                },
+                series: window.DashboardData.car_series,
+                labels: window.DashboardData.car_labels,
+                legend: {
+                    position: 'bottom'
+                },
+                colors: ['#0d6efd', '#198754', '#ffc107', '#dc3545', '#0dcaf0', '#6c757d']
+            };
+            var chart2 = new ApexCharts(document.querySelector("#car-stats-chart"), options2);
+            chart2.render();
+        } else {
+            document.querySelector("#car-stats-chart").innerHTML = "<p class='text-center mt-5 text-muted'>No Data</p>";
+        }
+    });
+</script>
+{% endblock %}
