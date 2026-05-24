@@ -212,6 +212,8 @@
         const dt = new simpleDatatables.DataTable(tb, { 
             sortable: true,
             searchQuerySeparator: "",
+            perPage: 10,
+            perPageSelect: [10, 20, 50, 100, ["{{ _('All') }}", 10000]],
             columns: [
                 { select: [1, 2], type: "html" },
                 { select: 9, type: "html", sortable: false }

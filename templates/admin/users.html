@@ -194,6 +194,8 @@
     ['#pc-dt-simple-1'].forEach((tb) => {
         const dt = new simpleDatatables.DataTable(tb, { 
             sortable: true,
+            perPage: 10,
+            perPageSelect: [10, 20, 50, 100, ["{{ _('All') }}", 10000]],
             labels: {
                 placeholder: "{{ _('Search...') }}",
                 perPage: "{{ _('entries per page') }}",
