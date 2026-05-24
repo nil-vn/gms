@@ -68,8 +68,7 @@
             <span class="text-muted f-11">
                 <i class="ti ti-map-pin me-1"></i>{{ customer.address or _('No address') }}
             </span>
-            <a href="{{ url_for('admin_routes.customer_detail', customer_id=customer.id) }}"
-                class="btn btn-light-primary btn-sm px-3 rounded-pill py-1">
+            <a href="{{ url_for('admin_routes.customer_detail', customer_id=customer.id) }}" class="btn btn-light-primary btn-sm px-3 rounded-pill py-1">
                 {{ _('Detail') }} <i class="ti ti-arrow-right f-12 ms-1"></i>
             </a>
         </div>
@@ -102,8 +101,7 @@
             <h6 class="mb-0 text-success fw-semibold">
                 {{ car.price | format_currency }}
             </h6>
-            <a href="{{ url_for('admin_routes.car_detail', car_id=car.id) }}"
-                class="btn btn-light-primary btn-sm px-3 rounded-pill py-1">
+            <a href="{{ url_for('admin_routes.car_detail', car_id=car.id) }}" class="btn btn-light-primary btn-sm px-3 rounded-pill py-1">
                 {{ _('Detail') }} <i class="ti ti-arrow-right f-12 ms-1"></i>
             </a>
         </div>
@@ -119,8 +117,7 @@
     <div class="card-body p-3 d-flex flex-column justify-content-between">
         <div>
             <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
-                <span
-                    class="badge {% if transaction.status == 'PAID' %}bg-light-success text-success{% else %}bg-light-warning text-warning{% endif %} f-11">
+                <span class="badge {% if transaction.status == 'PAID' %}bg-light-success text-success{% else %}bg-light-warning text-warning{% endif %} f-11">
                     {{ transaction.status }}
                 </span>
                 <span class="text-muted f-11"><i class="ti ti-calendar me-1"></i>{{ transaction.created_at[:10]
@@ -139,12 +136,10 @@
             </p>
         </div>
         <div class="d-flex justify-content-between align-items-center pt-2 border-top border-light">
-            <h6
-                class="mb-0 {% if transaction.status == 'PAID' %}text-success{% else %}text-warning{% endif %} fw-semibold">
+            <h6 class="mb-0 {% if transaction.status == 'PAID' %}text-success{% else %}text-warning{% endif %} fw-semibold">
                 {{ transaction.amount | format_currency }}
             </h6>
-            <a href="{{ url_for('admin_routes.transaction_detail', transaction_id=transaction.id) }}"
-                class="btn btn-light-primary btn-sm px-3 rounded-pill py-1">
+            <a href="{{ url_for('admin_routes.transaction_detail', transaction_id=transaction.id) }}" class="btn btn-light-primary btn-sm px-3 rounded-pill py-1">
                 {{ _('Invoice') }} <i class="ti ti-arrow-right f-12 ms-1"></i>
             </a>
         </div>
@@ -158,8 +153,7 @@
     <div class="card-body p-3 d-flex flex-column justify-content-between">
         <div class="d-flex gap-3 align-items-start">
             {% if user.avatar %}
-            <img src="{{ url_for('static', filename='uploads/avatars/' + user.avatar) }}" class="rounded-circle"
-                style="width: 45px; height: 45px; object-fit: cover; flex-shrink: 0;" />
+            <img src="{{ url_for('static', filename=user.avatar) }}" class="rounded-circle" style="width: 45px; height: 45px; object-fit: cover; flex-shrink: 0;" onerror="this.onerror=null; this.src='{{ url_for('static', filename='admin/images/user/avatar-1.svg') }}';" />
             {% else %}
             <div class="search-avatar-circle bg-light-info text-info">
                 {{ (user.username or 'S')[0]|upper }}
@@ -176,15 +170,13 @@
                     <i class="ti ti-mail me-1"></i>{{ user.email or _('No email') }}
                 </p>
                 <p class="mb-0 text-muted f-12">
-                    <i
-                        class="ti ti-circle-filled me-1 f-10 {% if user.status == 'active' %}text-success{% else %}text-danger{% endif %}"></i>{{
+                    <i class="ti ti-circle-filled me-1 f-10 {% if user.status == 'active' %}text-success{% else %}text-danger{% endif %}"></i>{{
                     user.status or 'Active' }}
                 </p>
             </div>
         </div>
         <div class="d-flex justify-content-end align-items-center mt-3 pt-2 border-top border-light">
-            <a href="{{ url_for('admin_routes.user_detail', user_id=user.id) }}"
-                class="btn btn-light-primary btn-sm px-3 rounded-pill py-1">
+            <a href="{{ url_for('admin_routes.user_detail', user_id=user.id) }}" class="btn btn-light-primary btn-sm px-3 rounded-pill py-1">
                 {{ _('Profile') }} <i class="ti ti-arrow-right f-12 ms-1"></i>
             </a>
         </div>
@@ -215,19 +207,16 @@
         <!-- 1. Centered Glassmorphic Search Header -->
         <div class="card search-hero-card mb-4">
             <div class="card-body p-4 p-md-5 text-center">
-                <h3 class="mb-3 fw-bold text-white">{{ _('Search Hub') }}</h3>
-                <p class="text-white-50 mb-4 mx-auto" style="max-width: 600px;">
-                    {{ _('Search for customers, vehicles, transaction invoices, and staff members across the system
-                    instantly.') }}
+                <h3 class="mb-3 fw-bold search-hero-title">{{ _('Search Hub') }}</h3>
+                <p class="search-hero-subtitle mb-4 mx-auto" style="max-width: 600px;">
+                    {{ _('Search for customers, vehicles, transaction invoices, and staff members across the system instantly.') }}
                 </p>
                 <div class="mx-auto" style="max-width: 700px;">
                     <form action="{{ url_for('admin_routes.search') }}" method="GET">
                         <div class="search-input-wrapper">
-                            <i class="ti ti-search text-white-50 f-20 me-2 flex-shrink-0"></i>
-                            <input name="q" type="search" class="form-control" value="{{ query or '' }}"
-                                placeholder="{{ _('Search here...') }}" required autofocus />
-                            <button type="submit"
-                                class="btn btn-primary rounded-pill px-4 ms-2 d-inline-flex align-items-center gap-1">
+                            <i class="ti ti-search search-icon-color f-20 me-2 flex-shrink-0"></i>
+                            <input name="q" type="search" class="form-control" value="{{ query or '' }}" placeholder="{{ _('Search here...') }}" required autofocus />
+                            <button type="submit" class="btn btn-primary rounded-pill px-4 ms-2 d-inline-flex align-items-center gap-1">
                                 <i class="ti ti-search"></i>
                                 <span class="d-none d-sm-inline">{{ _('Search') }}</span>
                             </button>
@@ -242,27 +231,23 @@
         {% if query %}
         <!-- 2. Category Segmented Navigation (Tabs with Badges) -->
         <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
-            <ul class="nav nav-pills search-pill-tabs flex-nowrap overflow-x-auto pb-1" id="searchTab" role="tablist"
-                style="max-width: 100%;">
+            <ul class="nav nav-pills search-pill-tabs flex-nowrap overflow-x-auto pb-1" id="searchTab" role="tablist" style="max-width: 100%;">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="all-tab" data-bs-toggle="pill" data-bs-target="#pane-all"
-                        type="button" role="tab">
+                    <button class="nav-link active" id="all-tab" data-bs-toggle="pill" data-bs-target="#pane-all" type="button" role="tab">
                         <i class="ti ti-layout-grid"></i>
                         {{ _('All Results') }}
                         <span class="badge bg-light-primary text-primary rounded-pill ms-1">{{ total_results }}</span>
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="cars-tab" data-bs-toggle="pill" data-bs-target="#pane-cars"
-                        type="button" role="tab">
+                    <button class="nav-link" id="cars-tab" data-bs-toggle="pill" data-bs-target="#pane-cars" type="button" role="tab">
                         <i class="ti ti-car"></i>
                         {{ _('Cars') }}
                         <span class="badge bg-light-primary text-primary rounded-pill ms-1">{{ cars|length }}</span>
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="customers-tab" data-bs-toggle="pill" data-bs-target="#pane-customers"
-                        type="button" role="tab">
+                    <button class="nav-link" id="customers-tab" data-bs-toggle="pill" data-bs-target="#pane-customers" type="button" role="tab">
                         <i class="ti ti-users"></i>
                         {{ _('Customers') }}
                         <span class="badge bg-light-primary text-primary rounded-pill ms-1">{{ customers|length
@@ -270,8 +255,7 @@
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="transactions-tab" data-bs-toggle="pill"
-                        data-bs-target="#pane-transactions" type="button" role="tab">
+                    <button class="nav-link" id="transactions-tab" data-bs-toggle="pill" data-bs-target="#pane-transactions" type="button" role="tab">
                         <i class="ti ti-receipt"></i>
                         {{ _('Transactions') }}
                         <span class="badge bg-light-primary text-primary rounded-pill ms-1">{{ transactions|length
@@ -279,8 +263,7 @@
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="users-tab" data-bs-toggle="pill" data-bs-target="#pane-users"
-                        type="button" role="tab">
+                    <button class="nav-link" id="users-tab" data-bs-toggle="pill" data-bs-target="#pane-users" type="button" role="tab">
                         <i class="ti ti-shield"></i>
                         {{ _('Staff') }}
                         <span class="badge bg-light-primary text-primary rounded-pill ms-1">{{ users|length }}</span>
@@ -301,14 +284,11 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="search-empty-state-container">
-                            <svg class="search-empty-state-svg" viewBox="0 0 200 200" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
+                            <svg class="search-empty-state-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle class="pulse-glow" cx="100" cy="100" r="80" fill="rgba(14, 165, 233, 0.04)" />
                                 <circle class="pulse-glow" cx="100" cy="100" r="50" fill="rgba(14, 165, 233, 0.08)" />
-                                <circle cx="90" cy="90" r="35" stroke="var(--bs-primary, #0ea5e9)" stroke-width="8"
-                                    stroke-linecap="round" />
-                                <path d="M115 115L155 155" stroke="var(--bs-primary, #0ea5e9)" stroke-width="10"
-                                    stroke-linecap="round" />
+                                <circle cx="90" cy="90" r="35" stroke="var(--bs-primary, #0ea5e9)" stroke-width="8" stroke-linecap="round" />
+                                <path d="M115 115L155 155" stroke="var(--bs-primary, #0ea5e9)" stroke-width="10" stroke-linecap="round" />
                                 <path d="M50 50L55 45L50 40L45 45L50 50Z" fill="#ffc107" />
                                 <path d="M150 60L153 57L150 54L147 57L150 60Z" fill="#20c997" />
                             </svg>
@@ -335,8 +315,7 @@
                     {% endfor %}
                     {% if customers|length > 3 %}
                     <div class="col-12 text-end">
-                        <a href="javascript:void(0);" onclick="document.getElementById('customers-tab').click();"
-                            class="btn btn-link px-0 text-primary d-inline-flex align-items-center gap-1">
+                        <a href="javascript:void(0);" onclick="document.getElementById('customers-tab').click();" class="btn btn-link px-0 text-primary d-inline-flex align-items-center gap-1">
                             {{ _('View all matched customers') }} <i class="ti ti-chevron-right"></i>
                         </a>
                     </div>
@@ -358,8 +337,7 @@
                     {% endfor %}
                     {% if cars|length > 3 %}
                     <div class="col-12 text-end">
-                        <a href="javascript:void(0);" onclick="document.getElementById('cars-tab').click();"
-                            class="btn btn-link px-0 text-primary d-inline-flex align-items-center gap-1">
+                        <a href="javascript:void(0);" onclick="document.getElementById('cars-tab').click();" class="btn btn-link px-0 text-primary d-inline-flex align-items-center gap-1">
                             {{ _('View all matched vehicles') }} <i class="ti ti-chevron-right"></i>
                         </a>
                     </div>
@@ -381,8 +359,7 @@
                     {% endfor %}
                     {% if transactions|length > 3 %}
                     <div class="col-12 text-end">
-                        <a href="javascript:void(0);" onclick="document.getElementById('transactions-tab').click();"
-                            class="btn btn-link px-0 text-primary d-inline-flex align-items-center gap-1">
+                        <a href="javascript:void(0);" onclick="document.getElementById('transactions-tab').click();" class="btn btn-link px-0 text-primary d-inline-flex align-items-center gap-1">
                             {{ _('View all matched transactions') }} <i class="ti ti-chevron-right"></i>
                         </a>
                     </div>
@@ -404,8 +381,7 @@
                     {% endfor %}
                     {% if users|length > 3 %}
                     <div class="col-12 text-end">
-                        <a href="javascript:void(0);" onclick="document.getElementById('users-tab').click();"
-                            class="btn btn-link px-0 text-primary d-inline-flex align-items-center gap-1">
+                        <a href="javascript:void(0);" onclick="document.getElementById('users-tab').click();" class="btn btn-link px-0 text-primary d-inline-flex align-items-center gap-1">
                             {{ _('View all matched staff') }} <i class="ti ti-chevron-right"></i>
                         </a>
                     </div>
@@ -482,21 +458,17 @@
         <div class="card border-0 shadow-sm">
             <div class="card-body py-5">
                 <div class="search-empty-state-container">
-                    <svg class="search-empty-state-svg mx-auto" viewBox="0 0 200 200" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+                    <svg class="search-empty-state-svg mx-auto" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle class="pulse-glow" cx="100" cy="100" r="80" fill="rgba(14, 165, 233, 0.04)" />
                         <circle class="pulse-glow" cx="100" cy="100" r="50" fill="rgba(14, 165, 233, 0.08)" />
-                        <circle cx="90" cy="90" r="35" stroke="var(--bs-primary, #0ea5e9)" stroke-width="8"
-                            stroke-linecap="round" />
-                        <path d="M115 115L155 155" stroke="var(--bs-primary, #0ea5e9)" stroke-width="10"
-                            stroke-linecap="round" />
+                        <circle cx="90" cy="90" r="35" stroke="var(--bs-primary, #0ea5e9)" stroke-width="8" stroke-linecap="round" />
+                        <path d="M115 115L155 155" stroke="var(--bs-primary, #0ea5e9)" stroke-width="10" stroke-linecap="round" />
                         <path d="M50 50L55 45L50 40L45 45L50 50Z" fill="#ffc107" />
                         <path d="M150 60L153 57L150 54L147 57L150 60Z" fill="#20c997" />
                     </svg>
                     <h4 class="mt-2 fw-semibold">{{ _('Ready to Search?') }}</h4>
                     <p class="text-muted mx-auto" style="max-width: 480px;">
-                        {{ _('Enter name, plate number, telephone digits, notes, or role identifiers in the search bar
-                        above to fetch records from our dashboard index.') }}
+                        {{ _('Enter name, plate number, telephone digits, notes, or role identifiers in the search bar above to fetch records from our dashboard index.') }}
                     </p>
                 </div>
             </div>

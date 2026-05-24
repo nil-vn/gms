@@ -357,6 +357,26 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
 }
 
+.search-hero-title {
+    color: #fff;
+}
+.search-hero-subtitle {
+    color: rgba(255, 255, 255, 0.6);
+}
+.search-icon-color {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+[data-pc-theme="light"] .search-hero-title {
+    color: var(--pc-heading-color, #1e293b);
+}
+[data-pc-theme="light"] .search-hero-subtitle {
+    color: rgba(0, 0, 0, 0.6);
+}
+[data-pc-theme="light"] .search-icon-color {
+    color: rgba(0, 0, 0, 0.4);
+}
+
 .search-input-wrapper {
     position: relative;
     display: flex;
