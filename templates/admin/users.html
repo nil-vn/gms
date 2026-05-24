@@ -229,22 +229,32 @@
         new ApexCharts(document.querySelector(chartId), options).render();
     }
     
-    // Simulate some growth data ending with the actual number
-    const chart1El = document.querySelector("#users-chart-1");
-    const chart2El = document.querySelector("#users-chart-2");
-    const chart3El = document.querySelector("#users-chart-3");
-
-    if (chart1El) {
-        const count = parseInt(chart1El.getAttribute("data-count") || "0", 10);
-        renderSparkline("#users-chart-1", [2, 3, 5, 4, 8, count], '#ffffff');
-    }
-    if (chart2El) {
-        const count = parseInt(chart2El.getAttribute("data-count") || "0", 10);
-        renderSparkline("#users-chart-2", [1, 2, 2, 3, 4, count], '#ffffff');
-    }
-    if (chart3El) {
-        const count = parseInt(chart3El.getAttribute("data-count") || "0", 10);
-        renderSparkline("#users-chart-3", [1, 1, 3, 1, 4, count], '#ffffff');
-    }
+    // Fetch metrics trend data from API
+    fetch('/admin/api/metrics-trend')
+        .then(response => response.json())
+        .then(res => {
+            if (res.status === 'success' && res.users) {
+                renderSparkline("#users-chart-1", res.users.total, '#ffffff');
+                renderSparkline("#users-chart-2", res.users.admin, '#ffffff');
+                renderSparkline("#users-chart-3", res.users.staff, '#ffffff');
+            } else {
+                // Fallback in case of empty trends
+                const count1 = parseInt(document.querySelector("#users-chart-1")?.getAttribute("data-count") || "0", 10);
+                const count2 = parseInt(document.querySelector("#users-chart-2")?.getAttribute("data-count") || "0", 10);
+                const count3 = parseInt(document.querySelector("#users-chart-3")?.getAttribute("data-count") || "0", 10);
+                renderSparkline("#users-chart-1", [count1, count1, count1, count1, count1, count1], '#ffffff');
+                renderSparkline("#users-chart-2", [count2, count2, count2, count2, count2, count2], '#ffffff');
+                renderSparkline("#users-chart-3", [count3, count3, count3, count3, count3, count3], '#ffffff');
+            }
+        })
+        .catch(err => {
+            console.error('Error fetching metric trends:', err);
+            const count1 = parseInt(document.querySelector("#users-chart-1")?.getAttribute("data-count") || "0", 10);
+            const count2 = parseInt(document.querySelector("#users-chart-2")?.getAttribute("data-count") || "0", 10);
+            const count3 = parseInt(document.querySelector("#users-chart-3")?.getAttribute("data-count") || "0", 10);
+            renderSparkline("#users-chart-1", [count1, count1, count1, count1, count1, count1], '#ffffff');
+            renderSparkline("#users-chart-2", [count2, count2, count2, count2, count2, count2], '#ffffff');
+            renderSparkline("#users-chart-3", [count3, count3, count3, count3, count3, count3], '#ffffff');
+        });
 </script>
 {% endblock %}

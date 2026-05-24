@@ -144,6 +144,108 @@ def api_revenue_chart():
         }), 500
 
 
+@routes.route("/api/metrics-trend", methods=["GET"])
+@login_required
+def api_metrics_trend():
+    from app.admin.models import Car, Customer, Transaction, User
+    import calendar
+    from datetime import datetime
+    
+    now = datetime.utcnow()
+    months = []
+    for i in range(5, -1, -1):
+        y = now.year
+        m = now.month - i
+        while m <= 0:
+            m += 12
+            y -= 1
+        last_day = calendar.monthrange(y, m)[1]
+        end_date = datetime(y, m, last_day, 23, 59, 59, 999999)
+        months.append(end_date)
+        
+    try:
+        # Cars
+        cars_trend_total = []
+        cars_trend_available = []
+        cars_trend_sold = []
+        for end_date in months:
+            total = Car.query.filter(Car.created_at <= end_date).count()
+            available = Car.query.filter(Car.created_at <= end_date, Car.status.in_(['AVAILABLE', 'AWAITING_DELIVERY'])).count()
+            sold = Car.query.filter(Car.created_at <= end_date, Car.status == 'SOLD').count()
+            cars_trend_total.append(total)
+            cars_trend_available.append(available)
+            cars_trend_sold.append(sold)
+            
+        # Customers
+        cust_trend_total = []
+        cust_trend_active = []
+        cust_trend_potential = []
+        for end_date in months:
+            total = Customer.query.filter(Customer.created_at <= end_date).count()
+            active = Customer.query.filter(Customer.created_at <= end_date, Customer.status == 'Active').count()
+            potential = Customer.query.filter(Customer.created_at <= end_date, Customer.status == 'Inactive').count()
+            cust_trend_total.append(total)
+            cust_trend_active.append(active)
+            cust_trend_potential.append(potential)
+            
+        # Transactions
+        tx_trend_total = []
+        tx_trend_paid = []
+        tx_trend_deposited = []
+        for end_date in months:
+            txs = Transaction.query.filter(Transaction.created_at <= end_date).all()
+            total = sum(t.total_amount or 0 for t in txs if t.status in ['PAID', 'DEPOSITED'])
+            paid = sum(t.total_amount or 0 for t in txs if t.status == 'PAID')
+            deposited = sum(t.deposit_amount or 0 for t in txs if t.status == 'DEPOSITED')
+            tx_trend_total.append(total)
+            tx_trend_paid.append(paid)
+            tx_trend_deposited.append(deposited)
+            
+        # Users
+        users_trend_total = []
+        users_trend_admin = []
+        users_trend_staff = []
+        for end_date in months:
+            total = User.query.filter(User.created_date <= end_date).count()
+            admin = User.query.filter(User.created_date <= end_date, User.role == 'admin').count()
+            staff = User.query.filter(User.created_date <= end_date, User.role != 'admin').count()
+            users_trend_total.append(total)
+            users_trend_admin.append(admin)
+            users_trend_staff.append(staff)
+            
+        return jsonify({
+            "status": "success",
+            "cars": {
+                "total": cars_trend_total,
+                "available": cars_trend_available,
+                "sold": cars_trend_sold
+            },
+            "customers": {
+                "total": cust_trend_total,
+                "active": cust_trend_active,
+                "potential": cust_trend_potential
+            },
+            "transactions": {
+                "total": tx_trend_total,
+                "paid": tx_trend_paid,
+                "deposited": tx_trend_deposited
+            },
+            "users": {
+                "total": users_trend_total,
+                "admin": users_trend_admin,
+                "staff": users_trend_staff
+            }
+        })
+    except Exception as e:
+        return jsonify({
+            "status": "error",
+            "message": str(e)
+        }), 500
+
+
+
+
+
 @routes.route("/set_language/<lang>")
 def set_language(lang):
     if lang not in ["vi", "en", "ja"]:

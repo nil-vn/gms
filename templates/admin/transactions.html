@@ -251,22 +251,32 @@
         new ApexCharts(document.querySelector(chartId), options).render();
     }
     
-    // Simulate some growth data ending with the actual number
-    const chart1El = document.querySelector("#tx-chart-1");
-    const chart2El = document.querySelector("#tx-chart-2");
-    const chart3El = document.querySelector("#tx-chart-3");
-
-    if (chart1El) {
-        const value = parseFloat(chart1El.getAttribute("data-value") || "0");
-        renderSparkline("#tx-chart-1", [10, 15, 25, 30, 40, value], '#ffffff');
-    }
-    if (chart2El) {
-        const value = parseFloat(chart2El.getAttribute("data-value") || "0");
-        renderSparkline("#tx-chart-2", [5, 8, 12, 10, 15, value], '#ffffff');
-    }
-    if (chart3El) {
-        const value = parseFloat(chart3El.getAttribute("data-value") || "0");
-        renderSparkline("#tx-chart-3", [2, 5, 4, 8, 10, value], '#ffffff');
-    }
+    // Fetch metrics trend data from API
+    fetch('/admin/api/metrics-trend')
+        .then(response => response.json())
+        .then(res => {
+            if (res.status === 'success' && res.transactions) {
+                renderSparkline("#tx-chart-1", res.transactions.total, '#ffffff');
+                renderSparkline("#tx-chart-2", res.transactions.paid, '#ffffff');
+                renderSparkline("#tx-chart-3", res.transactions.deposited, '#ffffff');
+            } else {
+                // Fallback in case of empty trends
+                const val1 = parseFloat(document.querySelector("#tx-chart-1")?.getAttribute("data-value") || "0");
+                const val2 = parseFloat(document.querySelector("#tx-chart-2")?.getAttribute("data-value") || "0");
+                const val3 = parseFloat(document.querySelector("#tx-chart-3")?.getAttribute("data-value") || "0");
+                renderSparkline("#tx-chart-1", [val1, val1, val1, val1, val1, val1], '#ffffff');
+                renderSparkline("#tx-chart-2", [val2, val2, val2, val2, val2, val2], '#ffffff');
+                renderSparkline("#tx-chart-3", [val3, val3, val3, val3, val3, val3], '#ffffff');
+            }
+        })
+        .catch(err => {
+            console.error('Error fetching metric trends:', err);
+            const val1 = parseFloat(document.querySelector("#tx-chart-1")?.getAttribute("data-value") || "0");
+            const val2 = parseFloat(document.querySelector("#tx-chart-2")?.getAttribute("data-value") || "0");
+            const val3 = parseFloat(document.querySelector("#tx-chart-3")?.getAttribute("data-value") || "0");
+            renderSparkline("#tx-chart-1", [val1, val1, val1, val1, val1, val1], '#ffffff');
+            renderSparkline("#tx-chart-2", [val2, val2, val2, val2, val2, val2], '#ffffff');
+            renderSparkline("#tx-chart-3", [val3, val3, val3, val3, val3, val3], '#ffffff');
+        });
 </script>
 {% endblock %}
