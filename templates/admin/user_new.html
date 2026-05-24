@@ -89,10 +89,18 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12 mt-3">
                             <div class="mb-3">
                                 <label class="form-label" for="avatar">{{ _('Avatar') }}</label>
-                                <input name="avatar" type="file" class="form-control" id="avatar" accept="image/*">
+                                <div id="drop-area"
+                                    class="border border-dashed border-primary rounded p-4 text-center"
+                                    style="cursor: pointer; background: rgba(var(--bs-primary-rgb), 0.05); transition: background 0.3s; border-style: dashed !important; border-width: 2px !important;">
+                                    <i class="ph ph-upload-simple f-30 text-primary mb-2"></i>
+                                    <h5>{{ _('Drag and drop your avatar here or click to select') }}</h5>
+                                    <p class="text-muted mb-0">{{ _('Supports JPG, PNG, WEBP') }}</p>
+                                    <input type="file" id="avatar" name="avatar" class="d-none" accept="image/*" />
+                                </div>
+                                <div id="gallery-preview" class="d-flex flex-wrap mt-3 gap-3"></div>
                             </div>
                         </div>
                     </div>
@@ -127,5 +135,81 @@
             orientation: 'bottom left'
         });
     });
+
+    // Drag and drop avatar upload functionality
+    const dropArea = document.getElementById('drop-area');
+    const fileInput = document.getElementById('avatar');
+    const galleryPreview = document.getElementById('gallery-preview');
+    let uploadedFiles = new DataTransfer();
+
+    if (dropArea && fileInput) {
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, e => { e.preventDefault(); e.stopPropagation(); }, false);
+        });
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, () => dropArea.style.background = 'rgba(var(--bs-primary-rgb), 0.15)', false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, () => dropArea.style.background = 'rgba(var(--bs-primary-rgb), 0.05)', false);
+        });
+
+        dropArea.addEventListener('drop', e => handleFiles(e.dataTransfer.files), false);
+        dropArea.addEventListener('click', () => fileInput.click(), false);
+        fileInput.addEventListener('change', function () { handleFiles(this.files); }, false);
+
+        function handleFiles(files) {
+            if (files.length > 0) {
+                uploadedFiles = new DataTransfer();
+                uploadedFiles.items.add(files[0]);
+                fileInput.files = uploadedFiles.files;
+                previewFile(files[0]);
+            }
+        }
+
+        function previewFile(file) {
+            galleryPreview.innerHTML = ''; // Clear previous preview since avatar is single-file
+            
+            let container = document.createElement('div');
+            container.className = 'card position-relative border border-2 border-light shadow-sm p-2 text-center d-flex flex-column align-items-center justify-content-between mb-0';
+            container.style.width = '120px';
+            container.style.minHeight = '140px';
+
+            let removeBtn = document.createElement('button');
+            removeBtn.className = 'btn btn-sm btn-danger position-absolute top-0 end-0 m-1 p-1';
+            removeBtn.style.zIndex = '10';
+            removeBtn.innerHTML = '<i class="ph ph-x"></i>';
+            removeBtn.onclick = function (e) {
+                e.preventDefault(); e.stopPropagation();
+                uploadedFiles = new DataTransfer();
+                fileInput.files = uploadedFiles.files;
+                container.remove();
+            };
+
+            if (file.type.startsWith('image/')) {
+                let reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onloadend = function () {
+                    let img = document.createElement('img');
+                    img.src = reader.result;
+                    img.className = 'img-thumbnail mb-1';
+                    img.style.height = '80px';
+                    img.style.objectFit = 'cover';
+                    img.style.width = '100%';
+                    container.insertBefore(img, container.firstChild);
+                }
+            }
+
+            let nameLabel = document.createElement('div');
+            nameLabel.className = 'text-truncate w-100 f-10 text-muted mt-auto';
+            nameLabel.innerText = file.name;
+            nameLabel.title = file.name;
+
+            container.appendChild(nameLabel);
+            container.appendChild(removeBtn);
+            galleryPreview.appendChild(container);
+        }
+    }
 </script>
 {% endblock %}
