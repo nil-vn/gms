@@ -1,4 +1,3 @@
-
 /* iOS Style Switch for Theme Mode */
 .ios-switch-container {
     display: flex;
@@ -36,7 +35,7 @@
     background-color: #e9e9eb;
     transition: .4s cubic-bezier(0.25, 1, 0.5, 1);
     border-radius: 31px;
-    box-shadow: inset 0 0 1px rgba(0,0,0,0.1);
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.1);
 }
 
 .ios-switch-slider:before {
@@ -49,7 +48,7 @@
     background-color: white;
     transition: .4s cubic-bezier(0.25, 1, 0.5, 1);
     border-radius: 50%;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.15), 0 1px 1px rgba(0,0,0,0.05);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15), 0 1px 1px rgba(0, 0, 0, 0.05);
     z-index: 2;
 }
 
@@ -75,19 +74,19 @@
     opacity: 0;
 }
 
-.ios-switch input:checked + .ios-switch-slider {
+.ios-switch input:checked+.ios-switch-slider {
     background-color: #34c759;
 }
 
-.ios-switch input:checked + .ios-switch-slider:before {
+.ios-switch input:checked+.ios-switch-slider:before {
     transform: translateX(27px);
 }
 
-.ios-switch input:checked + .ios-switch-slider .icon-sun {
+.ios-switch input:checked+.ios-switch-slider .icon-sun {
     opacity: 0;
 }
 
-.ios-switch input:checked + .ios-switch-slider .icon-moon {
+.ios-switch input:checked+.ios-switch-slider .icon-moon {
     opacity: 1;
 }
 
@@ -96,7 +95,7 @@
 }
 
 /* Theme switch premium glow */
-.ios-switch input:checked + .ios-switch-slider {
+.ios-switch input:checked+.ios-switch-slider {
     box-shadow: 0 0 10px rgba(52, 199, 89, 0.3);
 }
 
@@ -165,10 +164,12 @@
     background-color: rgba(13, 110, 253, 0.12) !important;
     color: #0d6efd !important;
 }
+
 .bg-light-success {
     background-color: rgba(25, 135, 84, 0.12) !important;
     color: #198754 !important;
 }
+
 .bg-light-warning {
     background-color: rgba(255, 193, 7, 0.12) !important;
     color: #ffc107 !important;
@@ -178,10 +179,12 @@
     background-color: rgba(13, 110, 253, 0.22) !important;
     color: #3b82f6 !important;
 }
+
 [data-pc-theme="dark"] .bg-light-success {
     background-color: rgba(25, 135, 84, 0.22) !important;
     color: #22c55e !important;
 }
+
 [data-pc-theme="dark"] .bg-light-warning {
     background-color: rgba(255, 193, 7, 0.22) !important;
     color: #eab308 !important;
@@ -192,12 +195,15 @@
     transition: opacity 0.2s ease;
     display: block;
 }
+
 .profile-link-hover:hover h6 {
     color: var(--bs-primary, #0ea5e9) !important;
 }
+
 .profile-link-hover:hover small {
     color: rgba(var(--bs-primary-rgb, 13, 110, 253), 0.75) !important;
 }
+
 .transition-3s {
     transition: color 0.15s ease-in-out;
 }
@@ -209,7 +215,7 @@
 }
 
 .pc-sidebar.pc-sidebar-hide .logo-name,
-.pc-sidebar.mob-sidebar-active ~ * .logo-name {
+.pc-sidebar.mob-sidebar-active~* .logo-name {
     display: none;
 }
 
@@ -222,7 +228,47 @@
     background: rgba(0, 0, 0, 0.04) !important;
 }
 
+/* Custom Page Header and Sidebar Header subtle bright/glassy effect */
+[data-pc-theme="dark"] .pc-header {
+    background: rgba(30, 41, 59, 0.8) !important;
+    /* Lighter slate blue with transparency */
+    backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+}
 
+[data-pc-theme="dark"] .pc-sidebar .m-header {
+    background: #1e293b !important;
+    /* Harmonized lighter dark-slate blue */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
 
+[data-pc-theme="light"] .pc-header {
+    background: rgba(30, 41, 59, 0.95) !important;
+    /* Premium dark slate-800 header */
+    backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+}
 
+[data-pc-theme="light"] .pc-header .pc-head-link {
+    color: #94a3b8 !important;
+    /* elegant slate-400 icons */
+}
 
+[data-pc-theme="light"] .pc-header .pc-head-link:hover {
+    color: #f8fafc !important;
+    /* elegant slate-50 on hover */
+    background: rgba(255, 255, 255, 0.06) !important;
+}
+
+[data-pc-theme="light"] .pc-sidebar .m-header {
+    background: #0f172a !important;
+    /* Rich slate-900 brand logo header */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-pc-theme="light"] .pc-sidebar .m-header .logo-name {
+    color: #f8fafc !important;
+    /* ensure white logo text in light mode dark header */
+}
