@@ -1,5 +1,5 @@
 log
-instance/*.db
+instance/*.sqlite3
 *.env
 .idea
 *__pycache__*
