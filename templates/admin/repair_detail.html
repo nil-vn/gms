@@ -1,0 +1,278 @@
+{% extends "_base.html" %}
+
+{% block breadcrumb %}
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="page-header-title">
+                    <h5 class="mb-0">{{ _('Repair Order') }} #{{ "%04d"|format(repair.id) }}</h5>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <ul class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="{{ url_for('admin_routes.dashboard') }}">{{ _('Home') }}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url_for('admin_routes.repairs') }}">{{ _('Repair Management') }}</a></li>
+                    <li class="breadcrumb-item"><a href="#!">{{ _('Repair Order Detail') }}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>{{ _('Repair Order') }} #{{ "%04d"|format(repair.id) }}</h2>
+    <div>
+        <a href="{{ url_for('admin_routes.repairs') }}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> {{ _('Back to List') }}
+        </a>
+        <button class="btn btn-outline-secondary ms-2" onclick="window.print()">
+            <i class="fas fa-print"></i> {{ _('Print') }}
+        </button>
+    </div>
+</div>
+
+<form method="POST" class="bg-white p-4 rounded shadow-sm">
+    {{ form.hidden_tag() }}
+    
+    <div class="row mb-4">
+        <!-- Customer Info -->
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header bg-light fw-bold">{{ _('Customer Information') }}</div>
+                <div class="card-body">
+                    {% if repair.customer %}
+                    <p class="mb-1"><strong>{{ _('Name') }}:</strong> <a href="{{ url_for('admin_routes.customer_detail', customer_id=repair.customer.id) }}">{{ repair.customer.name }}</a></p>
+                    <p class="mb-1"><strong>{{ _('Phone') }}:</strong> {{ repair.customer.phone or '-' }}</p>
+                    <p class="mb-0"><strong>{{ _('Address') }}:</strong> {{ repair.customer.address or '-' }}</p>
+                    <input type="hidden" name="customer_id" value="{{ repair.customer.id }}">
+                    {% else %}
+                    <p class="text-muted">{{ _('No customer linked.') }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Car Info -->
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header bg-light fw-bold">{{ _('Car Information') }}</div>
+                <div class="card-body">
+                    {% if repair.car %}
+                    <p class="mb-1"><strong>{{ _('License Plate') }}:</strong> <a href="{{ url_for('admin_routes.car_detail', car_id=repair.car.id) }}">{{ repair.car.license_plate_no or '-' }}</a></p>
+                    <p class="mb-1"><strong>{{ _('Model') }}:</strong> {{ repair.car.model or '-' }}</p>
+                    <p class="mb-0"><strong>{{ _('VIN') }}:</strong> {{ repair.car.vin or '-' }}</p>
+                    <input type="hidden" name="car_id" value="{{ repair.car.id }}">
+                    {% else %}
+                    <p class="text-muted">{{ _('No car linked.') }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Repair Info -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-light fw-bold">{{ _('Repair Details') }}</div>
+                <div class="card-body row">
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">{{ _('Date In') }}</label>
+                        <input type="date" name="date_in" class="form-control" value="{{ form.date_in.data or '' }}">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">{{ _('Date Out') }}</label>
+                        <input type="date" name="date_out" class="form-control" value="{{ form.date_out.data or '' }}">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">{{ _('Odometer (km)') }}</label>
+                        <input type="number" name="odometer" class="form-control" value="{{ form.odometer.data or '' }}">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">{{ _('Status') }}</label>
+                        <select name="status" class="form-select">
+                            {% for status in repair_status %}
+                            <option value="{{ status.name }}" {% if repair.status == status.name %}selected{% endif %}>{{ status.value }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">{{ _('Symptoms') }}</label>
+                        <textarea name="symptoms" class="form-control" rows="3">{{ form.symptoms.data or '' }}</textarea>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">{{ _('Internal Note') }}</label>
+                        <textarea name="note" class="form-control" rows="3">{{ form.note.data or '' }}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Items -->
+    <div class="card mb-4">
+        <div class="card-header bg-light fw-bold d-flex justify-content-between align-items-center">
+            <span>{{ _('Repair Items / Parts / Labor') }}</span>
+            <button type="button" class="btn btn-sm btn-outline-primary" id="addItemBtn">
+                <i class="fas fa-plus"></i> {{ _('Add Item') }}
+            </button>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table" id="itemsTable">
+                    <thead>
+                        <tr>
+                            <th width="20%">{{ _('Type') }}</th>
+                            <th width="35%">{{ _('Name/Description') }}</th>
+                            <th width="15%">{{ _('Quantity') }}</th>
+                            <th width="20%">{{ _('Unit Price') }}</th>
+                            <th width="10%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in repair.items %}
+                        <tr>
+                            <td>
+                                <select name="item_type[]" class="form-select" required>
+                                    {% for it in item_types %}
+                                    <option value="{{ it.name }}" {% if item.item_type == it.name %}selected{% endif %}>{{ it.value }}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" name="item_name[]" class="form-control" value="{{ item.name }}" required>
+                            </td>
+                            <td>
+                                <input type="number" name="item_quantity[]" class="form-control" value="{{ item.quantity }}" min="1" required>
+                            </td>
+                            <td>
+                                <input type="text" name="item_price[]" class="form-control price-input" value="{{ '{:,}'.format(item.unit_price) if item.unit_price else 0 }}" required>
+                            </td>
+                            <td class="text-end">
+                                <button type="button" class="btn btn-danger btn-sm remove-item"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="3" class="text-end">{{ _('Total Amount') }}:</th>
+                            <th colspan="2" class="text-danger fs-5">{{ repair.total_amount|format_currency }} {{ currency_symbol }}</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-end">
+        <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> {{ _('Update Repair Order') }}</button>
+    </div>
+</form>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const itemsTableBody = document.querySelector('#itemsTable tbody');
+    const addItemBtn = document.getElementById('addItemBtn');
+
+    function createItemRow() {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>
+                <select name="item_type[]" class="form-select" required>
+                    {% for it in item_types %}
+                    <option value="{{ it.name }}">{{ it.value }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+            <td>
+                <input type="text" name="item_name[]" class="form-control" placeholder="{{ _('Part or Labor name') }}" required>
+            </td>
+            <td>
+                <input type="number" name="item_quantity[]" class="form-control" value="1" min="1" required>
+            </td>
+            <td>
+                <input type="text" name="item_price[]" class="form-control price-input" placeholder="0" required>
+            </td>
+            <td class="text-end">
+                <button type="button" class="btn btn-danger btn-sm remove-item"><i class="fas fa-trash"></i></button>
+            </td>
+        `;
+        itemsTableBody.appendChild(tr);
+
+        // Add event listener for remove button
+        tr.querySelector('.remove-item').addEventListener('click', function() {
+            tr.remove();
+        });
+
+        // Add format price event
+        bindPriceInput(tr.querySelector('.price-input'));
+    }
+
+    function bindPriceInput(input) {
+        input.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/,/g, '');
+            if(!isNaN(value) && value.length > 0){
+                e.target.value = parseInt(value).toLocaleString('en-US');
+            }
+        });
+    }
+
+    addItemBtn.addEventListener('click', createItemRow);
+    
+    // Bind existing remove buttons
+    document.querySelectorAll('.remove-item').forEach(btn => {
+        btn.addEventListener('click', function() {
+            this.closest('tr').remove();
+        });
+    });
+
+    // Bind existing price inputs
+    document.querySelectorAll('.price-input').forEach(input => {
+        bindPriceInput(input);
+    });
+});
+</script>
+
+<style>
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .card, .card * {
+        visibility: visible;
+    }
+    .card {
+        border: none !important;
+        box-shadow: none !important;
+    }
+    .card-header {
+        background-color: #f8f9fa !important;
+        -webkit-print-color-adjust: exact; 
+    }
+    .btn, .remove-item, #addItemBtn {
+        display: none !important;
+    }
+    input, select, textarea {
+        border: none !important;
+        background: transparent !important;
+        resize: none;
+    }
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+    /* Move form content up for print */
+    form {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+}
+</style>
+{% endblock %}

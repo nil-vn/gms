@@ -13,4 +13,10 @@ env = os.environ.get(ENV.INIT.value, ENV.PRODUCTION.value)  # default is product
 _app = create_app(f"config.{env}.{env.capitalize()}Config")
 
 if __name__ == "__main__":
-    _app.run(host="0.0.0.0", debug=True)
+    try:
+        from waitress import serve
+        print("Starting Waitress server on http://0.0.0.0:5000")
+        serve(_app, host="0.0.0.0", port=5000)
+    except ImportError:
+        print("Waitress not installed. Falling back to Flask development server...")
+        _app.run(host="0.0.0.0", port=5000, debug=True)

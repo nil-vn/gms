@@ -52,6 +52,18 @@ class TransactionForm(FlaskForm):
     car_id = StringField("car_id", validators=[DataRequired()])
 
 
+class RepairOrderForm(FlaskForm):
+    id = IntegerField("id")
+    customer_id = StringField("customer_id", validators=[Optional()])
+    car_id = StringField("car_id", validators=[Optional()])
+    date_in = StringField("date_in")
+    date_out = StringField("date_out")
+    odometer = IntegerField("odometer", validators=[Optional()])
+    status = StringField("status")
+    symptoms = StringField("symptoms")
+    note = StringField("note")
+
+
 class LoginForm(FlaskForm):
     username = StringField("username", validators=[DataRequired()])
     password = PasswordField("password", validators=[DataRequired()])

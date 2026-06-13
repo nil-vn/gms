@@ -8,5 +8,7 @@ from .user import User
 from .car_image import CarImage
 from .customer_image import CustomerImage
 from .transaction_file import TransactionFile
+from .repair_order import RepairOrder
+from .repair_item import RepairItem
 
-__all__ = ["Configuration", "User", "Car", "Customer", "Transaction", "CarImage", "CustomerImage", "TransactionFile"]
+__all__ = ["Configuration", "User", "Car", "Customer", "Transaction", "CarImage", "CustomerImage", "TransactionFile", "RepairOrder", "RepairItem"]

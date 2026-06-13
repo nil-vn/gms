@@ -1,6 +1,9 @@
 log
 instance
-*.env*
+*.env
 .idea
 *__pycache__*
+static
 static/uploads/*
+scratch
+scratch/

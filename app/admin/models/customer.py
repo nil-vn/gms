@@ -33,6 +33,7 @@ class Customer(BaseModel):
     # 1:N với Transaction
     transactions = relationship("Transaction", back_populates="customer")
     images = relationship("CustomerImage", back_populates="customer", cascade="all, delete-orphan")
+    repair_orders = relationship("RepairOrder", back_populates="customer", cascade="all, delete-orphan")
 
     created_at: Mapped[str] = mapped_column(default=datetime.utcnow)
 

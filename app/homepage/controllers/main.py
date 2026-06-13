@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import redirect
 
 import os
 
@@ -17,4 +17,4 @@ routes = Blueprint(
 
 @routes.route("/")
 def index():
-    return render_template("homepage_index.html")
+    return redirect('/admin')

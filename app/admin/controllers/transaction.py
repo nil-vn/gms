@@ -23,7 +23,7 @@ def transactions():
     deposited_transactions = Transaction.get_by_statuses([TransactionStatus.DEPOSITED.name])
     paid_transactions = Transaction.get_by_statuses([TransactionStatus.PAID.name])
     
-    total_revenue = sum(t.total_amount or 0 for t in all_transactions if t.status in [TransactionStatus.PAID.name, TransactionStatus.DEPOSITED.name])
+    total_revenue = sum(t.total_amount or 0 for t in all_transactions if str(t.status).lower() in [str(TransactionStatus.PAID.name).lower(), str(TransactionStatus.DEPOSITED.name).lower()])
     paid_revenue = sum(t.total_amount or 0 for t in paid_transactions)
     deposited_amount = sum(t.deposit_amount or 0 for t in deposited_transactions)
 

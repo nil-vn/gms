@@ -43,6 +43,7 @@ class Car(BaseModel):
     )
 
     images = relationship("CarImage", back_populates="car", cascade="all, delete-orphan")
+    repair_orders = relationship("RepairOrder", back_populates="car", cascade="all, delete-orphan")
 
 
     created_at: Mapped[str] = mapped_column(default=datetime.utcnow)

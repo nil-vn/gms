@@ -9,3 +9,4 @@ Flask-Babel
 jsonify
 flask-migrate
 wtforms[email]
+waitress

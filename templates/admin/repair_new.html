@@ -1,0 +1,261 @@
+{% extends "_base.html" %}
+
+{% block breadcrumb %}
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="page-header-title">
+                    <h5 class="mb-0">{{ _('New Repair Order') }}</h5>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <ul class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="{{ url_for('admin_routes.dashboard') }}">{{ _('Home') }}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url_for('admin_routes.repairs') }}">{{ _('Repair Management') }}</a></li>
+                    <li class="breadcrumb-item"><a href="#!">{{ _('New Repair Order') }}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>{{ _('New Repair Order') }}</h2>
+    <a href="{{ url_for('admin_routes.repairs') }}" class="btn btn-secondary">
+        <i class="fas fa-arrow-left"></i> {{ _('Back to List') }}
+    </a>
+</div>
+
+<form method="POST" class="bg-white p-4 rounded shadow-sm">
+    {{ form.hidden_tag() }}
+    
+    <div class="row mb-4">
+        <!-- Customer Selection -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-light fw-bold">{{ _('Customer Information') }}</div>
+                <div class="card-body">
+                    <ul class="nav nav-pills mb-3" id="customer-pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="existing-customer-tab" data-bs-toggle="pill" data-bs-target="#existing-customer" type="button" role="tab">{{ _('Existing Customer') }}</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="new-customer-tab" data-bs-toggle="pill" data-bs-target="#new-customer" type="button" role="tab">{{ _('Walk-in Customer') }}</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="customer-pills-tabContent">
+                        <div class="tab-pane fade show active" id="existing-customer" role="tabpanel">
+                            <label class="form-label">{{ _('Select Customer') }}</label>
+                            <select name="customer_id" class="form-select" id="customerSelect">
+                                <option value="">-- {{ _('Select Customer') }} --</option>
+                                {% for customer in customers %}
+                                <option value="{{ customer.id }}">{{ customer.name }} ({{ customer.phone }})</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="tab-pane fade" id="new-customer" role="tabpanel">
+                            <div class="mb-3">
+                                <label class="form-label">{{ _('Name') }}</label>
+                                <input type="text" name="walkin_name" class="form-control" placeholder="{{ _('Customer Name') }}">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">{{ _('Phone') }}</label>
+                                <input type="text" name="walkin_phone" class="form-control" placeholder="{{ _('Phone Number') }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Car Selection -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-light fw-bold">{{ _('Car Information') }}</div>
+                <div class="card-body">
+                    <ul class="nav nav-pills mb-3" id="car-pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="existing-car-tab" data-bs-toggle="pill" data-bs-target="#existing-car" type="button" role="tab">{{ _('Existing Car') }}</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="new-car-tab" data-bs-toggle="pill" data-bs-target="#new-car" type="button" role="tab">{{ _('Walk-in Car') }}</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="car-pills-tabContent">
+                        <div class="tab-pane fade show active" id="existing-car" role="tabpanel">
+                            <label class="form-label">{{ _('Select Car') }}</label>
+                            <select name="car_id" class="form-select" id="carSelect">
+                                <option value="">-- {{ _('Select Car') }} --</option>
+                                {% for car in cars %}
+                                <option value="{{ car.id }}">{{ car.license_plate_no or 'No Plate' }} - {{ car.name }} ({{ car.vin or 'No VIN' }})</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="tab-pane fade" id="new-car" role="tabpanel">
+                            <div class="mb-3">
+                                <label class="form-label">{{ _('License Plate') }}</label>
+                                <input type="text" name="walkin_license_plate" class="form-control" placeholder="{{ _('License Plate Number') }}">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">{{ _('Model/Name') }}</label>
+                                <input type="text" name="walkin_model" class="form-control" placeholder="{{ _('E.g. Toyota Vios 2020') }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Repair Info -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-light fw-bold">{{ _('Repair Details') }}</div>
+                <div class="card-body row">
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">{{ _('Date In') }}</label>
+                        <input type="date" name="date_in" class="form-control" value="{{ form.date_in.data or '' }}">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">{{ _('Date Out (Expected/Actual)') }}</label>
+                        <input type="date" name="date_out" class="form-control" value="{{ form.date_out.data or '' }}">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">{{ _('Odometer (km)') }}</label>
+                        <input type="number" name="odometer" class="form-control" value="{{ form.odometer.data or '' }}">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">{{ _('Status') }}</label>
+                        <select name="status" class="form-select">
+                            {% for status in repair_status %}
+                            <option value="{{ status.name }}">{{ status.value }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">{{ _('Symptoms / Customer Notes') }}</label>
+                        <textarea name="symptoms" class="form-control" rows="3">{{ form.symptoms.data or '' }}</textarea>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">{{ _('Internal Note') }}</label>
+                        <textarea name="note" class="form-control" rows="3">{{ form.note.data or '' }}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Items -->
+    <div class="card mb-4">
+        <div class="card-header bg-light fw-bold d-flex justify-content-between align-items-center">
+            <span>{{ _('Repair Items / Parts / Labor') }}</span>
+            <button type="button" class="btn btn-sm btn-outline-primary" id="addItemBtn">
+                <i class="fas fa-plus"></i> {{ _('Add Item') }}
+            </button>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table" id="itemsTable">
+                    <thead>
+                        <tr>
+                            <th width="20%">{{ _('Type') }}</th>
+                            <th width="35%">{{ _('Name/Description') }}</th>
+                            <th width="15%">{{ _('Quantity') }}</th>
+                            <th width="20%">{{ _('Unit Price') }}</th>
+                            <th width="10%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Items will be appended here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-end">
+        <button type="submit" class="btn btn-success btn-lg"><i class="fas fa-save"></i> {{ _('Create Repair Order') }}</button>
+    </div>
+</form>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const itemsTableBody = document.querySelector('#itemsTable tbody');
+    const addItemBtn = document.getElementById('addItemBtn');
+
+    function createItemRow() {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>
+                <select name="item_type[]" class="form-select" required>
+                    {% for it in item_types %}
+                    <option value="{{ it.name }}">{{ it.value }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+            <td>
+                <input type="text" name="item_name[]" class="form-control" placeholder="{{ _('Part or Labor name') }}" required>
+            </td>
+            <td>
+                <input type="number" name="item_quantity[]" class="form-control" value="1" min="1" required>
+            </td>
+            <td>
+                <input type="text" name="item_price[]" class="form-control price-input" placeholder="0" required>
+            </td>
+            <td class="text-end">
+                <button type="button" class="btn btn-danger btn-sm remove-item"><i class="fas fa-trash"></i></button>
+            </td>
+        `;
+        itemsTableBody.appendChild(tr);
+
+        // Add event listener for remove button
+        tr.querySelector('.remove-item').addEventListener('click', function() {
+            tr.remove();
+        });
+
+        // Add format price event
+        const priceInput = tr.querySelector('.price-input');
+        priceInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/,/g, '');
+            if(!isNaN(value) && value.length > 0){
+                e.target.value = parseInt(value).toLocaleString('en-US');
+            }
+        });
+    }
+
+    addItemBtn.addEventListener('click', createItemRow);
+    
+    // Add one empty row by default
+    createItemRow();
+    
+    // Auto-select tabs when clicking inputs
+    document.querySelectorAll('#new-customer input').forEach(el => {
+        el.addEventListener('focus', () => {
+            document.getElementById('new-customer-tab').click();
+            document.getElementById('customerSelect').value = '';
+        });
+    });
+    document.getElementById('customerSelect').addEventListener('change', () => {
+        if(document.getElementById('customerSelect').value) {
+            document.getElementById('existing-customer-tab').click();
+        }
+    });
+    
+    document.querySelectorAll('#new-car input').forEach(el => {
+        el.addEventListener('focus', () => {
+            document.getElementById('new-car-tab').click();
+            document.getElementById('carSelect').value = '';
+        });
+    });
+    document.getElementById('carSelect').addEventListener('change', () => {
+        if(document.getElementById('carSelect').value) {
+            document.getElementById('existing-car-tab').click();
+        }
+    });
+});
+</script>
+{% endblock %}

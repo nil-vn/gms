@@ -91,3 +91,4 @@ from .car import *
 from .customer import *
 from .transaction import *
 from .user import *
+from .repair import *

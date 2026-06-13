@@ -24,15 +24,27 @@ class CarStatus(Enum):
     SOLD = _('Sold')
     AWAITING_DELIVERY = _('Awaiting Delivery')
     AVAILABLE = _('Available')
+    SERVICE_ONLY = _('Service Only')
 
 class CarSituation(Enum):
     REFURBISHED = _('Refurbished') # リフレッシュ済み
     NOT_REFURBISHED = _('Not Refurbished') # 未リフレッシュ
     REFURBISHED_PENDING_CLEANING = _('Refurbished/Pending Cleaning') # リフレッシュ済・清掃待ち
 
+class RepairStatus(Enum):
+    PENDING = _('Pending')
+    IN_PROGRESS = _('In Progress')
+    DONE = _('Done')
+    CANCELLED = _('Cancelled')
+
+class RepairItemType(Enum):
+    PART = _('Part/Material')
+    LABOR = _('Labor')
+
 class TransactionStatus(Enum):
     DEPOSITED = _('Deposited')
     PAID = _('Paid')
+    WAIT_TO_PAY = _('Wait to pay')
 
 class CarBranches(Enum):
     LEXUS = 'Lexus'
@@ -46,8 +58,7 @@ class CarBranches(Enum):
     MITSUBISHI = 'Mitsubishi'
     ISUZU = 'Isuzu'
     BMW = 'BMW'
-    MERCEDES = 'Mercedes-Benz'
-    AMG = 'AMG'
+    MERCEDES = 'Mercedes'
     VOLKSWAGEN = 'Volkswagen'
     AUDI = 'Audi'
     MINI = 'Mini'

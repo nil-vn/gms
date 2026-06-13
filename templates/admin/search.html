@@ -86,20 +86,20 @@
                     <i class="ti ti-car me-1"></i>{{ car.brand or _('Brand') }}
                 </span>
                 <span class="badge bg-light-success text-success f-11 px-2 py-1 rounded">
-                    {{ car.status }}
+                    {{ car.status_label or '' }}
                 </span>
             </div>
             <h6 class="mb-2 text-truncate fw-semibold" style="max-width: 220px;">
-                {{ car.name }}
+                {{ car.name or '' }}
             </h6>
             <div class="text-muted f-12 mb-3">
                 <span class="me-3"><i class="ti ti-palette me-1"></i>{{ car.model or _('Model') }}</span>
-                <span><i class="ti ti-id me-1"></i>{{ car.license_plate or _('No Plate') }}</span>
+                <span><i class="ti ti-id me-1"></i>{{ car.license_plate_no or _('No Plate') }}</span>
             </div>
         </div>
         <div class="d-flex justify-content-between align-items-center pt-2 border-top border-light">
             <h6 class="mb-0 text-success fw-semibold">
-                {{ car.price | format_currency }}
+                {{ car.selling_price | format_currency }}
             </h6>
             <a href="{{ url_for('admin_routes.car_detail', car_id=car.id) }}" class="btn btn-light-primary btn-sm px-3 rounded-pill py-1">
                 {{ _('Detail') }} <i class="ti ti-arrow-right f-12 ms-1"></i>

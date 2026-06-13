@@ -194,8 +194,8 @@ def api_metrics_trend():
         tx_trend_deposited = []
         for end_date in months:
             txs = Transaction.query.filter(Transaction.created_at <= end_date).all()
-            total = sum(t.total_amount or 0 for t in txs if t.status in ['PAID', 'DEPOSITED'])
-            paid = sum(t.total_amount or 0 for t in txs if t.status == 'PAID')
+            total = sum(t.total_amount or 0 for t in txs if t.status in ['PAID', 'DEPOSITED', 'Paid', 'paid'])
+            paid = sum(t.total_amount or 0 for t in txs if t.status in ['PAID', 'Paid', 'paid'])
             deposited = sum(t.deposit_amount or 0 for t in txs if t.status == 'DEPOSITED')
             tx_trend_total.append(total)
             tx_trend_paid.append(paid)
